@@ -1,1 +1,963 @@
-check check !! asdas
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<title>Peanut Labs Technical Documentation</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900' rel='stylesheet' type='text/css'>
+</head>
+
+<body data-spy="scroll" data-target=".sidebar" data-offset="100">
+
+<!--For Mobile Menu-->
+<div class="mobile">
+<div class="logo pull-left"><a href="index.html" title="Peanut Labs Monetization API"><img src="img/logo.png" alt="Peanut Labs" title="Peanut Labs Monetization API"></a></div>
+<a href="javascript:void(0);" class="btn pull-right" data-toggle="collapse" data-target="#nav" ><i class="icon-chevron-down"></i><i class="icon-chevron-up" style="display:none"></i> Menu</a>
+  <div id="nav" class="collapse out">
+    <ul class="nav nav-list">
+      <li>
+        <h5><a href="#iframe-checklist">iFrame Integration Guide</a></h5>
+      </li>
+      <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
+      <li><a href="#iframe-create">Create Account</a></li>
+      <li><a href="#iframe-collect">Collect Information</a></li>
+      <li><a href="#iframe-embed">Integrate our iFRAME</a></li>
+      <li><a href="#iframe-custom">Custom URL Parameters</a></li>
+      <li><a href="#iframe-more">More iframe Parameters</a></li>
+      <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
+      <li><a href="#iframe-testing">Integration Testing</a></li>
+      <li>
+        <h5><a href="#overview">Monetization API</a></h5>
+      </li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#format">Format</a></li>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#errorhandling">Error Handling</a></li>
+      <li><a href="#methodcampaigns">Campaigns</a></li>
+      <li>
+        <h5><a href="#plsurvey-pubintegration">Survey Alert</a></h5>
+      </li>
+      <li><a href="#plsurvey-pubintegration">Publisher Integration</a></li>
+      <li><a href="#plsurvey-integration">Integration and Customization</a></li>
+      <li><a href="#plsurvey-config">The Config Field</a></li>
+      <li>
+        <h5><a href="#cia-overview">Survey Inventory API</a></h5>
+      </li>
+      <li><a href="#cia-overview">Overview</a></li>
+      <li><a href="#cia-api">API Call Parameters</a></li>
+      <li><a href="#cia-return">API Return Values</a></li>
+      <li><a href="#cia-how">How would I use this API?</a></li>
+    </ul>
+  </div>
+</div>
+<!--For Mobile Menu end-->
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2 sidebar" id="sidebar">
+      <div class="logo"><a href="index.html" title="Peanut Labs Monetization API"><img src="img/logo.png" alt="Peanut Labs" title="Peanut Labs Monetization API"></a></div>
+      <ul class="nav nav-list accordion" id="accordion2">
+        <li>
+          <h4><a href="#collapseOne" class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion2">iFrame Integration Guide</a></h4>
+          <ul id="collapseOne" class="collapse in">
+            <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
+            <li><a href="#iframe-create">Create Account</a></li>
+            <li><a href="#iframe-collect">Collect Information</a></li>
+            <li><a href="#iframe-embed">Integrate our iFRAME</a></li>
+            <li><a href="#iframe-custom">Custom URL Parameters</a></li>
+            <li><a href="#iframe-more">More iframe Parameters</a></li>
+            <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
+            <li><a href="#iframe-testing">Integration Testing</a></li>
+          </ul>
+        </li>
+        <li>
+          <h4><a href="#collapseTwo" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2">Monetization API</a></h4>
+          <ul id="collapseTwo" class="collapse">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#format">Format</a></li>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#errorhandling">Error Handling</a></li>
+            <li><strong>Methods</strong></li>
+            <li><a href="#methodcampaigns">Campaigns</a></li>
+          </ul>
+        </li>
+        <li>
+          <h4><a href="#collapseThree" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3">Survey Alert</a></h4>
+          <ul id="collapseThree" class="collapse">
+            <li><a href="#plsurvey-pubintegration">Publisher Integration</a></li>
+            <li><a href="#plsurvey-integration">Integration and Customization</a></li>
+            <li><a href="#plsurvey-config">The Config Field</a></li>
+          </ul>
+        </li>
+        <li>
+          <h4><a href="#collapseFour" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4">Survey Inventory API</a></h4>
+          <ul id="collapseFour" class="collapse">
+            <li><a href="#cia-overview">Overview</a></li>
+            <li><a href="#cia-api">API Call Parameters</a></li>
+            <li><a href="#cia-return">API Return Values</a></li>
+            <li><a href="#cia-how">How would I use this API?</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="span10 content">
+      <div class="row-fluid"> 
+        
+        <!--Pub integration -->
+        <div class="section" id="iframe-checklist">
+          <div class="span6" id="collapseOne">
+            <h3  id="iframeintegrationguide">iFrame Integration Guide</h3>
+            <h4>Integration Checklist</h4>
+            <p>Basic Technical Integration takes place in five steps:</p>
+            <ul>
+              <li>Create your account in the Publisher Dashboard and await a notification email that your account has been approved.</li>
+              <li>Log in to the Publisher Dashboard and submit your billing information.</li>
+              <li>Select "Add Application" to add the details of your site and get your Application ID and Application Key.</li>
+              <li>Add the Peanut Labs iframe code to your website.</li>
+              <li>Configure your callback script to receive notifications from Peanut Labs.</li>
+            </ul>
+            <p>All of the above can be done in an afternoon or less. If you have questions please don't hesitate to contact us:<br>
+              <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <p></p>
+          </div>
+        </div>
+        <!--Pub integration --> 
+        
+        <!--Create PL account -->
+        <div class="section" id="iframe-create">
+          <div class="span6">
+            <h4>Create your Peanut Labs account and add a new application</h4>
+            <p>If you haven't already created a Peanut Labs account, please do so here:<br>
+              <a href="http://www.peanutlabs.com/publisher" target="_blank">http://www.peanutlabs.com/publisher</a><br>
+              <br>
+              You will be asked for company details while creating your account. Many fields may be completed later. Once the account is created, it's time to add a new application.<br>
+              <br>
+              When you've logged-in to a newly created account, it should look something like this. Click "Add Application":</p>
+            <p class="text-center"> <img src="img/checklist1.png" alt=""/></p>
+            <p>In the My Apps section, click "Add Application" to add an app to our system:</p>
+            <p class="text-center"><img src="img/checklist2.png" alt="" style="border:1px solid #E7E7E7"/> </p>
+            <p>On the Add Application screen you have several values you need to configure:</p>
+            <p class="text-center"><img src="img/checklist3.png" alt="" /> </p>
+            <p>Before you can hit the "Next" button, you'll need to enter an Application Name, enter your application URL, name your virtual currency, set your virtual-currency-to-USD exchange rate, and set an optional Screenout Reward (0 must be entered if you do not want to give users a small reward for disqualifying from a survey).</p>
+            <ul>
+              <li><strong>Application Name</strong> - This is the name of your application in our system. It is for internal use only, users will not see this name.</li>
+              <li><strong>Enter the URL of your site</strong> - This is where we can go to see our iFrame placement. Users will not be able to see this.</li>
+              <li><strong>Currency Name</strong> - The display name for your virtual currency. This name will be listed everywhere in our system where we refer to the value of a transaction.</li>
+              <li><strong>Exchange Rate</strong> - How many points is a dollar worth? Currency rewards to your users will always be integers (positive for a successful transaction, negative if a transaction must be reversed). However, your net revenue is a floating point value. This means a higher exchange rate will reduce the rounding error when we convert your net revenue to an integer for the currency reward. Confused? It's a common question; the virtual currency rewarded to the user follows this formula:
+                <ul>
+                  <li><strong>Currency Reward</strong> = Your Net Revenue * Your Currency Exchange Rate</li>
+                </ul>
+              </li>
+              <li><strong>Screenout Reward </strong>- Our surveys typically have an extra round of checks to make sure a user is qualified and a member of the target research demographic. If a user fails this round of checks on a survey they will be taken out of the survey. At your option, you may give users a small currency reward (usually 10 to 20 cents worth) when they are disqualified. This gives users a more positive experience, and usually goes with a higher long term engagement rate. The screenout reward should be set in terms of your virtual currency. So if your currency is called Gems, and you set the screenout reward to 10, then a user disqualified from a survey will get 10 Gems, and will be asked to try again on another survey. Peanut Labs does not pay for this screenout currency, so if you do not want to award it, simply set Screenout Reward to zero.</li>
+            </ul>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <p></p>
+          </div>
+        </div>
+        <!--Create PL account --> 
+        
+        <!--Collect Info-->
+        <div class="section" id="iframe-collect">
+          <div class="span6">
+            <h4>Collect Information</h4>
+            <p>Once you've created your new application you will need to take note of your Peanut Labs Application ID and Peanut Labs Application Key in the dashboard. These two values are used in the remaining steps.</p>
+            <p>You can find it on this screen:</p>
+            <p class="text-center"><img src="img/collect1.png" alt=""/> </p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <p></p>
+          </div>
+        </div>
+        <!--Collect Info--> 
+        
+        <!--Embed-->
+        <div class="section" id="iframe-embed">
+          <div class="span6">
+            <h4>Integrate our iFrame</h4>
+            <p>The DOB and sex parameters are optional. They help us with offer targeting for first time users. Currently Facebook does not allow the use of the dob and sex parameters.</p>
+            <p>The width and height iframe attributes determine the size of our iframe in your app. Our standard layout is flexible, but will break down if it is much narrower than 650px.</p>
+            <p>$userId is a placeholder for a Peanut Labs encoded user ID.</p>
+          </div>
+          <div class="span6 column2">
+            <h6>Call the following URL inside an IFRAME (URL parameters are case sensitive):</h6>
+            <code> &lt;iframe<br>
+            src="http://www.peanutlabs.com/userGreeting.php?userId=$userId&dob=MM-DD-YYYY&sex=X"<br>
+            width="650px" height="2500px" frameborder="0" scrolling="no"&gt;<br>
+            &lt;/iframe&gt; </code> </div>
+        </div>
+        <div class="section">
+          <div class="span6">
+            <h4>Generating the Required Peanut Labs 'userId' Parameter</h4>
+            <p><strong>Sample userId:</strong> 11701396-600-cbc2104c7a consists of three parts:</p>
+            <ul>
+              <li>endUserId: 11701396 the user’s id on the publisher’s system (alphanumeric)</li>
+              <li>Peanut Labs applicationId: 600 Your Peanut Labs Application Id generated when you add an application to your account</li>
+              <li>userGo: cbc2104c7a The userGo is a hash generated by the following formula:
+                <ul>
+                  <li>userGo = substr( md5( endUserId . applicationId . applicationKey ), 0, 10 );</li>
+                </ul>
+              </li>
+            </ul>
+            <p>Take the same endUserId and Peanut Labs applicationId as above but also add your Peanut Labs applicationKey.</p>
+            <p>You will take the first 10 characters of the MD5 hash of endUserId, applicationId and applicationKey concatenated.</p>
+            <p>Make sure the md5 hash returned is all lower-case</p>
+            <p>Generating the userGo is typically the most difficult part of hosting the IFRAME. If you're having trouble: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code></code> </div>
+        </div>
+        <div class="section">
+          <div class="span6">
+            <h4>Revenue Maximizing Optional Parameters (~30% improvement with valid data)</h4>
+            <p>If you have these variables available it will help our offer targeting immensely. Important: it’s better to omit these if you don’t have accurate data. Again, Facebook currently does not allow the use of these parameters, but all other publishers should consider using them.<br>
+              <strong>dob:</strong> MM-DD-YYYY user’s complete date of birth<br>
+              <strong>sex:</strong> 1 for male, 2 for female</p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code></code> </div>
+        </div>
+        <!--Embed--> 
+        
+        <!--custom-->
+        <div class="section" id="iframe-custom">
+          <div class="span6">
+            <h4>Custom URL Parameters</h4>
+            <p>Before using a custom parameter please contact your account manager. There are some specific behaviors for this system that may not match your expectations.</p>
+            <p>You can add your own custom parameters to the IFRAME SRC. Define your parameter name in 'var_key_X' and parameter value in 'var_val_X' (where X can be 1, 2,3). You may chain 3 custom parameters.</p>
+          </div>
+          <div class="span6 column2">
+            <h6>Example Custom Parameters:</h6>
+            <code> ...&var_key_1=abc&var_val_1=xyz&...<br>
+            Would give you the following in the post back:<br>
+            ..&abc=xyz&.. </code>
+            <h6>Multiple Custom Parameters:</h6>
+            <code> ...&var_key_1=firstName&var_val_1=bob&var_key_2=lastName&var_val_2=smith…<br>
+            Would give you the following in the post back:<br>
+            &firstname=bob&lastname=smith </code> </div>
+        </div>
+        <!--custom--> 
+        
+        <!--more-->
+        <div class="section" id="iframe-more">
+          <div class="span6">
+            <h4>More iframe Parameters</h4>
+            <p>Over the last three years we have built a number of additional parameters. If there is something you want our iframe to do, there is a good chance we've already created a parameter to handle it. Please drop us a line at: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
+            <p>Questions about required, optional, or custom IFRAME URL Parameters?<br>
+              Ask: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> </code> </div>
+        </div>
+        <!--more--> 
+        
+        <!--callback-->
+        <div class="section" id="iframe-callback">
+          <div class="span6">
+            <h4>Callback for Surveys and Offers</h4>
+            <p>Your Callback URL is specified in your Publisher Dashboard (see screenshot):</p>
+            <p class="text-center"><img src="img/callback1.png" alt=""/></p>
+            <p>When one of your users completes a survey or offer, Peanut Labs will send a notification to the processing script at the address specified above.</p>
+            <h6>Callback Parameters:</h6>
+            <ul>
+              <li><strong>cmd:</strong> transactionComplete.</li>
+              <li><strong>userId:</strong> Peanut Labs userId as calculated earlier.</li>
+              <li><strong>amt:</strong> amount paid in dollars to you for this particular transaction. In rare cases we may pass a negative value to indicate a chargeback.</li>
+              <li><strong>offerInvitationId:</strong> enables you to remember for what offer a user has been rewarded.</li>
+              <li><strong>status:</strong><br>
+                <ul>
+                  <li><strong>F</strong> – user screened out of survey, too many responses from this demographic.</li>
+                  <li><strong>C</strong> – user successfully completed the transaction.</li>
+                  <li><strong>P</strong> – user screened out of survey, does not have relevant experience.</li>
+                </ul>
+              </li>
+              <li><strong>oidHash:</strong> 32 character hex string = md5(offerInvitationId . applicationKey)<br>
+                <br>
+                <small><strong>Important Note:</strong> You should verify oidHash upon receipt of the callback by recomputing it with the callback offerInvitationId and your ApplicationKey. This will secure against users faking their own id and passing it in if by some chance they come across the script. </small> </li>
+              <li><strong>currencyAmt:</strong> (integer) Indicates how many points the user should get in your site’s virtual currency. Based on your configured conversion rate on the control panel. In rare cases we may pass a negative value to indicate a chargeback.</li>
+              <li><strong>transactionId:</strong> (string) Unique ID representing a single user participating in a single survey/offer.</li>
+              <li><strong>offerTitle:</strong> (string) Title of the survey or offer. Spaces replaced with '+'.</li>
+              <li><strong>profiler:</strong> (blank or 1) Indicates whether this reward is for a user completing their profiler. By default there is no notification sent when a user completes a profiler. At your option you can enable profiler rewarding. This would give a user a small incentive (at your cost) for completing the profile. The currency amount is customizable and will appear in currencyAmt, the amt value will be 0.</li>
+              <li><strong>useragent:</strong> (string) This value is provided for backwards compatibility. It will always say 'Peanut+Labs+Media'.</li>
+              <li><strong>currencyName:</strong> (string) We will return the name of the currency that you've set in the dashboard. This is the name of the currency that you are rewarding to the user.</li>
+            </ul>
+            <h6><br>
+              Your Response to the Peanut Labs Callback:<br>
+            </h6>
+            <p>Upon successfully processing the user’s reward, your callback script should respond with:<br>
+              <strong>1:</strong> acknowledged. Notification successfully processed.<br>
+              <strong>0:</strong> user doesn’t exist or Reward not successfully awarded for some other reason<br>
+              Your script should simply return 0 or 1. Any other markup will cause Peanut Labs to assume 0.<br>
+            </p>
+            <p>The notification will be retried up to 5 times. If you are receiving multiple callbacks from Peanut Labs for the same transaction the most likely reason is we are not getting a '1' response from you.</p>
+            <p>The timeout for our notifications is 5 seconds. If we don't receive a response within the timeout we assume a '0' response and will attempt a re-notification.</p>
+          </div>
+          <div class="span6 column2">
+            <h6>Example Peanut Labs Callback (GET request)</h6>
+            <code> http://yoursite.com/process.php?cmd=transactionComplete<br>
+            &userId=xxxx&amt=12.34&offerInvitationId=xxx&status=X&oidHash=xxxxx&currencyAmt=123&transactionId=1234&offerTitle=Mobile+Survey&useragent=Peanut+Labs+Media&profiler=&currencyName=Coins </code> </div>
+        </div>
+        <div class="section">
+          <div class="span6">
+            <h4>Chargebacks</h4>
+            <p>In rare cases our system will pass notifications to your callback script with negative amt and currencyAmt values. This means we are trying to reverse the reward for a user. We will reverse the reward for a user if we or an advertiser determine that the user intentionally defrauded the system, or they are otherwise ineligible for a reward. It is important to check for a negative currencyAmt value. If the value is negative, check to make sure that the user's balance does not go below zero.</p>
+            <p>If you have more questions about chargebacks, please contact <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a> and read <a href="http://peanutlabstesting.com/publisherfaq/what-are-peanut-labs-policies-on-user-fraud-and-chargebacks" target="_blank">What are Peanut Labs' policies on user fraud and chargebacks?</a></p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> </code> </div>
+        </div>
+        <!--callback--> 
+        
+        <!--additional-->
+        <div class="section" id="iframe-testing">
+          <div class="span6">
+            <h4>Integration Testing</h4>
+            <p>The Test tool is not currently supported; it does not generate a transaction ID and is missing some of our extra callback parameters:</p>
+            <p class="text-center"><img src="img/additional.png" alt=""/></p>
+            <p>If you need to test a notification (and we recommend you do) please contact your account manager. They will set you up with some test offers. Test offers will reward instantly and they use all of the same systems that production offers and surveys do to generate their notifications.</p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> </code> </div>
+        </div>
+        <!--additional--> 
+        
+        <!--API Reference -->
+        <div class="section" id="overview">
+          <div class="span6">
+            <h3 id="monetization-api">Monetization API</h3>
+            <h4>Overview</h4>
+            <p>This API is used to request and retrieve a listing of campaigns for the users of your site.</p>
+            <p>Campaigns come in two flavors - offers and surveys. <strong>Offers</strong> are videos, websites, and other services that a user can engage with in return for your localized virtual currency. <strong>Surveys</strong> are the other half. We source a wide range of consumer-oriented market research surveys for users to participate in. Surveys are always free and anonymous. Eligibility for surveys (and some offers) first requires that the user complete our <strong>profiler survey</strong>. Here’s what a user’s flow for surveys will look like.</p>
+            <p class="text-center"><img src="img/flow.png" alt="" width="448"/> </p>
+          </div>
+          <div class="span6 column2">
+            <h6>API Endpoint</h6>
+            <p>http://api.peanutlabs.com/publisher/</p>
+            <small><strong>Note:</strong> The API should be called from the client’s browser and not server to server.</small> </div>
+        </div>
+        <!--API Reference End--> 
+        
+        <!--Resource URLs -->
+        <div class="section" id="format">
+          <div class="span6">
+            <h4>Format</h4>
+            <p>Requests can be sent as HTTP or HTTPS<br>
+              Responses can be returned as JSON or JSONP</p>
+          </div>
+          <div class="span6 column2">
+            <h6>Example</h6>
+            <p>http://api.peanutlabs.com/publisher/campaigns?user_id=saad-69-8f026c28ad</p>
+          </div>
+        </div>
+        
+        <!--Prerequisites -->
+        <div class="section" id="prerequisites">
+          <div class="span6">
+            <h4>Prerequisites</h4>
+            <p>Registration and approval as a publisher with Peanut Labs. If you have not yet completed this step, go to <a href="Registration and approval as a publisher with Peanut Labs. If you have not yet completed this step, go to http://www.peanutlabs.com/publisher" target="_blank">http://www.peanutlabs.com/publisher</a></p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <p></p>
+          </div>
+        </div>
+        <!--Prerequisites End--> 
+        
+        <!--Error Handling -->
+        <div class="section" id="errorhandling">
+          <div class="span6">
+            <h4>Error Handling</h4>
+            <p>API requests that result in an error will have a diagnosis code in the returned object.</p>
+            <table class="table table-bordered">
+              <tr>
+                <th>Error Code</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>JSON Error</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Publisher ID Invalid</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>User is Banned. <strong>Note:</strong> This may be temporary or permanent depending on the severity of the infraction.</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>User ID Invalid</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Required Parameters Missing</td>
+              </tr>
+            </table>
+          </div>
+          <div class="span6 column2">
+            <h6>Example</h6>
+            <p>{"error":"Invalid User Id","reset":1,"code":4}</p>
+          </div>
+        </div>
+        <!--Error Handling End --> 
+        
+        <!-- METHODS --> 
+        
+        <!--Campaign Object -->
+        <div class="section" id="methodcampaigns">
+          <div class="span6">
+            <h4>Campaigns</h4>
+            <p>The campaigns method is used to retrieve a list of available inventory for a user. A successful request will return a single object containing an offers array and a surveys array. This may vary depending on your specific publisher configurations and request parameters.</p>
+            <small><strong>Note:</strong> Eligibility for surveys (and some offers) first requires that the user complete our profiler survey. It is highly recommended this be the first step for all users. See Profiler Survey below.</small> </div>
+          <div class="span6 column2">
+            <h6>Resource URL</h6>
+            <p>api.peanutlabs.com/publisher/campaigns</p>
+          </div>
+        </div>
+        <!--Campaign Object / Attributes End--> 
+        
+        <!--Campaigns Method -->
+        <div class="section">
+          <div class="span6">
+            <h4>Parameters</h4>
+            <ul>
+              <li><strong>user_id (required)</strong><br>
+                <p>A valid user id must be passed in as a parameter. A valid parameter has three parts: end_user_id, publisher_id and security hash concatenated by “-”;i</p>
+              </li>
+              <li><strong>offer_count (optional)</strong><br>
+                <p>This parameter limits how many offers are in the returned project list.  Setting it to 0 means there is no limit on the amount of offers returned</p>
+              </li>
+              <li><strong>survey_count (optional)</strong><br>
+                <p>This parameter limits how many surveys are in the returned in the survey array. Note that the number of surveys returned is also being limited by the daily survey rate limit of 15 attempts in any 24 hour period (specific to the user) and the default 8 surveys per iframe load. So even when the parameter is set to 0, 15 will be the maximum amount returned</p>
+              </li>
+              <li><strong>jsonp (optional)</strong><br>
+                <p>if jsonp=response return object will be in JSONP</p>
+              </li>
+              <li><strong>filters (optional)</strong><br>
+                <p>Filters are used to show or hide certain campaigns in the returned listing. The filter parameter is passed in as a json string of optional parameters, that can be set to 1 to be enabled. All filters have a default value of 0. Currently the following filters are allowed:</p>
+              </li>
+            </ul>
+            <table class="table table-bordered">
+              <tr>
+                <th>Filters</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>offers_only</td>
+                <td>Set offers_only to 1 to allow only offers</td>
+              </tr>
+              <tr>
+                <td>surveys_only</td>
+                <td>Set surveys_only to 1 to allow only surveys</td>
+              </tr>
+              <tr>
+                <td>verified_only</td>
+                <td>Set verified_only to 1 to allow only verified users</td>
+              </tr>
+              <tr>
+                <td>exclude_video_offers</td>
+                <td>Set exclude_video_offers to 1 to exclude video offers from the returned project list</td>
+              </tr>
+            </table>
+          </div>
+          <div class="span6 column2">
+            <h6>Example</h6>
+            <h6 class="lighten">User ID</h6>
+            <code>this_is_an_end_user_id-1234-securityhash</code>
+            <div class="align-bottom">
+              <h6>Example</h6>
+              <p>This filter means the API call needs only offers that are verified and not videos.</p>
+              <code> {<br>
+              <span>“offers_only” : 1,<br>
+              “verified_only” : 1,<br>
+              “exclude_video_offers” : 1 </span> } </code> </div>
+          </div>
+        </div>
+        
+        <!--Campaigns Method End --> 
+        
+        <!--Campaign Object Types -->
+        <div class="section">
+          <div class="span6">
+            <h6>Profiler Survey</h6>
+            <p>To match users with relevant survey inventory it is necessary that they first complete our profiler survey. Survey inventory requests for unprofiled users will always return a single survey object - the profiler survey. The profiler survey can additionally be identified by the attribute is_profiler inside the campaign object. The profiler survey should be loaded as a popup type (see: campaign link handling). Upon completion of the profiler survey, the user will be instructed to close the popup. Peanut Labs recommends automatically refreshing campaign inventory for the user upon closure of the lightbox.</p>
+          </div>
+          <div class="span6 column2">
+            <h6>Example</h6>
+            <code> {<br>
+            <span>“id” : 1,<br>
+            "title":"test"<br>
+            “type” : “survey”,<br>
+            “is_profiler” : 1,<br>
+            “link” : “api.peanutlabs.com/userGreeting.php?userId=test-1234-hash&sing_mode=1&gh=5678” </span> } </code> </div>
+        </div>
+        <div class="section">
+          <div class="span6">
+            <h6>Campaign Object Attributes</h6>
+            <table class="table table-bordered">
+              <tr>
+                <th>Attributes</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>Project id, unique identifier for each Survey or Offer</td>
+              </tr>
+              <tr>
+                <td>title</td>
+                <td>Display title for the survey or offer</td>
+              </tr>
+              <tr>
+                <td>requirements</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>reward</td>
+                <td>Publisher reward currency name</td>
+              </tr>
+              <tr>
+                <td>reward_amount</td>
+                <td>The amount of virtual currency users will receive when they complete the survey or offer</td>
+              </tr>
+              <tr>
+                <td>link</td>
+                <td>URL to start the survey or offer<br>
+                  <small><strong>Note:</strong> in the case of surveys with a prescreener, open the modified iframe and load the Prescreener page</small>
+                  <ul>
+                    <li>in the case of surveys without a prescreener, open the modified iframe and load the Survey Qualify page</li>
+                  </ul></td>
+              </tr>
+              <tr>
+                <td>image</td>
+                <td>Image link for the given survey or offer<br>
+                  <small><strong>Note:</strong> if no images exist, use the offer and survey fallback images (same as we use in the transaction center for fallbacks)</small></td>
+              </tr>
+              <tr>
+                <td>type</td>
+                <td>Survey or offer</td>
+              </tr>
+              <tr>
+                <td>average_loi</td>
+                <td>Median completion time for the survey or offer in minutes</td>
+              </tr>
+              <tr>
+                <td>oid</td>
+                <td>Project invitation id</td>
+              </tr>
+              <tr>
+                <td>target</td>
+                <td>Indicate how the survey or offer should be displayed: “popup” or “new_window”.<br>
+                  <small><strong>Note:</strong> Please see Best Practices for open type = “popup”</small></td>
+              </tr>
+              <tr>
+                <td>is_profiler</td>
+                <td>default = 0<br>
+                  <small><strong>Note:</strong> If the user is unprofiled, the only survey that will be returned in the survey array will be the profiler survey. In this case is_profiler = 1</small></td>
+              </tr>
+            </table>
+          </div>
+          <div class="span6 column2">
+            <h6>Example</h6>
+            <code> {<br>
+            <span>“surveys”:[ ... list of Campaign objects of type survey ... ],<br>
+            “offers”:[ ... list of Campaign objects of type offer ... ] </span> }
+            <h6 class="lighten">Survey Object</h6>
+            <span> {<br>
+            <span>"id":"45478",<br>
+            "title":"test",<br>
+            "requirements":"",<br>
+            "reward":"SwagBucks",<br>
+            "reward_amount":"2",<br>
+            "link":"api.peanutlabs.com/userGreeting.php?userId=test-1234-hash&sing_mode=45478&gh=5678",<br>
+            "image":"",<br>
+            "type":"survey",<br>
+            "average_loi":10,<br>
+            "oid":"76058",<br>
+            "target":"popup" </span> } </span>
+            <h6 class="lighten">Offer Object</h6>
+            <span> {<br>
+            <span>"id":"327089",<br>
+            "title":"A Brief History of Smallenfreuden",<br>
+            "requirements":"Watch the video to earn #vc#.",<br>
+            "reward":"SwagBucks",<br>
+            "reward_amount":"4",<br>
+            "link":"api.peanutlabs.com/acceptOffer.php?userId=test-1234-hash&offerInvitationId=740293&rh=transaction_hash",<br>
+            "image":"",<br>
+            "type":"offer",<br>
+            "average_loi":10,<br>
+            "oid":"740293",<br>
+            "target":"new_window" </span> } </code> </div>
+        </div>
+        <div class="section">
+          <div class="span6">
+            <h6>Best Practices for the target “popup”</h6>
+            <p>It is recommended that Campaigns where the target attribute is set to “popup”, the “link” is loaded inside a popup overlay, like <a href="http://leandrovieira.com/projects/jquery/lightbox/" target="_blank">lightbox</a> or <a href="http://fancyapps.com/fancybox/" target="_blank">fancybox</a> within the same page. Below is a screenshot of a prescreener being shown inside an popup overlay.</p>
+            <p>Upon closing the overlay popup, it is recommended tat the Campaigns listing should be fetched again and inventory refreshed. This is so that if the user has just filled out a profiler inside the popup, and now has access to new surveys, those new surveys could be fetched and shown to the user.<br>
+              <br>
+            </p>
+            <p class="text-center"><img src="img/popup.jpg" alt="Pop up"></p>
+            <p>To learn more, read <a href="http://peanutlabstesting.com/publisherfaq/what-is-the-monetization-api/" target="_blank">What is the Monetization API?</a> 
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <p></p>
+          </div>
+        </div>
+        <!--Campaign Object Types Ends --> 
+        
+        <!--plsurvey Overview-->
+        <div class="section" id="plsurvey-pubintegration">
+          <div class="span6" >
+            <h3 id="plsurveyalert">Survey Alert</h3>
+            <h4>Publisher Integration</h4>
+            <p>You upload your own currency image, and customize the color of the alert.</p>
+            <p>The Alert Rules:</p>
+            <ul>
+              <li>Directs users to the Peanut Labs IFRAME when they click it Powered by a Javascript snippet (below)</li>
+              <li>Add to pages you want the alert shown on</li>
+              <li>Shows once every other day, IF the user has surveys available (You may override this frequency to whatever you like) Disappears after 60 seconds</li>
+              <li>If the user repeatedly closes the alert it won’t appear anymore</li>
+            </ul>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> </code> </div>
+        </div>
+        <div class="section">
+          <div class="span6">
+            <h4>Implementation</h4>
+            <p>The integration code is the same as the original alert. Paste this Javascript on any page you want to see the alert.</p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> <small>(Note: don't combine the two snippets into one &lt;script&gt; tag)</small> <br>
+            <br>
+            <span>&lt;script type="text/javascript”&gt;<br>
+            <span> var PeanutLabsPre = (("https:" == document.location.protocol) ? "https://ssl-" : "http://");<br>
+            document.write(unescape("%3Cscript src='" + PeanutLabsPre + "astatic.peanutlabs.com/js/alert/main.js' type='text/javascript'%3E%3C/script%3E")); </span> &lt;/script&gt; </span> <br>
+            <br>
+            <span> &lt;script type="text/javascript"&gt;<br>
+            <span> try{ <span> var args = { <span> userId:"#userId#", // Replace #userId# with your visitor's Peanut Labs userId iframeURL:"#url#", // Replace with URL for where you've embedded IFRAME position_ver:"bottom", //or "top" <br>
+            position_hor:"right", //use left to show it on the left<br>
+            hideTimer:"true" </span> };<br>
+            peanut.initialize(args); </span> }<br>
+            catch(e){} </span> &lt;/script&gt; </span> </code> </div>
+        </div>
+        <!--plsurvey Overview--> 
+        
+        <!--plsurvey integration and customization-->
+        <div class="section" id="plsurvey-integration">
+          <div class="span6">
+            <h4>Peanut Labs integration and Customization</h4>
+            <p>The information below is provided to give you a behind the scenes look of the alert's configuration options. Right now, each of these values are managed by Peanut Labs account managers. However, they will be exposed to publishers in a revamped Peanut Labs dashboard (Q2 2014).</p>
+            <p>Alert 2.0 Is configured in the pl_publisher_alert_config table (schema below):</p>
+            <h6>For every country you want the alert to appear in you'll need to create a new record in pl_publisher_alert_config for the publisher.</h6>
+            <p>The `id` and `created` columns are updated automatically by the system, so the only values you need to worry about are:</p>
+            <ul>
+              <li><strong>publisher_id</strong> - Which publisher you're configuring the alert for (duh).</li>
+              <li><strong>cc</strong> - Which country you want the alert to appear in. CC is determined by checking the user's IP in the browser. <strong>Right now cc targeting is not supported on Facebook outside the US</strong>. </li>
+              <li>exposure can be set between 0 and 1 (e.g. 0.5) to set the chance the alert will display to a qualified user. Reduce this value to show the alert to fewer users. </li>
+              <li><strong>mode</strong> - switch between offer or survey mode. Survey mode is the traditional alert function. Offer mode allows you to specify an invite in offer_invitation_id and the alert acts as a creative for a direct link enabled offer. One offer per publisher per country! It works just like other direct link campaigns.</li>
+              <li><strong>frequency</strong> - number of days between alert fires for a particular user. If a user sees an alert one day, it will be "frequency" days until they'll see it again (assuming they qualify). </li>
+              <li><strong>config</strong> - This is where the config meat lives. This is where you can put localized text and customized HTML. Since you need to have a different pl_alert_config row for each country you're targeting, you can have a completely different alert_config for each country on a publisher.</li>
+              <li><strong>active</strong> - enable or disable the alert for this pub/cc. This bit means publishers can leave the alert code in place, and we can turn it off for them anytime. No more changing code just to change the alert! </li>
+            </ul>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code>
+            <table width="100%" border="0" cellspacing="5" cellpadding="5" class="table table-bordered">
+              <tr>
+                <td><strong>Field </strong></td>
+                <td><strong>Type </strong></td>
+                <td><strong>Null</strong></td>
+                <td><strong>Key</strong></td>
+                <td><strong>Default</strong></td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>int(11)</td>
+                <td>NO</td>
+                <td>PRI</td>
+                <td>NULL</td>
+              </tr>
+              <tr>
+                <td>publisher_id</td>
+                <td>int(11)</td>
+                <td>NO</td>
+                <td>&nbsp;</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>cc</td>
+                <td> varchar(15)</td>
+                <td>YES</td>
+                <td>MUL</td>
+                <td>NULL</td>
+              </tr>
+              <tr>
+                <td>exposure</td>
+                <td>float</td>
+                <td>YES</td>
+                <td>&nbsp;</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>config</td>
+                <td>text</td>
+                <td>YES</td>
+                <td>&nbsp;</td>
+                <td>NULL</td>
+              </tr>
+              <tr>
+                <td>mode</td>
+                <td>enum('offer','survey')</td>
+                <td>YES</td>
+                <td>&nbsp;</td>
+                <td>survey</td>
+              </tr>
+              <tr>
+                <td>frequency</td>
+                <td>int(3)</td>
+                <td>YES</td>
+                <td>&nbsp;</td>
+                <td>NULL</td>
+              </tr>
+              <tr>
+                <td>offer_invitation_id</td>
+                <td>int(11)</td>
+                <td>YES</td>
+                <td>&nbsp;</td>
+                <td>NULL</td>
+              </tr>
+              <tr>
+                <td>active</td>
+                <td>enum('0','1')</td>
+                <td>NO</td>
+                <td>&nbsp;</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>created</td>
+                <td>datetime</td>
+                <td>NO</td>
+                <td>MUL</td>
+                <td>NULL</td>
+              </tr>
+            </table>
+            </code> </div>
+        </div>
+        <!--plsurvey integration and customization-->
+        
+        <div class="section" id="plsurvey-config">
+          <div class="span6">
+            <h4>The Config Field</h4>
+            <p>The config field accepts JSON code, check the next column for example.</p>
+            <br>
+            <p class="text-center"><img src="img/config.jpg" alt="" style="width:490px;"/></p>
+            <p>The "title" key lets you set the message in the alert container (the colored border around the alert unit). "logo" specifies the currency logo you want to use in the alert. You can upload any image you like and put the link in here!</p>
+            <p>"body" specifies the text content that goes next to the logo. If you use this parameter, and don't use "fbml_html" your text will take the default styling for the alert. You can enter localized text for the alert body here.</p>
+            <p>"footer" specifies text to go below the "body" text.</p>
+            <p>"fbml_html" is not strictly FBML, we're just using that name to get Facebook to work correctly. You can pass any HTML code you want in this field and it will display instead of the "body", "logo", and "footer" content. The "title" content will still display in the colored border around the alert unit; at present you can't override this border.</p>
+            <br>
+            <p>Notice that in the example above we have some variables like #currency#. You can use these substitution variables in any of the alert_config keys.</p>
+            <p><strong>#currency#</strong> -> Name of the VC</p>
+            <p><strong>#currencyAmt#</strong> -> Amount of VC available for all surveys combined</p>
+            <p><strong>#publisherName#</strong> -> Name of the publisher</p>
+            <br>
+            <br>
+            <p>To learn more, read:</p>
+            <p>- <a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-alert/" target="_blank">What is the Survey Alert?</a></p>
+            <p>- <a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-inventory-api/" target="_blank">What is the Survey Inventory API?</a></p>
+            <p>- <a href="http://peanutlabstesting.com/publisherfaq/which-should-i-implement-the-survey-alert-or-the-survey-inventory-api/" target="_blank">What should I implement, the Survey Alert or the Survey Inventory API?</a></p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> <span> { <span> "title":"Hey, Earn #currency# now TESTTT!",<br>
+            "logo":"http://www1.peanutlabs.com/custom-content/images/peanutlabs-logo.png",<br>
+            "fbml_html":"<i>Hey #publisherName# player</i>, you have <b><font color=green>#currencyAmt# #currency#</font></b>worth of surveys", "body":"Some body text",<br>
+            "footer":"Some footer text" <br>
+            </span> } </span> </code> </div>
+        </div>
+        
+        <!--Custom Inventory -->
+        <div class="section" id="cia-overview">
+          <div class="span6">
+            <h3 id="surveyinventoryapi">Survey Inventory API</h3>
+            <h4>Overview</h4>
+            <p>If you'd like more control over how you communicate with your users you may access our inventory API directly.</p>
+          </div>
+          <div class="span6 column2">
+            <h6>Example </h6>
+            <code>
+            <p>You can call our inventory API directly like this:</p>
+            <span>http://aalert.peanutlabs.com/publisherCmd.php?cmd=hasAlertJSON&us erId=11701396-­‐600-­‐cbc2104c7a</span> <br>
+            <p>Peanut Labs responds with some JSON holding values looking something like: </p>
+            <span>{<br>
+            <span>"response":"2","currencyAmt":"100","currency":"PTZ","currency_lo go":"\/IMG\/publisher.currency_logo.600.7783426.png","color_bg":" 000000","color_font":"666666","color_highlight":"ff6600","color_h ighlight_font":"ffffff"</span> } </span> </code> </div>
+        </div>
+        <!--Custom Inventory --> 
+        
+        <!--API Call -->
+        <div class="section" id="cia-api">
+          <div class="span6">
+            <h4>API Call Parameters</h4>
+            <p>You're passing two parameters to our inventory API: cmd and userId.</p>
+            <p>You can call our inventory API directly like this:</p>
+            <h6 class="lighten">cmd:</h6>
+            <p>cmd will always be hasAlertJSON.</p>
+            <h6 class="lighten">userId:</h6>
+            <p>You need to pass the Peanut Labs encoded userId. You can learn more about PL encoding a userId here:<br>
+              <a href="#iframeintegrationguide">iFrame Integration Guide</a> </p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> </code> </div>
+        </div>
+        <!--API Call --> 
+        
+        <!--API Return Values -->
+        <div class="section" id="cia-return">
+          <div class="span6">
+            <h4>API Return Values</h4>
+            <p>Our API returns a JSON dictionary: </p>
+            <p><strong>response:</strong> This is the most important returned value. There are three possibilities:</p>
+            <ul>
+              <li><strong>0</strong> – the user has taken our profiler before, but they do not have any surveys.</li>
+              <li><strong>1</strong> – the user has taken our profiler, and they have surveys available.</li>
+              <li><strong>2</strong> – the user has not taken our survey profiler.</li>
+            </ul>
+            <h6 class="lighten">currencyAmt:</h6>
+            <p> For response=2 we'll return an amount of points the average user with a profile has available. For response=0 we return 0. For response=1 we return the sum of the rewards for each survey available for this user. It's a string in the JSON, but the string represents a positive integer amount. </p>
+            <h6 class="lighten">currency:</h6>
+            <p>We return the name of your virtual currency as it is set in the Peanut Labs Publisher Dashboard.</p>
+            <br>
+            <small><strong>One IMPORTANT note about the API:</strong><br>
+            Please limit yourself to a handful of direct calls to the API per user per day. When this direct alert code is placed on your homepage, every refresh pings our system.</small> </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> </code> </div>
+        </div>
+        <!--API Return Values --> 
+        
+        <!--How -->
+        <div class="section" id="cia-how">
+          <div class="span6">
+            <h4>How would I use this API?</h4>
+            <p>There are at least three different categories of ways to make this direct call to the API work for you.</p>
+            <ul>
+              <li><strong>Build your own, better, popup alert</strong><br>
+                <ul>
+                  <li>Ping our API with javascript, store the result in a cookie.</li>
+                  <li>Build your own creative to display the result.</li>
+                </ul>
+              </li>
+              <li><strong>Work survey inventory into your main game UI.</strong><br>
+                <ul>
+                  <li>You show how many hit points the user has, why not show them how many free opportunities they have to earn currency?</li>
+                  <li>This is the anti-­‐ad approach.</li>
+                </ul>
+              </li>
+              <li><strong>Run a batch script to build a communication list.</strong><br>
+                <ul>
+                  <li>Ping our API with a batch process on your server.</li>
+                  <li>Build a list of users with surveys available, or users that have never profiled.</li>
+                  <li>Email or in-­‐site message these users (but not everyday please, users will grow exhausted if you alert them about new surveys every single day).</li>
+                </ul>
+              </li>
+            </ul>
+            <br>
+            <br>
+            <p>To learn more, please read:</p>
+            <p>- <a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-inventory-api/" target="_blank">What is the Survey Inventory API?</a></p>
+            <p>- <a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-alert" target="_blank">What is the Survey Alert?</a></p>
+            <p>- <a href="http://peanutlabstesting.com/publisherfaq/which-should-i-implement-the-survey-alert-or-the-survey-inventory-api/" target="_blank">Which should I implement, the Survey Alert or the Survey Inventory API?</a> </p>
+            <small>If you have other ideas about how you might want to use this API please let us know.</small> <br>
+            <br>
+            <small>Survey inventory is time sensitive, and survey slots are filled with no reservations. That means if there might be a delay of more than a few minutes between when you query our inventory API and when a customer sees your message, the information may already be out of date. You might include a notice to that effect in your message's copy. </small> </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> </code> </div>
+        </div>
+        <!--How--> 
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row-fluid footer">&copy; 2014 <a href="http://www.peanutlabs.com" target="_blank">Peanut Labs</a></div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> 
+<script type="text/javascript" src="js/bootstrap.js"></script>
+
+<script type="text/javascript"> 
+
+var isScrollBusy = false;
+
+$(document).ready(function(e) {
+
+$(window).bind('scroll', function(e){
+
+		
+		if(isScrollBusy == false) {
+			isScrollBusy = true;			
+			setTimeout('checkScroll();', 500);
+		}
+
+});
+
+
+$('.accordion-toggle').on('click',function(e){
+if($(this).parent().next().hasClass('in')){
+    e.stopPropagation();
+}
+});
+	
+$('#accordion2').on('show.bs.collapse', function () {	
+	$('#accordion2 .in').collapse("hide");	
+});	
+	
+
+$(".accordion-toggle").click(function(e) {
+	$(".accordion-toggle").removeClass("active");
+	$(e.target).addClass("active");	
+});
+	
+	setTimeout('if($("#accordion2 li.active").parent().hasClass("in") == false) {$("#accordion2 .in").collapse("hide");$("#accordion2 li.active").parent().collapse("show");}', 100);
+
+});
+
+function checkScroll() {
+
+	if($('#accordion2 li.active').parent().hasClass("in") == false) {
+		$('#accordion2 .in').collapse("hide");
+		$('#accordion2 li.active').parent().collapse("show");
+	
+		$(".accordion-toggle").removeClass("active");
+		$('#accordion2 .in').prev().children().first().addClass("active");
+	
+	}
+	isScrollBusy = false;
+}
+
+
+</script> 
+ 
+<script src="js/custom.js"></script> 
+<script src="js/retina.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+
+</body>
+</html>
