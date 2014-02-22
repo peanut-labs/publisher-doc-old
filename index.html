@@ -42,13 +42,6 @@
       <li><a href="#plsurvey-pubintegration">Publisher Integration</a></li>
       <li><a href="#plsurvey-integration">Integration and Customization</a></li>
       <li><a href="#plsurvey-config">The Config Field</a></li>
-      <li>
-        <h5><a href="#cia-overview">Survey Inventory API</a></h5>
-      </li>
-      <li><a href="#cia-overview">Overview</a></li>
-      <li><a href="#cia-api">API Call Parameters</a></li>
-      <li><a href="#cia-return">API Return Values</a></li>
-      <li><a href="#cia-how">How would I use this API?</a></li>
     </ul>
   </div>
 </div>
@@ -89,15 +82,6 @@
             <li><a href="#plsurvey-pubintegration">Publisher Integration</a></li>
             <li><a href="#plsurvey-integration">Integration and Customization</a></li>
             <li><a href="#plsurvey-config">The Config Field</a></li>
-          </ul>
-        </li>
-        <li>
-          <h4><a href="#collapseFour" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4">Survey Inventory API</a></h4>
-          <ul id="collapseFour" class="collapse">
-            <li><a href="#cia-overview">Overview</a></li>
-            <li><a href="#cia-api">API Call Parameters</a></li>
-            <li><a href="#cia-return">API Return Values</a></li>
-            <li><a href="#cia-how">How would I use this API?</a></li>
           </ul>
         </li>
       </ul>
@@ -793,107 +777,6 @@
             "footer":"Some footer text" <br>
             </span> } </span> </code> </div>
         </div>
-        
-        <!--Custom Inventory -->
-        <div class="section" id="cia-overview">
-          <div class="span6">
-            <h3 id="surveyinventoryapi">Survey Inventory API</h3>
-            <h4>Overview</h4>
-            <p>If you'd like more control over how you communicate with your users you may access our inventory API directly.</p>
-          </div>
-          <div class="span6 column2">
-            <h6>Example </h6>
-            <code>
-            <p>You can call our inventory API directly like this:</p>
-            <span>http://aalert.peanutlabs.com/publisherCmd.php?cmd=hasAlertJSON&us erId=11701396-­‐600-­‐cbc2104c7a</span> <br>
-            <p>Peanut Labs responds with some JSON holding values looking something like: </p>
-            <span>{<br>
-            <span>"response":"2","currencyAmt":"100","currency":"PTZ","currency_lo go":"\/IMG\/publisher.currency_logo.600.7783426.png","color_bg":" 000000","color_font":"666666","color_highlight":"ff6600","color_h ighlight_font":"ffffff"</span> } </span> </code> </div>
-        </div>
-        <!--Custom Inventory --> 
-        
-        <!--API Call -->
-        <div class="section" id="cia-api">
-          <div class="span6">
-            <h4>API Call Parameters</h4>
-            <p>You're passing two parameters to our inventory API: cmd and userId.</p>
-            <p>You can call our inventory API directly like this:</p>
-            <h6 class="lighten">cmd:</h6>
-            <p>cmd will always be hasAlertJSON.</p>
-            <h6 class="lighten">userId:</h6>
-            <p>You need to pass the Peanut Labs encoded userId. You can learn more about PL encoding a userId here:<br>
-              <a href="#iframeintegrationguide">iFrame Integration Guide</a> </p>
-          </div>
-          <div class="span6 column2">
-            <h6></h6>
-            <code> </code> </div>
-        </div>
-        <!--API Call --> 
-        
-        <!--API Return Values -->
-        <div class="section" id="cia-return">
-          <div class="span6">
-            <h4>API Return Values</h4>
-            <p>Our API returns a JSON dictionary: </p>
-            <p><strong>response:</strong> This is the most important returned value. There are three possibilities:</p>
-            <ul>
-              <li><strong>0</strong> – the user has taken our profiler before, but they do not have any surveys.</li>
-              <li><strong>1</strong> – the user has taken our profiler, and they have surveys available.</li>
-              <li><strong>2</strong> – the user has not taken our survey profiler.</li>
-            </ul>
-            <h6 class="lighten">currencyAmt:</h6>
-            <p> For response=2 we'll return an amount of points the average user with a profile has available. For response=0 we return 0. For response=1 we return the sum of the rewards for each survey available for this user. It's a string in the JSON, but the string represents a positive integer amount. </p>
-            <h6 class="lighten">currency:</h6>
-            <p>We return the name of your virtual currency as it is set in the Peanut Labs Publisher Dashboard.</p>
-            <br>
-            <small><strong>One IMPORTANT note about the API:</strong><br>
-            Please limit yourself to a handful of direct calls to the API per user per day. When this direct alert code is placed on your homepage, every refresh pings our system.</small> </div>
-          <div class="span6 column2">
-            <h6></h6>
-            <code> </code> </div>
-        </div>
-        <!--API Return Values --> 
-        
-        <!--How -->
-        <div class="section" id="cia-how">
-          <div class="span6">
-            <h4>How would I use this API?</h4>
-            <p>There are at least three different categories of ways to make this direct call to the API work for you.</p>
-            <ul>
-              <li><strong>Build your own, better, popup alert</strong><br>
-                <ul>
-                  <li>Ping our API with javascript, store the result in a cookie.</li>
-                  <li>Build your own creative to display the result.</li>
-                </ul>
-              </li>
-              <li><strong>Work survey inventory into your main game UI.</strong><br>
-                <ul>
-                  <li>You show how many hit points the user has, why not show them how many free opportunities they have to earn currency?</li>
-                  <li>This is the anti-­‐ad approach.</li>
-                </ul>
-              </li>
-              <li><strong>Run a batch script to build a communication list.</strong><br>
-                <ul>
-                  <li>Ping our API with a batch process on your server.</li>
-                  <li>Build a list of users with surveys available, or users that have never profiled.</li>
-                  <li>Email or in-­‐site message these users (but not everyday please, users will grow exhausted if you alert them about new surveys every single day).</li>
-                </ul>
-              </li>
-            </ul>
-            <br>
-            <br>
-            <p>To learn more, please read:</p>
-            <p>- <a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-inventory-api/" target="_blank">What is the Survey Inventory API?</a></p>
-            <p>- <a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-alert" target="_blank">What is the Survey Alert?</a></p>
-            <p>- <a href="http://peanutlabstesting.com/publisherfaq/which-should-i-implement-the-survey-alert-or-the-survey-inventory-api/" target="_blank">Which should I implement, the Survey Alert or the Survey Inventory API?</a> </p>
-            <small>If you have other ideas about how you might want to use this API please let us know.</small> <br>
-            <br>
-            <small>Survey inventory is time sensitive, and survey slots are filled with no reservations. That means if there might be a delay of more than a few minutes between when you query our inventory API and when a customer sees your message, the information may already be out of date. You might include a notice to that effect in your message's copy. </small> </div>
-          <div class="span6 column2">
-            <h6></h6>
-            <code> </code> </div>
-        </div>
-        <!--How--> 
       </div>
     </div>
   </div>
