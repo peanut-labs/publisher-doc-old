@@ -117,13 +117,13 @@
         <div class="section" id="iframe-create">
           <div class="span6">
             <h4>Create your Peanut Labs account and add a new application</h4>
-            <p>If you haven't already created a Peanut Labs account, please do so here:<br>
-              <a href="http://www.peanutlabs.com/publisher" target="_blank">http://www.peanutlabs.com/publisher</a><br>
+            <p>If you haven't already, please submit an  application to become a Peanut Labs publisher:<br>
+              <a href="http://www.peanutlabs.com/publisher" target="_blank">http://www.peanutlabs.com/publisher</a></p>
+            <p>An Account Manager will  review your information and notify you that your account has been activated, at  which time you can log in and get started!<br>
               <br>
-              You will be asked for company details while creating your account. Many fields may be completed later. Once the account is created, it's time to add a new application.<br>
-              <br>
-              When you've logged-in to a newly created account, it should look something like this. Click "Add Application":</p>
-            <p class="text-center"> <img src="img/checklist1.png" alt=""/></p>
+              When you are logged in the  to Publisher Dashboard, it should look something  like this:</p>
+            <p> Click &ldquo;Complete Billing Information&rdquo; to set up your preferred payment  method. Then click &quot;Add Application&quot;:</p>
+<p class="text-center"> <img src="img/checklist1.png" alt=""/></p>
             <p>In the My Apps section, click "Add Application" to add an app to our system:</p>
             <p class="text-center"><img src="img/checklist2.png" alt="" style="border:1px solid #E7E7E7"/> </p>
             <p>On the Add Application screen you have several values you need to configure:</p>
@@ -136,9 +136,10 @@
               <li><strong>Exchange Rate</strong> - How many points is a dollar worth? Currency rewards to your users will always be integers (positive for a successful transaction, negative if a transaction must be reversed). However, your net revenue is a floating point value. This means a higher exchange rate will reduce the rounding error when we convert your net revenue to an integer for the currency reward. Confused? It's a common question; the virtual currency rewarded to the user follows this formula:
                 <ul>
                   <li><strong>Currency Reward</strong> = Your Net Revenue * Your Currency Exchange Rate</li>
+                  <li><strong>Rounding</strong> = We round currency rewards based on standard rounding rules of integers. If a payout is equivalent to 1.5 virtual currency points, we will reward 2 points. If a payout is 1.49 virtual currency points, we will reward 1 point.</li>
                 </ul>
               </li>
-              <li><strong>Screenout Reward </strong>- Our surveys typically have an extra round of checks to make sure a user is qualified and a member of the target research demographic. If a user fails this round of checks on a survey they will be taken out of the survey. At your option, you may give users a small currency reward (usually 10 to 20 cents worth) when they are disqualified. This gives users a more positive experience, and usually goes with a higher long term engagement rate. The screenout reward should be set in terms of your virtual currency. So if your currency is called Gems, and you set the screenout reward to 10, then a user disqualified from a survey will get 10 Gems, and will be asked to try again on another survey. Peanut Labs does not pay for this screenout currency, so if you do not want to award it, simply set Screenout Reward to zero.</li>
+              <li><strong>Screenout Reward </strong>- If a user is screened out, you can thank them with some virtual currency  and encourage the user to try again. Peanut Labs does not pay for this reward,  but many publishers chose to set a reward to help foster a positive user  experience. Learn more about Screenout Rewards {HERE – link to FAQ}. If you  prefer not to have one, set the Screenout Reward to &ldquo;0&rdquo;.</li>
             </ul>
           </div>
           <div class="span6 column2">
@@ -167,7 +168,7 @@
         <div class="section" id="iframe-embed">
           <div class="span6">
             <h4>Integrate our iFrame</h4>
-            <p>The DOB and sex parameters are optional. They help us with offer targeting for first time users. Currently Facebook does not allow the use of the dob and sex parameters.</p>
+            <p>The DOB and sex parameters are optional, but strongly encouraged. They help us with offer targeting for first time users, and enable us to show users  more videos and high quality offers.</p>
             <p>The width and height iframe attributes determine the size of our iframe in your app. Our standard layout is flexible, but will break down if it is much narrower than 650px.</p>
             <p>$userId is a placeholder for a Peanut Labs encoded user ID.</p>
           </div>
@@ -183,9 +184,9 @@
             <h4>Generating the Required Peanut Labs 'userId' Parameter</h4>
             <p><strong>Sample userId:</strong> 11701396-600-cbc2104c7a consists of three parts:</p>
             <ul>
-              <li>endUserId: 11701396 the user’s id on the publisher’s system (alphanumeric)</li>
-              <li>Peanut Labs applicationId: 600 Your Peanut Labs Application Id generated when you add an application to your account</li>
-              <li>userGo: cbc2104c7a The userGo is a hash generated by the following formula:
+              <li>endUserId: (ex. 11701396) the user’s id within your  system (alphanumeric)</li>
+              <li>Peanut Labs applicationId: (ex. 600) generated when you add an application to your account. Listed as &ldquo;ID&rdquo; in &ldquo;Manage Apps&rdquo;.</li>
+              <li>userGo: (ex. cbc2104c7a) this is a hash generated by the following formula:
                 <ul>
                   <li>userGo = substr( md5( endUserId . applicationId . applicationKey ), 0, 10 );</li>
                 </ul>
@@ -194,8 +195,8 @@
             <p>Take the same endUserId and Peanut Labs applicationId as above but also add your Peanut Labs applicationKey.</p>
             <p>You will take the first 10 characters of the MD5 hash of endUserId, applicationId and applicationKey concatenated.</p>
             <p>Make sure the md5 hash returned is all lower-case</p>
-            <p>Generating the userGo is typically the most difficult part of hosting the IFRAME. If you're having trouble: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
-          </div>
+            <p>Generating the userGo is typically the most difficult part of hosting the IFRAME. If you're having trouble: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a>and cc your Account  Manager (the person who contacted you to activate your account).</p>
+</div>
           <div class="span6 column2">
             <h6></h6>
             <code></code> </div>
@@ -203,7 +204,7 @@
         <div class="section">
           <div class="span6">
             <h4>Revenue Maximizing Optional Parameters (~30% improvement with valid data)</h4>
-            <p>If you have these variables available it will help our offer targeting immensely. Important: it’s better to omit these if you don’t have accurate data. Again, Facebook currently does not allow the use of these parameters, but all other publishers should consider using them.<br>
+            <p>If you have these variables available it will help our offer targeting immensely. Important: it’s better to omit these if you don’t have accurate data.<br>
               <strong>dob:</strong> MM-DD-YYYY user’s complete date of birth<br>
               <strong>sex:</strong> 1 for male, 2 for female</p>
           </div>
@@ -238,7 +239,7 @@
             <h4>More iframe Parameters</h4>
             <p>Over the last three years we have built a number of additional parameters. If there is something you want our iframe to do, there is a good chance we've already created a parameter to handle it. Please drop us a line at: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
             <p>Questions about required, optional, or custom IFRAME URL Parameters?<br>
-              Ask: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
+              Ask: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a>and cc your Account  Manager.</p>
           </div>
           <div class="span6 column2">
             <h6></h6>
@@ -324,7 +325,7 @@
             <h3 id="monetization-api">Monetization API</h3>
             <h4>Overview</h4>
             <p>This API is used to request and retrieve a listing of campaigns for the users of your site.</p>
-            <p>Campaigns come in two flavors - offers and surveys. <strong>Offers</strong> are videos, websites, and other services that a user can engage with in return for your localized virtual currency. <strong>Surveys</strong> are the other half. We source a wide range of consumer-oriented market research surveys for users to participate in. Surveys are always free and anonymous. Eligibility for surveys (and some offers) first requires that the user complete our <strong>profiler survey</strong>. Here’s what a user’s flow for surveys will look like.</p>
+            <p>Campaigns come in two flavors - offers and surveys. <strong>Offers</strong> are videos, websites, and other services that a user can engage with in return for your localized virtual currency. <strong>Surveys</strong> are the other half. We source a wide range of consumer-oriented market research surveys for users to participate in. Surveys are always free and anonymous. Eligibility for surveys (and some offers) first requires that the user complete our <strong>profiler survey</strong>. Here’s what a user’s flow for <strong>surveys</strong> will look like.</p>
             <p class="text-center"><img src="img/flow.png" alt="" width="448"/> </p>
           </div>
           <div class="span6 column2">
@@ -608,12 +609,23 @@
           <div class="span6" >
             <h3 id="plsurveyalert">Survey Alert</h3>
             <h4>Publisher Integration</h4>
-            <p>You upload your own currency image, and customize the color of the alert.</p>
+            <p>All you have to do is place  this small piece of code on any high-traffic part of your iframe. If you would  like to learn more about the Survey Alert and related services, visit these FAQ  sections:</p>
+            <ul>
+              <li><a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-alert/" target="_blank">What is the Survey Alert?</a></li>
+              <li><a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-inventory-api/" target="_blank">What is the Survey  Inventory API?</a></li>
+              <li><a href="#">Which should I implement,  the Survey Alert or the Survey Inventory API?</a></li>
+            </ul>
             <p>The Alert Rules:</p>
             <ul>
-              <li>Directs users to the Peanut Labs IFRAME when they click it Powered by a Javascript snippet (below)</li>
+              <li>Directs users to the Peanut Labs IFRAME when they click it.</li>
+              <li>Powered by a Javascript snippet (below)</li>
               <li>Add to pages you want the alert shown on</li>
-              <li>Shows once every other day, IF the user has surveys available (You may override this frequency to whatever you like) Disappears after 60 seconds</li>
+              <li>Shows as often as you like. Discuss this with your account manager to decide  on the frequency that best suits your needs.</li>
+              <li>Disappears       after 60 seconds if the user doesn&rsquo;t click on it. </li>
+            </ul>
+            <ul type="disc">
+              <li>The       user can also get rid of it by clicking &ldquo;X&rdquo; in the top right corner of the       alert.</li></ul>
+            <ul>
               <li>If the user repeatedly closes the alert it won’t appear anymore</li>
             </ul>
           </div>
@@ -624,7 +636,7 @@
         <div class="section">
           <div class="span6">
             <h4>Implementation</h4>
-            <p>The integration code is the same as the original alert. Paste this Javascript on any page you want to see the alert.</p>
+            <p> Paste this Javascript on any page you want to see the alert.</p>
           </div>
           <div class="span6 column2">
             <h6></h6>
@@ -646,19 +658,14 @@
         <!--plsurvey integration and customization-->
         <div class="section" id="plsurvey-integration">
           <div class="span6">
-            <h4>Peanut Labs integration and Customization</h4>
-            <p>The information below is provided to give you a behind the scenes look of the alert's configuration options. Right now, each of these values are managed by Peanut Labs account managers. However, they will be exposed to publishers in a revamped Peanut Labs dashboard (Q2 2014).</p>
-            <p>Alert 2.0 Is configured in the pl_publisher_alert_config table (schema below):</p>
-            <h6>For every country you want the alert to appear in you'll need to create a new record in pl_publisher_alert_config for the publisher.</h6>
-            <p>The `id` and `created` columns are updated automatically by the system, so the only values you need to worry about are:</p>
+            <h4>Customization</h4>
+            <p>The information below is provided to give you a behind the scenes look of the alert's configuration options.Discuss these options with  your account manager, they will be able to handle the configurations.            </p>
             <ul>
-              <li><strong>publisher_id</strong> - Which publisher you're configuring the alert for (duh).</li>
               <li><strong>cc</strong> - Which country you want the alert to appear in. CC is determined by checking the user's IP in the browser. <strong>Right now cc targeting is not supported on Facebook outside the US</strong>. </li>
               <li>exposure can be set between 0 and 1 (e.g. 0.5) to set the chance the alert will display to a qualified user. Reduce this value to show the alert to fewer users. </li>
-              <li><strong>mode</strong> - switch between offer or survey mode. Survey mode is the traditional alert function. Offer mode allows you to specify an invite in offer_invitation_id and the alert acts as a creative for a direct link enabled offer. One offer per publisher per country! It works just like other direct link campaigns.</li>
-              <li><strong>frequency</strong> - number of days between alert fires for a particular user. If a user sees an alert one day, it will be "frequency" days until they'll see it again (assuming they qualify). </li>
-              <li><strong>config</strong> - This is where the config meat lives. This is where you can put localized text and customized HTML. Since you need to have a different pl_alert_config row for each country you're targeting, you can have a completely different alert_config for each country on a publisher.</li>
-              <li><strong>active</strong> - enable or disable the alert for this pub/cc. This bit means publishers can leave the alert code in place, and we can turn it off for them anytime. No more changing code just to change the alert! </li>
+              <li><strong>frequency</strong> - number of days between alert fires for a particular user. A frequency of 1 means the user will only see the alert once per day,  even if he/she visits the page where the alert is hosted multiple times. &ldquo;2&rdquo;  will show the alert every other day, &ldquo;7&rdquo; will show it once a week, and so on.  &ldquo;0&rdquo; will show it every time the user visits the page.</li>
+              <li><strong>Text and Image</strong> - Customized text for the alert and customized image in the top left  corner. You can make this different for each country to ensure the right  translations are used. See more on this below.</li>
+              <li><strong>active</strong> - enable or disable the alert. This bit means you can leave the alert code in place, and we can turn it off for you atanytime. No more changing code just to change the alert! </li>
             </ul>
           </div>
           <div class="span6 column2">
@@ -749,15 +756,14 @@
         
         <div class="section" id="plsurvey-config">
           <div class="span6">
-            <h4>The Config Field</h4>
-            <p>The config field accepts JSON code, check the next column for example.</p>
-            <br>
+            <h4><strong>Customized Text and Image Options</strong>            <br>
+            </h4>
             <p class="text-center"><img src="img/config.jpg" alt="" style="width:490px;"/></p>
             <p>The "title" key lets you set the message in the alert container (the colored border around the alert unit). "logo" specifies the currency logo you want to use in the alert. You can upload any image you like and put the link in here!</p>
-            <p>"body" specifies the text content that goes next to the logo. If you use this parameter, and don't use "fbml_html" your text will take the default styling for the alert. You can enter localized text for the alert body here.</p>
+            <p>"body" specifies the text content that goes next to the logo. You can enter localized text for the alert body here.</p>
             <p>"footer" specifies text to go below the "body" text.</p>
-            <p>"fbml_html" is not strictly FBML, we're just using that name to get Facebook to work correctly. You can pass any HTML code you want in this field and it will display instead of the "body", "logo", and "footer" content. The "title" content will still display in the colored border around the alert unit; at present you can't override this border.</p>
-            <br>
+            <p> <br>
+            </p>
             <p>Notice that in the example above we have some variables like #currency#. You can use these substitution variables in any of the alert_config keys.</p>
             <p><strong>#currency#</strong> -> Name of the VC</p>
             <p><strong>#currencyAmt#</strong> -> Amount of VC available for all surveys combined</p>
@@ -771,11 +777,7 @@
           </div>
           <div class="span6 column2">
             <h6></h6>
-            <code> <span> { <span> "title":"Hey, Earn #currency# now TESTTT!",<br>
-            "logo":"http://www1.peanutlabs.com/custom-content/images/peanutlabs-logo.png",<br>
-            "fbml_html":"<i>Hey #publisherName# player</i>, you have <b><font color=green>#currencyAmt# #currency#</font></b>worth of surveys", "body":"Some body text",<br>
-            "footer":"Some footer text" <br>
-            </span> } </span> </code> </div>
+            <code></code> </div>
         </div>
       </div>
     </div>
