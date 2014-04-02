@@ -22,12 +22,13 @@
       </li>
       <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
       <li><a href="#iframe-create">Create Account</a></li>
-      <li><a href="#iframe-collect">Collect Information</a></li>
+      <li><a href="#iframe-get">Get Application ID and Key</a></li>
       <li><a href="#iframe-embed">Integrate our iFRAME</a></li>
       <li><a href="#iframe-custom">Custom URL Parameters</a></li>
       <li><a href="#iframe-more">More iframe Parameters</a></li>
+      <li><a href="#iframe-customize">Customize your iframe</a></li>
       <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
-      <li><a href="#iframe-testing">Integration Testing</a></li>
+      <li><a href="#iframe-testing">Callback Testing</a></li>
       <li>
         <h5><a href="#overview">Monetization API</a></h5>
       </li>
@@ -36,12 +37,7 @@
       <li><a href="#prerequisites">Prerequisites</a></li>
       <li><a href="#errorhandling">Error Handling</a></li>
       <li><a href="#methodcampaigns">Campaigns</a></li>
-      <li>
-        <h5><a href="#plsurvey-pubintegration">Survey Alert</a></h5>
-      </li>
-      <li><a href="#plsurvey-pubintegration">Publisher Integration</a></li>
-      <li><a href="#plsurvey-integration">Customization</a></li>
-      <li><a href="#plsurvey-config">Customized Text and Image Options </a></li>
+
     </ul>
   </div>
 </div>
@@ -57,12 +53,13 @@
           <ul id="collapseOne" class="collapse in">
             <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
             <li><a href="#iframe-create">Create Account</a></li>
-            <li><a href="#iframe-collect">Collect Information</a></li>
+            <li><a href="#iframe-get">Get Application ID and Key</a></li>
             <li><a href="#iframe-embed">Integrate our iFRAME</a></li>
             <li><a href="#iframe-custom">Custom URL Parameters</a></li>
             <li><a href="#iframe-more">More iframe Parameters</a></li>
+            <li><a href="#iframe-customize">Customize your iframe</a></li>
             <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
-            <li><a href="#iframe-testing">Integration Testing</a></li>
+            <li><a href="#iframe-testing">Callback Testing</a></li>
           </ul>
         </li>
         <li>
@@ -74,14 +71,6 @@
             <li><a href="#errorhandling">Error Handling</a></li>
             <li><strong>Methods</strong></li>
             <li><a href="#methodcampaigns">Campaigns</a></li>
-          </ul>
-        </li>
-        <li>
-          <h4><a href="#collapseThree" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3">Survey Alert</a></h4>
-          <ul id="collapseThree" class="collapse">
-            <li><a href="#plsurvey-pubintegration">Publisher Integration</a></li>
-            <li><a href="#plsurvey-integration">Customization</a></li>
-            <li><a href="#plsurvey-config">Customized Text and Image Options </a></li>
           </ul>
         </li>
       </ul>
@@ -121,25 +110,30 @@
               <a href="http://www.peanutlabs.com/publisher" target="_blank">http://www.peanutlabs.com/publisher</a></p>
             <p>An Account Manager will  review your information and notify you that your account has been activated, at  which time you can log in and get started!<br>
               <br>
-              When you are logged in the  to Publisher Dashboard, it should look something  like this:</p>
+              When you are logged into the Publisher Dashboard, it should look something  like this:</p>
             <p> Click &ldquo;Complete Billing Information&rdquo; to set up your preferred payment  method. Then click &quot;Add Application&quot;:</p>
 <p class="text-center"> <img src="img/checklist1.png" alt=""/></p>
             <p>In the My Apps section, click "Add Application" to add an app to our system:</p>
             <p class="text-center"><img src="img/checklist2.png" alt="" style="border:1px solid #E7E7E7"/> </p>
             <p>On the Add Application screen you have several values you need to configure:</p>
             <p class="text-center"><img src="img/checklist3.png" alt="" /> </p>
-            <p>Before you can hit the "Next" button, you'll need to enter an Application Name, enter your application URL, name your virtual currency, set your virtual-currency-to-USD exchange rate, and set an optional Screenout Reward (0 must be entered if you do not want to give users a small reward for disqualifying from a survey).</p>
+            <p>Before you can hit the "Save" button, you'll need to enter an Application Name, your processing script, name your virtual currency, set your virtual-currency-to-USD exchange rate, and set an optional Screenout Reward (0 must be entered if you do not want to give users a small reward for disqualifying from a survey).</p>
             <ul>
               <li><strong>Application Name</strong> - This is the name of your application in our system. It is for internal use only, users will not see this name.</li>
-              <li><strong>Enter the URL of your site</strong> - This is where we can go to see our iFrame placement. Users will not be able to see this.</li>
-              <li><strong>Currency Name</strong> - The display name for your virtual currency. This name will be listed everywhere in our system where we refer to the value of a transaction.</li>
-              <li><strong>Exchange Rate</strong> - How many points is a dollar worth? Currency rewards to your users will always be integers (positive for a successful transaction, negative if a transaction must be reversed). However, your net revenue is a floating point value. This means a higher exchange rate will reduce the rounding error when we convert your net revenue to an integer for the currency reward. Confused? It's a common question; the virtual currency rewarded to the user follows this formula:
+              <!--<li><strong>Enter the URL of your site</strong> - This is where we can go to see our iFrame placement. Users will not be able to see this.</li>-->
+              <li><strong>Processing Script</strong> - This is the URL where we will send automatic notifications to each time one of your users is rewarded.<br>
+				<small><strong>Note:</strong> The http(s) protocol is required for the script to work properly. We highly recommend using the secure protocol. </small>
+              
+</li>
+              <li><strong>Virtual Currency Name</strong> - The display name for your virtual currency. This name will be listed everywhere in our system where we refer to the value of a transaction.</li>
+              <li><strong>Exchange Rate</strong> - How many points is a dollar worth? Currency rewards to your users will always be an integer (positive for a successful transaction, negative if a transaction must be reversed). However, your net revenue is a floating point value. This means a higher exchange rate will reduce the rounding error when we convert your net revenue to an integer for the currency reward. Confused? It's a common question; the virtual currency rewarded to the user follows this formula:
                 <ul>
                   <li><strong>Currency Reward</strong> = Your Net Revenue * Your Currency Exchange Rate</li>
                   <li><strong>Rounding</strong> = We round currency rewards based on standard rounding rules of integers. If a payout is equivalent to 1.5 virtual currency points, we will reward 2 points. If a payout is 1.49 virtual currency points, we will reward 1 point.</li>
                 </ul>
               </li>
               <li><strong>Screenout Reward </strong>- If a user is screened out, you can thank them with some virtual currency  and encourage the user to try again. Peanut Labs does not pay for this reward,  but many publishers chose to set a reward to help foster a positive user  experience. Learn more about Screenout Rewards {HERE – link to FAQ}. If you  prefer not to have one, set the Screenout Reward to &ldquo;0&rdquo;.</li>
+              <li><strong>iFrame Colors</strong> - Here you can customize the color scheme of our iFrame. You may upload your Currency Icon as well as Company Icon. If you do not choose to customize the iFrame, the default scheme will be used.</li>
             </ul>
           </div>
           <div class="span6 column2">
@@ -150,9 +144,9 @@
         <!--Create PL account --> 
         
         <!--Collect Info-->
-        <div class="section" id="iframe-collect">
+        <div class="section" id="iframe-get">
           <div class="span6">
-            <h4>Collect Information</h4>
+            <h4>Get Application ID and Key</h4>
             <p>Once you've created your new application you will need to take note of your Peanut Labs Application ID and Peanut Labs Application Key in the dashboard. These two values are used in the remaining steps.</p>
             <p>You can find it on this screen:</p>
             <p class="text-center"><img src="img/collect1.png" alt=""/> </p>
@@ -185,7 +179,7 @@
             <p><strong>Sample userId:</strong> 11701396-600-cbc2104c7a consists of three parts:</p>
             <ul>
               <li>endUserId: (ex. 11701396) the user’s id within your  system (alphanumeric)</li>
-              <li>Peanut Labs applicationId: (ex. 600) generated when you add an application to your account. Listed as &ldquo;ID&rdquo; in &ldquo;Manage Apps&rdquo;.</li>
+              <li>Peanut Labs ApplicationId: (ex. 600) generated when you add an application to your account. Listed as &ldquo;ID&rdquo; in &ldquo;Manage Apps&rdquo;.</li>
               <li>userGo: (ex. cbc2104c7a) this is a hash generated by the following formula:
                 <ul>
                   <li>userGo = substr( md5( endUserId . applicationId . applicationKey ), 0, 10 );</li>
@@ -194,8 +188,8 @@
             </ul>
             <p>Take the same endUserId and Peanut Labs applicationId as above but also add your Peanut Labs applicationKey.</p>
             <p>You will take the first 10 characters of the MD5 hash of endUserId, applicationId and applicationKey concatenated.</p>
-            <p>Make sure the md5 hash returned is all lower-case</p>
-            <p>Generating the userGo is typically the most difficult part of hosting the IFRAME. If you're having trouble: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a>and cc your Account  Manager (the person who contacted you to activate your account).</p>
+            <p>Make sure the md5 hash returned is all lower-case.</p>
+            <p>Generating the userGo is typically the most difficult part of hosting the IFRAME. If you're having trouble: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a> and cc your Account  Manager (the person who contacted you to activate your account).</p>
 </div>
           <div class="span6 column2">
             <h6></h6>
@@ -239,7 +233,23 @@
             <h4>More iframe Parameters</h4>
             <p>Over the last three years we have built a number of additional parameters. If there is something you want our iframe to do, there is a good chance we've already created a parameter to handle it. Please drop us a line at: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
             <p>Questions about required, optional, or custom IFRAME URL Parameters?<br>
-              Ask: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a>and cc your Account  Manager.</p>
+              Ask: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a> and cc your Account  Manager.</p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> </code> </div>
+        </div>
+        <!--more--> 
+        
+        
+        <div class="section" id="iframe-customize">
+          <div class="span6">
+            <h4>Customize your iframe</h4>
+            <p>You may customize the look of your iframe in Application Setup.</p>
+            <p class="text-center"><img src="img/editcolors.png" alt="" /></p>
+            <p>Here you can choose the palatte of your iframe if you’d like the color scheme to be consistent with your website. You may also upload both a currency and company icon. GIF, PNG, JPEG, and JPG are all acceptable types of images that may be uploaded. An image that is large in size will take longer to upload so we recommend your image be no larger than 300KB.  If you do not wish to customize your iframe, the default color palatte you see will be the one used.</p>
+            
+            <p class="text-center"><img src="img/editcolors2.png" alt="" /></p>
           </div>
           <div class="span6 column2">
             <h6></h6>
@@ -251,20 +261,25 @@
         <div class="section" id="iframe-callback">
           <div class="span6">
             <h4>Callback for Surveys and Offers</h4>
-            <p>Your Callback URL is specified in your Publisher Dashboard (see screenshot):</p>
-            <p class="text-center"><img src="img/callback1.png" alt=""/></p>
+            <p>We highly recommend that you whitelist our IPs to ensure all valid callbacks are coming from our system. This will vastly decrease any fraudulent activity. If the list of IPs is to change, you will be notified via email prior to the change so that you may make the proper updates in your system. This full lists of IPs can also be found at the bottom of this guide. </p>
+            
+            <p class="text-center"><img src="img/ipstowhitelist.png" alt=""/></p>
+            
+            <p>Your Callback URL is specified in your Application Setup (see screenshot):</p>
+            <p class="text-center"><img src="img/pscript.png" alt=""/></p>
             <p>When one of your users completes a survey or offer, Peanut Labs will send a notification to the processing script at the address specified above.</p>
             <h6>Callback Parameters:</h6>
             <ul>
-              <li><strong>cmd:</strong> transactionComplete.</li>
-              <li><strong>userId:</strong> Peanut Labs userId as calculated earlier.</li>
-              <li><strong>amt:</strong> amount paid in dollars to you for this particular transaction. In rare cases we may pass a negative value to indicate a chargeback.</li>
-              <li><strong>offerInvitationId:</strong> enables you to remember for what offer a user has been rewarded.</li>
+              <li><strong>cmd: </strong>will always be 'transactionComplete' </li>
+              <li><strong>userId:</strong> Peanut Labs userId as generated earlier.</li>
+              <li><strong>amt:</strong> amount paid in dollars to you for this particular transaction. In rare cases we may pass a negative value to indicate a chargeback. (See more on chargebacks below)
+</li>
+              <li><strong>offerInvitationId:</strong> enables you to remember for which offer a user has been rewarded for.</li>
               <li><strong>status:</strong><br>
                 <ul>
-                  <li><strong>F</strong> – user screened out of survey, too many responses from this demographic.</li>
+                  <li><strong>F</strong> – user screened out of survey, the required number of responses from this demographic has already been met.</li>
                   <li><strong>C</strong> – user successfully completed the transaction.</li>
-                  <li><strong>P</strong> – user screened out of survey, does not have relevant experience.</li>
+                  <li><strong>P</strong> – user screened out of survey, does not have the relevant attributes needed..</li>
                 </ul>
               </li>
               <li><strong>oidHash:</strong> 32 character hex string = md5(offerInvitationId . applicationKey)<br>
@@ -272,17 +287,22 @@
                 <small><strong>Important Note:</strong> You should verify oidHash upon receipt of the callback by recomputing it with the callback offerInvitationId and your ApplicationKey. This will secure against users faking their own id and passing it in if by some chance they come across the script. </small> </li>
               <li><strong>currencyAmt:</strong> (integer) Indicates how many points the user should get in your site’s virtual currency. Based on your configured conversion rate on the control panel. In rare cases we may pass a negative value to indicate a chargeback.</li>
               <li><strong>transactionId:</strong> (string) Unique ID representing a single user participating in a single survey/offer.</li>
+              <li><strong>txnHash:</strong> 32 character hex string = md5(transactionId. current TransactionKey). You can find your TransactionKey in your Application list. <br>
+				<p class="text-center"><img src="img/tkey.png" alt=""/></p>
+                <small><strong>Important Note:</strong> You should verify txnHash upon receipt of the callback by recomputing it with the callback transactionID and your current Transaction Key. This will secure against users faking their own id and passing it in if by some chance they come across the processing script and Application Key. The Transaction Key may be regenerated for this reason. If you would like to regenerate your Transaction Key please contact your Account Manager. </small>
+</li>
               <li><strong>offerTitle:</strong> (string) Title of the survey or offer. Spaces replaced with '+'.</li>
               <li><strong>profiler:</strong> (blank or 1) Indicates whether this reward is for a user completing their profiler. By default there is no notification sent when a user completes a profiler. At your option you can enable profiler rewarding. This would give a user a small incentive (at your cost) for completing the profile. The currency amount is customizable and will appear in currencyAmt, the amt value will be 0.</li>
               <li><strong>useragent:</strong> (string) This value is provided for backwards compatibility. It will always say 'Peanut+Labs+Media'.</li>
-              <li><strong>currencyName:</strong> (string) We will return the name of the currency that you've set in the dashboard. This is the name of the currency that you are rewarding to the user.</li>
+              <li><strong>currencyName:</strong> (string) We will return the name of the currency that you've set in the Application Setup. This is the name of the currency that you are rewarding to the user.</li>
+              <li><strong>offerType:</strong> Survey or Offer</li>
             </ul>
             <h6><br>
               Your Response to the Peanut Labs Callback:<br>
             </h6>
             <p>Upon successfully processing the user’s reward, your callback script should respond with:<br>
               <strong>1:</strong> acknowledged. Notification successfully processed.<br>
-              <strong>0:</strong> user doesn’t exist or Reward not successfully awarded for some other reason<br>
+              <strong>0:</strong> user doesn’t exist or reward not successfully awarded for some other reason<br>
               Your script should simply return 0 or 1. Any other markup will cause Peanut Labs to assume 0.<br>
             </p>
             <p>The notification will be retried up to 5 times. If you are receiving multiple callbacks from Peanut Labs for the same transaction the most likely reason is we are not getting a '1' response from you.</p>
@@ -290,34 +310,197 @@
           </div>
           <div class="span6 column2">
             <h6>Example Peanut Labs Callback (GET request)</h6>
-            <code> http://yoursite.com/process.php?cmd=transactionComplete<br>
-            &userId=xxxx&amt=12.34&offerInvitationId=xxx&status=X&oidHash=xxxxx&currencyAmt=123&transactionId=1234&offerTitle=Mobile+Survey&useragent=Peanut+Labs+Media&profiler=&currencyName=Coins </code> </div>
+            <code> https://yoursite.com/process.php?cmd=transactionComplete<br>
+&userId=SampleUser-xxxx-xxxx&amt=1&offerInvitationId=xxx&status=X&oidHash=xxxxx&currencyAmt=100&transactionId=1234&txnHash=xxxxx&endUserId=SampleUser&offerTitle=Your+Offer&useragent=Peanut+Labs+Media&profiler=&currencyName=Coins&offerType=Survey& </code></div>
         </div>
-        <div class="section">
-          <div class="span6">
-            <h4>Chargebacks</h4>
-            <p>In rare cases our system will pass notifications to your callback script with negative amt and currencyAmt values. This means we are trying to reverse the reward for a user. We will reverse the reward for a user if we or an advertiser determine that the user intentionally defrauded the system, or they are otherwise ineligible for a reward. It is important to check for a negative currencyAmt value. If the value is negative, check to make sure that the user's balance does not go below zero.</p>
-            <p>If you have more questions about chargebacks, please contact <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a> and read <a href="http://peanutlabstesting.com/publisherfaq/what-are-peanut-labs-policies-on-user-fraud-and-chargebacks" target="_blank">What are Peanut Labs' policies on user fraud and chargebacks?</a></p>
-          </div>
-          <div class="span6 column2">
-            <h6></h6>
-            <code> </code> </div>
-        </div>
-        <!--callback--> 
+
         
         <!--additional-->
         <div class="section" id="iframe-testing">
           <div class="span6">
-            <h4>Integration Testing</h4>
-            <p>The Test tool is not currently supported; it does not generate a transaction ID and is missing some of our extra callback parameters:</p>
-            <p class="text-center"><img src="img/additional.png" alt=""/></p>
-            <p>If you need to test a notification (and we recommend you do) please contact your account manager. They will set you up with some test offers. Test offers will reward instantly and they use all of the same systems that production offers and surveys do to generate their notifications.</p>
+            <h4>Callback Testing</h4>
+            <p>We highly recommend testing notifications with the ‘Invoke Test Call’ feature in Application Setup. The fields will be populated with some template test values that you may edit if you choose. All you need to do is select the status of the transaction you wish to test the callback for. </p>
+            <p class="text-center"><img src="img/status.png" alt=""/></p>
+            <p>Upon invoking a test call, you will be shown the response received from your processing script. You will also see the Sample Call that was made with all parameters in order. </p>
+            
           </div>
           <div class="span6 column2">
             <h6></h6>
             <code> </code> </div>
         </div>
         <!--additional--> 
+        
+        <!--ipwhitelist-->
+        <div class="section" id="iframe-ipwhitelist">
+          <div class="span6">
+            <h4>IPs to Whitelist</h4>
+            <p>The following list contains all our IPs that should be whitelisted for callbacks: </p>
+            75.101.154.153<br>
+
+54.243.235.176<br>
+
+54.243.210.15<br>
+
+54.243.204.6<br>
+
+54.243.150.156<br>
+
+54.243.150.126<br>
+
+54.243.149.248<br>
+
+54.243.149.247<br>
+
+54.243.146.21<br>
+
+54.243.143.97<br>
+
+50.19.92.139<br>
+
+50.17.194.132<br>
+
+50.17.193.185<br>
+
+50.17.191.62<br>
+
+50.17.191.143<br>
+
+50.17.190.69<br>
+
+50.17.190.174<br>
+
+50.17.189.251<br>
+
+50.17.189.201<br>
+
+50.17.189.138<br>
+
+50.17.187.32<br>
+
+50.17.187.218<br>
+
+50.17.187.192<br>
+
+50.17.187.145<br>
+
+50.17.186.7<br>
+
+50.17.186.39<br>
+
+50.17.184.98<br>
+
+50.17.184.153<br>
+
+50.17.182.38<br>
+
+50.17.182.19<br>
+
+50.17.182.17<br>
+
+50.17.181.130<br>
+
+50.17.181.118<br>
+
+50.17.181.11<br>
+
+50.16.250.192<br>
+
+50.16.249.58<br>
+
+50.16.249.162<br>
+
+50.16.245.185<br>
+
+50.16.243.67<br>
+
+50.16.241.60<br>
+
+50.16.239.186<br>
+
+50.16.236.39<br>
+
+23.21.123.40<br>
+
+184.73.254.159<br>
+
+184.73.254.133<br>
+
+184.73.250.161<br>
+
+184.73.249.128<br>
+
+184.73.244.77<br>
+
+184.73.196.208<br>
+
+184.73.166.67<br>
+
+184.73.158.48<br>
+
+184.73.153.111<br>
+
+184.72.230.119<br>
+
+184.72.222.51<br>
+
+184.72.222.104<br>
+
+184.72.221.219<br>
+
+174.129.37.199<br>
+
+174.129.242.30<br>
+
+174.129.240.137<br>
+
+174.129.238.17<br>
+
+174.129.237.1<br>
+
+174.129.22.190<br>
+
+174.129.219.230<br>
+
+174.129.209.23<br>
+
+174.129.209.2<br>
+
+107.22.164.69<br>
+
+107.22.164.67<br>
+
+107.22.164.59<br>
+
+107.22.164.55<br>
+
+107.22.164.53<br>
+
+107.22.164.5<br>
+
+107.22.162.83<br>
+
+107.22.160.89<br>
+
+107.22.160.31<br>
+
+107.22.160.14<br>
+
+107.20.248.88<br>
+
+107.20.246.140<br>
+
+107.20.235.89<br>
+
+107.20.201.76<br>
+
+107.20.152.198
+            
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <code> </code> </div>
+        </div>
+        <!--ipwhitelist-->
         
         <!--API Reference -->
         <div class="section" id="overview">
@@ -604,181 +787,6 @@
         </div>
         <!--Campaign Object Types Ends --> 
         
-        <!--plsurvey Overview-->
-        <div class="section" id="plsurvey-pubintegration">
-          <div class="span6" >
-            <h3 id="plsurveyalert">Survey Alert</h3>
-            <h4>Publisher Integration</h4>
-            <p>All you have to do is place  this small piece of code on any high-traffic part of your iframe. If you would  like to learn more about the Survey Alert and related services, visit these FAQ  sections:</p>
-            <ul>
-              <li><a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-alert/" target="_blank">What is the Survey Alert?</a></li>
-              <li><a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-inventory-api/" target="_blank">What is the Survey  Inventory API?</a></li>
-              <li><a href="#">Which should I implement,  the Survey Alert or the Survey Inventory API?</a></li>
-            </ul>
-            <p>The Alert Rules:</p>
-            <ul>
-              <li>Directs users to the Peanut Labs IFRAME when they click it.</li>
-              <li>Powered by a Javascript snippet (below)</li>
-              <li>Add to pages you want the alert shown on</li>
-              <li>Shows as often as you like. Discuss this with your account manager to decide  on the frequency that best suits your needs.</li>
-              <li>Disappears       after 60 seconds if the user doesn&rsquo;t click on it. </li>
-            </ul>
-            <ul type="disc">
-              <li>The       user can also get rid of it by clicking &ldquo;X&rdquo; in the top right corner of the       alert.</li></ul>
-            <ul>
-              <li>If the user repeatedly closes the alert it won’t appear anymore</li>
-            </ul>
-          </div>
-          <div class="span6 column2">
-            <h6></h6>
-            <code> </code> </div>
-        </div>
-        <div class="section">
-          <div class="span6">
-            <h4>Implementation</h4>
-            <p> Paste this Javascript on any page you want to see the alert.</p>
-          </div>
-          <div class="span6 column2">
-            <h6></h6>
-            <code> <small>(Note: don't combine the two snippets into one &lt;script&gt; tag)</small> <br>
-            <br>
-            <span>&lt;script type="text/javascript”&gt;<br>
-            <span> var PeanutLabsPre = (("https:" == document.location.protocol) ? "https://ssl-" : "http://");<br>
-            document.write(unescape("%3Cscript src='" + PeanutLabsPre + "astatic.peanutlabs.com/js/alert/main.js' type='text/javascript'%3E%3C/script%3E")); </span> &lt;/script&gt; </span> <br>
-            <br>
-            <span> &lt;script type="text/javascript"&gt;<br>
-            <span> try{ <span> var args = { <span> userId:"#userId#", // Replace #userId# with your visitor's Peanut Labs userId iframeURL:"#url#", // Replace with URL for where you've embedded IFRAME position_ver:"bottom", //or "top" <br>
-            position_hor:"right", //use left to show it on the left<br>
-            hideTimer:"true" </span> };<br>
-            peanut.initialize(args); </span> }<br>
-            catch(e){} </span> &lt;/script&gt; </span> </code> </div>
-        </div>
-        <!--plsurvey Overview--> 
-        
-        <!--plsurvey integration and customization-->
-        <div class="section" id="plsurvey-integration">
-          <div class="span6">
-            <h4>Customization</h4>
-            <p>The information below is provided to give you a behind the scenes look of the alert's configuration options.Discuss these options with  your account manager, they will be able to handle the configurations.            </p>
-            <ul>
-              <li><strong>cc</strong> - Which country you want the alert to appear in. CC is determined by checking the user's IP in the browser. <strong>Right now cc targeting is not supported on Facebook outside the US</strong>. </li>
-              <li>exposure can be set between 0 and 1 (e.g. 0.5) to set the chance the alert will display to a qualified user. Reduce this value to show the alert to fewer users. </li>
-              <li><strong>frequency</strong> - number of days between alert fires for a particular user. A frequency of 1 means the user will only see the alert once per day,  even if he/she visits the page where the alert is hosted multiple times. &ldquo;2&rdquo;  will show the alert every other day, &ldquo;7&rdquo; will show it once a week, and so on.  &ldquo;0&rdquo; will show it every time the user visits the page.</li>
-              <li><strong>Text and Image</strong> - Customized text for the alert and customized image in the top left  corner. You can make this different for each country to ensure the right  translations are used. See more on this below.</li>
-              <li><strong>active</strong> - enable or disable the alert. This bit means you can leave the alert code in place, and we can turn it off for you atanytime. No more changing code just to change the alert! </li>
-            </ul>
-          </div>
-          <div class="span6 column2">
-            <h6></h6>
-            <code>
-            <table width="100%" border="0" cellspacing="5" cellpadding="5" class="table table-bordered">
-              <tr>
-                <td><strong>Field </strong></td>
-                <td><strong>Type </strong></td>
-                <td><strong>Null</strong></td>
-                <td><strong>Key</strong></td>
-                <td><strong>Default</strong></td>
-              </tr>
-              <tr>
-                <td>id</td>
-                <td>int(11)</td>
-                <td>NO</td>
-                <td>PRI</td>
-                <td>NULL</td>
-              </tr>
-              <tr>
-                <td>publisher_id</td>
-                <td>int(11)</td>
-                <td>NO</td>
-                <td>&nbsp;</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>cc</td>
-                <td> varchar(15)</td>
-                <td>YES</td>
-                <td>MUL</td>
-                <td>NULL</td>
-              </tr>
-              <tr>
-                <td>exposure</td>
-                <td>float</td>
-                <td>YES</td>
-                <td>&nbsp;</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <td>config</td>
-                <td>text</td>
-                <td>YES</td>
-                <td>&nbsp;</td>
-                <td>NULL</td>
-              </tr>
-              <tr>
-                <td>mode</td>
-                <td>enum('offer','survey')</td>
-                <td>YES</td>
-                <td>&nbsp;</td>
-                <td>survey</td>
-              </tr>
-              <tr>
-                <td>frequency</td>
-                <td>int(3)</td>
-                <td>YES</td>
-                <td>&nbsp;</td>
-                <td>NULL</td>
-              </tr>
-              <tr>
-                <td>offer_invitation_id</td>
-                <td>int(11)</td>
-                <td>YES</td>
-                <td>&nbsp;</td>
-                <td>NULL</td>
-              </tr>
-              <tr>
-                <td>active</td>
-                <td>enum('0','1')</td>
-                <td>NO</td>
-                <td>&nbsp;</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>created</td>
-                <td>datetime</td>
-                <td>NO</td>
-                <td>MUL</td>
-                <td>NULL</td>
-              </tr>
-            </table>
-            </code> </div>
-        </div>
-        <!--plsurvey integration and customization-->
-        
-        <div class="section" id="plsurvey-config">
-          <div class="span6">
-            <h4><strong>Customized Text and Image Options</strong>            <br>
-            </h4>
-            <p class="text-center"><img src="img/config.jpg" alt="" style="width:490px;"/></p>
-            <p>The "title" key lets you set the message in the alert container (the colored border around the alert unit). "logo" specifies the currency logo you want to use in the alert. You can upload any image you like and put the link in here!</p>
-            <p>"body" specifies the text content that goes next to the logo. You can enter localized text for the alert body here.</p>
-            <p>"footer" specifies text to go below the "body" text.</p>
-            <p> <br>
-            </p>
-            <p>Notice that in the example above we have some variables like #currency#. You can use these substitution variables in any of the alert_config keys.</p>
-            <p><strong>#currency#</strong> -> Name of the VC</p>
-            <p><strong>#currencyAmt#</strong> -> Amount of VC available for all surveys combined</p>
-            <p><strong>#publisherName#</strong> -> Name of the publisher</p>
-            <br>
-            <br>
-            <p>To learn more, read:</p>
-            <p>- <a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-alert/" target="_blank">What is the Survey Alert?</a></p>
-            <p>- <a href="http://peanutlabstesting.com/publisherfaq/what-is-the-survey-inventory-api/" target="_blank">What is the Survey Inventory API?</a></p>
-            <p>- <a href="http://peanutlabstesting.com/publisherfaq/which-should-i-implement-the-survey-alert-or-the-survey-inventory-api/" target="_blank">What should I implement, the Survey Alert or the Survey Inventory API?</a></p>
-          </div>
-          <div class="span6 column2">
-            <h6></h6>
-            <code></code> </div>
-        </div>
       </div>
     </div>
   </div>
@@ -842,7 +850,6 @@ function checkScroll() {
  
 <script src="js/custom.js"></script> 
 <script src="js/retina.js"></script>
-<script src="js/jquery.nicescroll.min.js"></script>
 
 </body>
 </html>
