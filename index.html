@@ -36,7 +36,9 @@
       <li><a href="#format">Format</a></li>
       <li><a href="#prerequisites">Prerequisites</a></li>
       <li><a href="#errorhandling">Error Handling</a></li>
+      <li><a href="#methodcampaigns"><strong>Methods</strong></a></li>
       <li><a href="#methodcampaigns">Campaigns</a></li>
+      <li><a href="#methodcampaignssummary">Campaigns Summary</a></li>
 
     </ul>
   </div>
@@ -69,8 +71,9 @@
             <li><a href="#format">Format</a></li>
             <li><a href="#prerequisites">Prerequisites</a></li>
             <li><a href="#errorhandling">Error Handling</a></li>
-            <li><strong>Methods</strong></li>
+            <li><a href="#methodcampaigns"><strong>Methods</strong></a></li>
             <li><a href="#methodcampaigns">Campaigns</a></li>
+            <li><a href="#methodcampaignssummary">Campaigns Summary</a></li>
           </ul>
         </li>
       </ul>
@@ -439,8 +442,8 @@
           </div>
           <div class="span6 column2">
             <h6>API Endpoint</h6>
-            <p>http://api.peanutlabs.com/publisher/</p>
-            <small><strong>Note:</strong> The API should be called from the client’s browser and not server to server.</small> </div>
+            <p>http://api.peanutlabs.com/publisher/api/v1/</p>
+            <small></small> </div>
         </div>
         <!--API Reference End--> 
         
@@ -453,7 +456,7 @@
           </div>
           <div class="span6 column2">
             <h6>Example</h6>
-            <p>http://api.peanutlabs.com/publisher/campaigns?user_id=saad-69-8f026c28ad</p>
+            <p>http://api.peanutlabs.com/publisher/api/v1/campaigns?user_id=saad-69-8f026c28ad</p>
           </div>
         </div>
         
@@ -504,7 +507,9 @@
           </div>
           <div class="span6 column2">
             <h6>Example</h6>
-            <p>{"error":"Invalid User Id","reset":1,"code":4}</p>
+            <code>{"errorInfo":<br>
+<span>{"error":"Invalid User Id","reset":1,"code":4}</span>
+}</code>
           </div>
         </div>
         <!--Error Handling End --> 
@@ -514,12 +519,13 @@
         <!--Campaign Object -->
         <div class="section" id="methodcampaigns">
           <div class="span6">
+          <h3>Methods</h3>
             <h4>Campaigns</h4>
             <p>The campaigns method is used to retrieve a list of available inventory for a user. A successful request will return a single object containing an offers array and a surveys array. This may vary depending on your specific publisher configurations and request parameters.</p>
             <small><strong>Note:</strong> Eligibility for surveys (and some offers) first requires that the user complete our profiler survey. It is highly recommended this be the first step for all users. See Profiler Survey below.</small> </div>
           <div class="span6 column2">
             <h6>Resource URL</h6>
-            <p>api.peanutlabs.com/publisher/campaigns</p>
+            <p>http://api.peanutlabs.com/publisher/api/v1/campaigns</p>
           </div>
         </div>
         <!--Campaign Object / Attributes End--> 
@@ -532,11 +538,14 @@
               <li><strong>user_id (required)</strong><br>
                 <p>A valid user id must be passed in as a parameter. A valid parameter has three parts: end_user_id, publisher_id and security hash concatenated by “-”;i</p>
               </li>
-              <li><strong>offer_count (optional)</strong><br>
+              <li><strong>user_ip (recommended)</strong><br>
+                <p>It is always recommended that the IP of the user be passed in as a parameter, which allows server-to-server calls to be made to the API and gives better results when matching surveys and offers</p>
+              </li>
+              <li><strong>max_offer_count (optional)</strong><br>
                 <p>This parameter limits how many offers are in the returned project list.  Setting it to 0 means there is no limit on the amount of offers returned</p>
               </li>
-              <li><strong>survey_count (optional)</strong><br>
-                <p>This parameter limits how many surveys are in the returned in the survey array. Note that the number of surveys returned is also being limited by the daily survey rate limit of 15 attempts in any 24 hour period (specific to the user) and the default 8 surveys per iframe load. So even when the parameter is set to 0, 15 will be the maximum amount returned</p>
+              <li><strong>max_offer_count (optional)</strong><br>
+                <p>This parameter limits how many surveys are in the returned in the survey array. Note that the number of surveys returned is also being limited by the daily survey rate limit of 15 attempts in any 24 hour period (specific to the user) and the default 9 surveys per iframe load. So even when the parameter is set to 0, 9 will be the maximum amount returned</p>
               </li>
               <li><strong>jsonp (optional)</strong><br>
                 <p>if jsonp=response return object will be in JSONP</p>
@@ -558,10 +567,7 @@
                 <td>surveys_only</td>
                 <td>Set surveys_only to 1 to allow only surveys</td>
               </tr>
-              <tr>
-                <td>verified_only</td>
-                <td>Set verified_only to 1 to allow only verified users</td>
-              </tr>
+              
               <tr>
                 <td>exclude_video_offers</td>
                 <td>Set exclude_video_offers to 1 to exclude video offers from the returned project list</td>
@@ -573,12 +579,9 @@
             <h6 class="lighten">User ID</h6>
             <code>this_is_an_end_user_id-1234-securityhash</code>
             <div class="align-bottom">
-              <h6>Example</h6>
-              <p>This filter means the API call needs only offers that are verified and not videos.</p>
-              <code> {<br>
-              <span>“offers_only” : 1,<br>
-              “verified_only” : 1,<br>
-              “exclude_video_offers” : 1 </span> } </code> </div>
+              <h6></h6>
+              <p></p>
+              <code> </code> </div>
           </div>
         </div>
         
@@ -713,6 +716,72 @@
         </div>
         <!--Campaign Object Types Ends --> 
         
+        <!--Campaign Summary -->
+        <div class="section" id="methodcampaignssummary">
+          <div class="span6">
+            <h4>Campaigns Summary</h4>
+            <p>The campaigns summary is used to retrieve a summary of how many surveys and offers are available for a user, along with potential reward they could earn from completing them. A successful request will return an object containing a surveys object and an offers object, with each of those reporting their count and total potential reward. The object will also vary depending on your specific publisher configurations and request parameters.</p>
+          </div>
+          <div class="span6 column2">
+            <h6>Resource URL</h6>
+            <p>api.peanutlabs.com/publisher/api/v1/campaigns_summary</p>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="span6">
+            <h4>Parameters</h4>
+            <p>The parameters accepted by the campaigns summary API method are exactly the same as those accepted by the campaigns API method. For details on them, see the section above.</p>
+          </div>
+          <div class="span6 column2">
+            <h6></h6>
+            <p></p>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="span6">
+            <h4>Campaign Summary Object Attributes</h4>
+            
+            <table class="table table-bordered">
+              <tr>
+                <th>Attributes</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>count</td>
+                <td>The number of surveys or offers avaliable for the user. <br>
+<strong>Note:</strong> Users have a daily limit of 15 survey attempts and a maximum of 9 surveys per iframe load, so these will affect the count returned in the surveys object</td>
+              </tr>
+              <tr>
+                <td>total_reward</td>
+                <td>The total amount of virtual currency a user could potentially receive if they complete all the surveys or offers</td>
+              </tr>
+              <tr>
+                <td>status:</td>
+                <td>This is only returned in the surveys object and indicates if is profiled or not.  If the user is already profiled it will be set to "profiled", if they are not profiled and there is a profiler available in their country it will be "profiler_available" and if there is no profiler available it will be set to "non_profiled". For more details on the profiler survey, see the section in the campaigns method section.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="span6 column2">
+            <h6>Example</h6>
+            <code>
+{<br>
+<span>"surveys" : {<br>
+<span>"status" : "profiled",<br>
+"count" : 3,<br>
+"total_reward" : 10</span>
+},<br>
+"offers" : {<br>
+<span>"count" : 12,<br>
+"total_reward" : 64</span>
+}</span>
+}
+            
+            </code>
+          </div>
+        </div>
+       
       </div>
     </div>
   </div>
