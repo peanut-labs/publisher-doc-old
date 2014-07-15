@@ -843,6 +843,13 @@ $(".accordion-toggle").click(function(e) {
 	
 	setTimeout('if($("#accordion2 li.active").parent().hasClass("in") == false) {$("#accordion2 .in").collapse("hide");$("#accordion2 li.active").parent().collapse("show");}', 5000);
 
+	if($(window).width() > 768) {
+		currSize = 'large';
+	}
+	else {
+		currSize = 'small'	
+	}
+
 });
 
 function checkScroll() {

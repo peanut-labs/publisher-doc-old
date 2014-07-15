@@ -1,5 +1,6 @@
 // JavaScript Document
 
+var currSize;
 $( document ).ready(function() {
 
 	$(".mobile .btn").click(function () {
@@ -9,6 +10,15 @@ $( document ).ready(function() {
 
 //Windows Resize	
 	$(window).bind('resize',function(){
+		
+		if($(window).width() > 768 && currSize == 'small') {
+			currSize = 'large';
+			window.location.href = window.location.href.split("#")[0];
+		}
+		else if($(window).width() <= 768 && currSize == 'large') {
+			currSize = 'small';	
+			window.location.href = window.location.href.split("#")[0];
+		}			
 		
 		$('.column2').css('height','auto');
 		
