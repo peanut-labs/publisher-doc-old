@@ -18,18 +18,22 @@
   <div id="nav" class="collapse out">
     <ul class="nav nav-list">
       <li>
-        <h5><a href="#iframe-checklist">iFrame Integration Guide</a></h5>
+        <h5><a href="#iframe-checklist">Reward Center Integration Guide</a></h5>
       </li>
       <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
       <li><a href="#iframe-create">Create Account</a></li>
-      <li><a href="#iframe-importance">Importance of Screenout Reward</a></li>
-      <li><a href="#iframe-get">Get Application ID and Key</a></li>
-      <li><a href="#iframe-embed">Integrate our iFRAME</a></li>
-      <li><a href="#iframe-custom">Custom URL Parameters</a></li>
-      <li><a href="#iframe-more">More iframe Parameters</a></li>
-      <li><a href="#iframe-customize">Customize your iframe</a></li>
-      <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
-      <li><a href="#iframe-testing">Callback Testing</a></li>
+            <li><a href="#iframe-importance">Importance of Screenout Reward</a></li>
+            <li><a href="#iframe-get">Get Application ID and Key</a></li>
+            <li><a href="#iframe-embed">Integrate our Reward Center</a></li>
+            <li><a href="#iframe-getuserid">Generating the Peanut Labs userId</a></li>
+            <li><a href="#iframe-optionalpara">Parameters to Maximize Revenue</a></li>
+            <li><a href="#iframe-custom">Custom URL Parameters</a></li>
+            <li><a href="#iframe-more">More URL Parameters</a></li>
+            <li><a href="#iframe-embed-html">Integrating for HTML</a></li>
+            <li><a href="#iframe-embed-ios">Integrating for iOS</a></li>
+            <li><a href="#iframe-customize">Customize your Reward Center</a></li>
+            <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
+            <li><a href="#iframe-testing">Callback Testing</a></li>
       <li>
         <h5><a href="#overview">Monetization API</a></h5>
       </li>
@@ -51,16 +55,20 @@
       <div class="logo"><a href="index.html" title="Peanut Labs Monetization API"><img src="img/logo.png" alt="Peanut Labs" title="Peanut Labs Monetization API"></a></div>
       <ul class="nav nav-list accordion" id="accordion2">
         <li>
-          <h4><a href="#collapseOne" class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion2">iFrame Integration Guide</a></h4>
+          <h4><a href="#collapseOne" class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion2">Reward Center Integration Guide</a></h4>
           <ul id="collapseOne" class="collapse in">
             <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
             <li><a href="#iframe-create">Create Account</a></li>
             <li><a href="#iframe-importance">Importance of Screenout Reward</a></li>
             <li><a href="#iframe-get">Get Application ID and Key</a></li>
-            <li><a href="#iframe-embed">Integrate our iFRAME</a></li>
+            <li><a href="#iframe-embed">Integrate our Reward Center</a></li>
+            <li><a href="#iframe-getuserid">Generating the Peanut Labs userId</a></li>
+            <li><a href="#iframe-optionalpara">Parameters to Maximize Revenue</a></li>
             <li><a href="#iframe-custom">Custom URL Parameters</a></li>
-            <li><a href="#iframe-more">More iframe Parameters</a></li>
-            <li><a href="#iframe-customize">Customize your iframe</a></li>
+            <li><a href="#iframe-more">More URL Parameters</a></li>
+            <li><a href="#iframe-embed-html">Integrating for HTML</a></li>
+            <li><a href="#iframe-embed-ios">Integrating for iOS</a></li>
+            <li><a href="#iframe-customize">Customize your Reward Center</a></li>
             <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
             <li><a href="#iframe-testing">Callback Testing</a></li>
           </ul>
@@ -85,14 +93,14 @@
         <!--Pub integration -->
         <div class="section" id="iframe-checklist">
           <div class="span6" id="collapseOne">
-            <h3  id="iframeintegrationguide">iFrame Integration Guide</h3>
+            <h3  id="iframeintegrationguide">Reward Center Integration Guide</h3>
             <h4>Integration Checklist</h4>
             <p>Basic Technical Integration takes place in five steps:</p>
             <ul>
               <li>Create your account in the Publisher Dashboard and await a notification email that your account has been approved.</li>
               <li>Log in to the Publisher Dashboard and submit your billing information.</li>
               <li>Select "Add Application" to add the details of your site and get your Application ID and Application Key.</li>
-              <li>Add the Peanut Labs iframe code to your website.</li>
+              <li>Add the Peanut Labs Reward Center integration code to your website or application code</li>
               <li>Configure your callback script to receive notifications from Peanut Labs.</li>
             </ul>
             <p>All of the above can be done in an afternoon or less. If you have questions please don't hesitate to contact us:<br>
@@ -123,7 +131,6 @@
             <p>Before you can hit the "Save" button, you'll need to enter an Application Name, your processing script, name your virtual currency, set your virtual-currency-to-USD exchange rate, and set an optional Screenout Reward (0 must be entered if you do not want to give users a small reward for disqualifying from a survey).</p>
             <ul>
               <li><strong>Application Name</strong> - This is the name of your application in our system. It is for internal use only, users will not see this name.</li>
-              <!--<li><strong>Enter the URL of your site</strong> - This is where we can go to see our iFrame placement. Users will not be able to see this.</li>-->
               <li><strong>Processing Script</strong> - This is the URL where we will send automatic notifications to each time one of your users is rewarded.<br>
 				<small><strong>Note:</strong> The http(s) protocol is required for the script to work properly. We highly recommend using the secure protocol. </small>
               
@@ -135,7 +142,7 @@
                   <li><strong>Rounding</strong> = We round currency rewards based on standard rounding rules of integers. If a payout is equivalent to 1.5 virtual currency points, we will reward 2 points. If a payout is 1.49 virtual currency points, we will reward 1 point.</li>
                 </ul>
               </li>
-              <li><strong>iFrame Colors</strong> - Here you can customize the color scheme of our iFrame. You may upload your Currency Icon as well as Company Icon. If you do not choose to customize the iFrame, the default scheme will be used.</li>
+              <li><strong>Reward Center Colors</strong> - Here you can customize the color scheme of our Reward Center. You may upload your Currency Icon as well as Company Icon. If you do not choose to customize the Reward Center, the default scheme will be used.</li>
               <li><strong>Screenout Reward </strong>- If a user is screened out, you can thank them with some virtual currency  and encourage the user to try again. Peanut Labs does not pay for this reward,  but many publishers chose to set a reward to help foster a positive user  experience. Learn more about <a href="http://publisherfaq.peanutlabs.com/what-is-a-screenout-reward/" target="_blank">Screenout Rewards</a>. If you  prefer not to have one, set the Screenout Reward to &ldquo;0&rdquo;.</li>
             </ul>
           </div>
@@ -179,24 +186,23 @@
         </div>
         <!--Get Application--> 
         
-        <!--Embed-->
+        <!--Integrate iframe-->
         <div class="section" id="iframe-embed">
           <div class="span6">
-            <h4>Integrate our iFrame</h4>
-            <p>The DOB and sex parameters are optional, but strongly encouraged. They help us with offer targeting for first time users, and enable us to show users  more videos and high quality offers.</p>
-            <p>The width and height iframe attributes determine the size of our iframe in your app. Our standard layout is flexible, but will break down if it is much narrower than 650px.</p>
-            <p>$userId is a placeholder for a Peanut Labs encoded user ID.</p>
+            <h4>Integrate our Reward Center</h4>
+            <p>Our Reward Center can be integrated via HTML or iOS. On iOS, at the moment we only support iPad applications, but will be supporting the full array of iOS devices soon.</p>
+			<p>In the following sections, we will walk you through the process by which a Reward Center's URL is generated, after which we will dive in to the syntax for HTML and iOS which you can then use to integrate the Reward Center in to your application.</p>
           </div>
           <div class="span6 column2">
-            <h6>Call the following URL inside an IFRAME (URL parameters are case sensitive):</h6>
-            <code> &lt;iframe<br>
-            src="http://www.peanutlabs.com/userGreeting.php?userId=$userId&dob=MM-DD-YYYY&sex=X"<br>
-            width="880" height="2500" frameborder="0" scrolling="no"&gt;<br>
-            &lt;/iframe&gt; </code> </div>
+            <h6></h6>
+            <code></code>
+          </div>
         </div>
-        <div class="section">
+        
+        <!--Get User ID-->
+        <div class="section" id="iframe-getuserid">
           <div class="span6">
-            <h4>Generating the Required Peanut Labs 'userId' Parameter</h4>
+            <h4>Generating the Peanut Labs userId</h4>
             <p><strong>Sample userId:</strong> 11701396-600-cbc2104c7a consists of three parts:</p>
             <ul>
               <li>endUserId: (ex. 11701396) the user’s id within your  system (alphanumeric)</li>
@@ -210,31 +216,34 @@
             <p>Take the same endUserId and Peanut Labs applicationId as above but also add your Peanut Labs applicationKey.</p>
             <p>You will take the first 10 characters of the MD5 hash of endUserId, applicationId and applicationKey concatenated.</p>
             <p>Make sure the md5 hash returned is all lower-case.</p>
-            <p>Generating the userGo is typically the most difficult part of hosting the IFRAME. If you're having trouble: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a> and cc your Account  Manager (the person who contacted you to activate your account).</p>
+            <p>Generating the userGo is typically the most difficult part of hosting the Reward Center. If you're having trouble: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a> and cc your Account Manager (the person who contacted you to activate your account).</p>
 </div>
           <div class="span6 column2">
             <h6></h6>
             <code></code> </div>
         </div>
-        <div class="section">
+        <!--Get User ID-->
+        
+        <!--Integrate Optional Para-->
+        <div class="section" id="iframe-optionalpara">
           <div class="span6">
-            <h4>Revenue Maximizing Optional Parameters (~30% improvement with valid data)</h4>
-            <p>If you have these variables available it will help our offer targeting immensely. Important: it’s better to omit these if you don’t have accurate data.<br>
-              <strong>dob:</strong> MM-DD-YYYY user’s complete date of birth<br>
+            <h4>Parameters to Maximize Revenue</h4>
+            <p>You can increase your revenue potential by up to 30% by providing these optional variables. These help us offer better suited reward opportunities to users. Note, that however it is better to omit these values if you don’t have accurate information, as inaccurate information will lead to negative results.<br><br>
+              <strong>dob:</strong> User’s complete date of birth in the MM-DD-YYYY format<br>
               <strong>sex:</strong> 1 for male, 2 for female</p>
           </div>
           <div class="span6 column2">
             <h6></h6>
             <code></code> </div>
         </div>
-        <!--Embed--> 
+        <!--Integrate Optional Para-->
         
-        <!--custom-->
+        <!--custom URL Para-->
         <div class="section" id="iframe-custom">
           <div class="span6">
             <h4>Custom URL Parameters</h4>
             <p>Before using a custom parameter please contact your account manager. There are some specific behaviors for this system that may not match your expectations.</p>
-            <p>You can add your own custom parameters to the IFRAME SRC. Define your parameter name in 'var_key_X' and parameter value in 'var_val_X' (where X can be 1, 2,3). You may chain 3 custom parameters.</p>
+            <p>You can add your own custom parameters to the Reward Center SRC. Define your parameter name in 'var_key_X' and parameter value in 'var_val_X' (where X can be 1, 2,3). You may chain 3 custom parameters.</p>
           </div>
           <div class="span6 column2">
             <h6>Example Custom Parameters:</h6>
@@ -246,29 +255,115 @@
             Would give you the following in the post back:<br>
             &firstname=bob&lastname=smith </code> </div>
         </div>
-        <!--custom--> 
+        <!--custom URL Para-->      
         
         <!--more-->
         <div class="section" id="iframe-more">
           <div class="span6">
-            <h4>More iframe Parameters</h4>
-            <p>Over the last three years we have built a number of additional parameters. If there is something you want our iframe to do, there is a good chance we've already created a parameter to handle it. Please drop us a line at: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
-            <p>Questions about required, optional, or custom IFRAME URL Parameters?<br>
+            <h4>More URL Parameters</h4>
+            <p>Over the last three years we have built a number of additional parameters. If there is something you want our Reward Center to do, there is a good chance we've already created a parameter to handle it. Please drop us a line at: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
+            <p>Questions about required, optional, or custom Reward Center URL Parameters?<br>
               Ask: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a> and cc your Account  Manager.</p>
           </div>
           <div class="span6 column2">
             <h6></h6>
             <code> </code> </div>
         </div>
-        <!--more--> 
+        <!--more-->           
+
+        <!--Integrate HTML-->
+        <div class="section" id="iframe-embed-html">
+          <div class="span6">
+            <h4>Integrating for HTML</h4>
+            <p>The DOB and sex parameters are optional, but strongly encouraged. They help us with offer targeting for first time users, and enable us to show users  more videos and high quality offers.</p>
+            <p>The width and height Reward Center attributes determine the size of our Reward Center in your app. Our standard layout is flexible, but will break down if it is much narrower than 650px.</p>
+            <p>$userId is a placeholder for a Peanut Labs encoded User ID.</p>
+          </div>
+          <div class="span6 column2">
+            <h6>Call the following URL inside an iFrame (URL parameters are case sensitive):</h6>
+            <code> &lt;iframe<br>
+            src="http://www.peanutlabs.com/userGreeting.php?userId=$userId&dob=MM-DD-YYYY&sex=X"<br>
+            width="880" height="2500" frameborder="0" scrolling="no"&gt;<br>
+            &lt;/iframe&gt; </code> </div>
+        </div>
+        <!--Integrate HTML-->
+        
+        <!--Integrate iOS-->
+        <div class="section" id="iframe-embed-ios">
+          <div class="span6">
+            <h4>Integrating for iOS</h4>
+            <p>A Peanut Labs iOS SDK is provided via Github containing Objective-C code files. These files need to be added to your project, ideally inside a group.</p>
+			<p><a href="https://github.com/peanut-labs/publisher-ios-sdk" target="_blank"><strong>The SDK can be downloaded here</strong></a>. Once the SDK has been added to your project, follow the steps on the right.</p>
+            <small><strong>Note:</strong> The first version of Peanut Labs SDK assumes ARC support and would not work if you don’t have ARC enabled. This will be supported in a future version soon.</small>
+          </div>
+          <div class="span6 column2">
+
+        <ol>
+        	<li>
+        	  <h6><a href="#iframe-getuserid">Generate the Peanut Labs User ID</a> on your server side and pass that on to the client side app.</h6></li>
+			
+            <li><h6>In the view controller which will have the action for the Reward Center button, place the following import statement:</h6>
+                <code>
+                    #import "PeanutLabsManager.h"
+                </code>
+        	</li>
+	        <li><h6>In the same view controller, use the following code to initialize and open the rewards center:</h6>
+                <code>
+                    PeanutLabsManager *plManager = [PeanutLabsManager getInstance];<br>
+                    plManager.delegate = self; #optional<br>
+                    [plManager setUserId:@"USER_ID_HERE"];<br>
+                    [plManager openRewardsCenter];<br>
+                </code>
+			</li>
+			<li><h6>Your view controller needs to implement the PeanutLabsManagerDelegate delegate in order to perform actions on the opening and closing of the rewards center.</h6>
+            <code>
+                - (void)peanutLabsManager:(PeanutLabsManager *)peanutlabsManager<br>
+                rewardsCenterDidOpen:(NSString *)userId {
+                <span>
+                <small>//Do things like stop sound</small><br>
+                NSLog(@"Rewards center opened");</span>
+                }
+            <br>
+                - (void)peanutLabsManager:(PeanutLabsManager *)peanutlabsManager<br>
+                rewardsCenterDidClose:(NSString *)userId {
+                <span>
+                <small>//Resume sound</small><br>
+                NSLog(@"Back from the Rewards center");</span>
+                }
+            </code>
+			</li>
+		</ol>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="span6">
+            <small>
+                <strong>Note:</strong> We recommend generating userId on the server side and passing it to the client side since placing the Peanut Labs Application Key on the app itself
+                can be prone to exposure. However, if you must generate the userId client side, the SDK offers a method to make it easier to do so but if you use that, you
+                must use the Transaction Key in addition to Application Key to validate all reward callbacks.
+            </small>
+          </div>
+          <div class="span6 column2">
+				<code>
+                <span>
+                [plManager setAppId:1111];<br>
+                [plManager setAppKey:@"APP_KEY_HERE"];<br>
+                [plManager setEndUserId:@"END_USER_ID_HERE"];
+                </span>
+                </code>          	  
+          </div>
+        </div>
+     
+        <!--Integrate iOS-->
         
         
         <div class="section" id="iframe-customize">
           <div class="span6">
-            <h4>Customize your iframe</h4>
-            <p>You may customize the look of your iframe in Application Setup.</p>
+            <h4>Customize your Reward Center</h4>
+            <p>You may customize the look of your Reward Center in Application Setup.</p>
             <p class="text-center"><img src="img/editcolors.png" alt="" /></p>
-            <p>Here you can choose the palatte of your iframe if you’d like the color scheme to be consistent with your website. You may also upload both a currency and company icon. GIF, PNG, JPEG, and JPG are all acceptable types of images that may be uploaded. An image that is large in size will take longer to upload so we recommend your image be no larger than 300KB.  If you do not wish to customize your iframe, the default color palatte you see will be the one used.</p>
+            <p>Here you can choose the palette of your Reward Center if you’d like the color scheme to be consistent with your website or application. You may also upload both a currency and company icon. GIF, PNG, JPEG, and JPG are all acceptable types of images that may be uploaded. An image that is large in size will take longer to upload so we recommend your image be no larger than 300KB.  If you do not wish to customize your Reward Center, the default color palette you see will be the one used.</p>
             
             <p class="text-center"><img src="img/editcolors2.png" alt="" /></p>
           </div>
@@ -323,7 +418,7 @@
             </h6>
             <p>Upon successfully processing the user’s reward, your callback script should respond with:<br>
               <strong>1:</strong> acknowledged. Notification successfully processed.<br>
-              <strong>0:</strong> user doesn’t exist or reward not successfully awarded for some other reason<br>
+              <strong>0:</strong> user does not exist or reward not successfully awarded for some other reason<br>
               Your script should simply return 0 or 1. Any other markup will cause Peanut Labs to assume 0.<br>
             </p>
             <p>The notification will be retried up to 5 times. If you are receiving multiple callbacks from Peanut Labs for the same transaction the most likely reason is we are not getting a '1' response from you.</p>
@@ -569,8 +664,8 @@
               </tr>
               <tr>
                 <td>count</td>
-                <td>The number of surveys or offers avaliable for the user. <br>
-<strong>Note:</strong> Users have a daily limit of 15 survey attempts per day and a maximum of 9 surveys per iframe load, so these will affect the count returned in the surveys object</td>
+                <td>The number of surveys or offers available for the user. <br>
+<strong>Note:</strong> Users have a daily limit of 15 survey attempts per day and a maximum of 9 surveys per Reward Center load, so these will affect the count returned in the surveys object</td>
               </tr>
               <tr>
                 <td>total_reward</td>

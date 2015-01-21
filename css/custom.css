@@ -136,7 +136,8 @@ code{ white-space:normal !important;}
 	margin-left:15px !important;
 }
 
-.section ul li{
+.section ul li,
+.section ol li{
 	margin:6px 0;
 	line-height:23px;
 }
@@ -352,6 +353,14 @@ small{
 
 .content .section h3{
 	letter-spacing:1px;
+}
+
+/* to create a custom grid for ios code and content*/
+.custom-col{
+	background-image:none !important;
+	box-shadow:none !important;
+	padding-top:5px !important;
+	padding-bottom:5px !important;
 }
 
 /*Responsive*/
