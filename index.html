@@ -31,6 +31,7 @@
             <li><a href="#iframe-more">More URL Parameters</a></li>
             <li><a href="#iframe-embed-html">Integrating for HTML</a></li>
             <li><a href="#iframe-embed-ios">Integrating for iOS</a></li>
+            <li><a href="#iframe-embed-android">Integrating for Android</a></li>
             <li><a href="#iframe-customize">Customize your Reward Center</a></li>
             <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
             <li><a href="#iframe-testing">Callback Testing</a></li>
@@ -68,6 +69,7 @@
             <li><a href="#iframe-more">More URL Parameters</a></li>
             <li><a href="#iframe-embed-html">Integrating for HTML</a></li>
             <li><a href="#iframe-embed-ios">Integrating for iOS</a></li>
+            <li><a href="#iframe-embed-android">Integrating for Android</a></li>
             <li><a href="#iframe-customize">Customize your Reward Center</a></li>
             <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
             <li><a href="#iframe-testing">Callback Testing</a></li>
@@ -357,6 +359,76 @@
      
         <!--Integrate iOS-->
         
+        <!--Integrate Android-->
+        <div class="section" id="iframe-embed-android">
+          <div class="span6">
+            <h4>Integrating for Android</h4>
+            <p>A Peanut Labs Android SDK is provided via Github containing the source code in android library project. The library needs to be added to your project. We support android 4.1+ (Jelly Bean and above). <a href="#"><strong>The Android SDK can be downloaded here</strong></a>. After adding the library reference to your project, implement the following technical steps.</p>
+          </div>
+          <div class="span6 column2">
+
+        <ol>
+        	<li>
+        	  <h6><a href="#iframe-getuserid">Generate the Peanut Labs User ID</a> on your server side and pass that on to the client side app.</h6></li>
+			
+            <li><h6>In the Activity which will have the action for the Reward Center button, place the following import statement:</h6>
+                <code>
+                    import com.peanutlabs.plsdk.*;
+                </code>
+        	</li>
+	        <li><h6>In the same Activity, use the following code to initialize and open the rewards center:</h6>
+                <code>
+                    PeanutLabsManager plManager = PeanutLabsManager.getInstance();<br>
+                    plManager.setRewardsCenterEventsHandler(this); #optional<br>
+                    plManager.setUserId("USER_ID_HERE");<br>
+                    plManager.openRewardsCenter(this);
+                </code>
+			</li>
+			<li><h6>Your Activity needs to implement the PlRewardsCenterEventsHandler interface in order to perform actions on the opening and closing of the rewards center.</h6>
+            <code>
+                @Override<br>
+                public void onRewardsCenterOpened() {
+                <span>
+                <small>//Do things like stop sound</small><br>
+                Log.d("PLSDK", "Rewards center opened");</span>
+                } 
+
+            <br>
+                @Override<br>
+                public void onRewardsCenterClosed() {
+                <span>
+                <small>//Resume sound</small><br>
+                Log.d("PLSDK", "Back from the Rewards center");
+                </span>
+                }
+
+            </code>
+			</li>
+            <li><h6>Declare the Reward Center Activity in your AndroidManifest.xml under the application section.</h6>
+            <code>
+                &lt;activity android:name="com.peanutlabs.plsdk.RewardsCenterActivity"<br>
+					<span>android:configChanges="keyboard|keyboardHidden|screenSize|orientation"> </span>
+				&lt;/activity&gt;
+            </code>
+			</li>
+		</ol>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="span6">
+            <small>
+                <strong>Note:</strong> We recommend generating userId on the server side and passing it to the client side since placing the Peanut Labs Application Key on the app itself can be prone to exposure. However, if you must generate the userId client side, the SDK offers a method to make it easier to do so but if you use that, you must use the Transaction Key in addition to Application Key to validate all reward callbacks.
+            </small>
+          </div>
+          <div class="span6 column2">
+				<code>
+                    plManager.setApplicationId(1111);<br>
+                    plManager.setApplicationKey("APP_KEY_HERE");<br>
+                    plManager.setEndUserId(“END_USER_ID_HERE”);
+                </code>          	  
+          </div>
+        </div>
         
         <div class="section" id="iframe-customize">
           <div class="span6">
