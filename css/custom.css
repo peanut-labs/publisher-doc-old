@@ -188,6 +188,9 @@ code{ white-space:normal !important;}
 .section .column2 p{
 	font-family: "Lucida Console", Monaco, monospace;
 }
+.section .column2 p.copy{
+	font-family: 'Source Sans Pro', sans-serif;
+}
 
 .section .column2 h5{
 	font-family: "Lucida Console", Monaco, monospace;
