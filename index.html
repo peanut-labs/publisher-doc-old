@@ -32,6 +32,7 @@
             <li><a href="#iframe-embed-html">Integrating for HTML</a></li>
             <li><a href="#iframe-embed-ios">Integrating for iOS</a></li>
             <li><a href="#iframe-embed-android">Integrating for Android</a></li>
+            <li><a href="#iframe-embed-unity">Integrating for Unity</a></li>
             <li><a href="#iframe-customize">Customize your Reward Center</a></li>
             <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
             <li><a href="#iframe-testing">Callback Testing</a></li>
@@ -70,6 +71,7 @@
             <li><a href="#iframe-embed-html">Integrating for HTML</a></li>
             <li><a href="#iframe-embed-ios">Integrating for iOS</a></li>
             <li><a href="#iframe-embed-android">Integrating for Android</a></li>
+            <li><a href="#iframe-embed-unity">Integrating for Unity</a></li>
             <li><a href="#iframe-customize">Customize your Reward Center</a></li>
             <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
             <li><a href="#iframe-testing">Callback Testing</a></li>
@@ -481,6 +483,62 @@
                 </code>          	  
           </div>
         </div>
+        <!--Integrate Android-->
+        
+        
+        <!--Integrate Unity-->
+        <div class="section" id="iframe-embed-unity">
+          <div class="span6">
+            <h4>Integrating for Unity</h4>
+            <p>Our Plugin allows you to launch the Peanut Labs Reward Center as an overlay on top of you application from anywhere within the application. We recommend using our Plugin because it comes with the basic navigation controls a user would need to go between, surveys, offers and our Reward Center. A Peanut Labs <a href="https://github.com/peanut-labs/publisher-unity-sdk" target="_blank" alt="Unity iOS and Android Plugin">Unity iOS and Android Plugin</a> is provided via Github containing the publisher_unity_sdk.unitypackage file. This package needs to be imported into your project. </p>
+            
+            <p>We support all Android devices 4.1+ (Jelly Bean and above) and all iOS devices except those below iPhone 4.</p>
+            
+          </div>
+          <div class="span6 column2">
+
+        <ol>
+        	<li>
+        	  <h6><a href="#iframe-getuserid">Generate the Peanut Labs User ID</a> on your server side and pass that on to the client side app.</h6></li>
+			
+            <li><h6>Import publisher_unity_sdk.unitypackage into your project:<br></h6>
+            	<code>
+                	From Unity go to Assets menu → Import package → Custom package → choose our unity package. 
+                </code>
+        	</li>
+	        <li><h6>Once you imported our package make sure our plugin files are in your project structure:</h6>
+                <code>
+                    Project_path/Plugins/PeanutLabsManager.cs<br>
+					Project_path/Plugins/iOS/PeanutLabsManagerWrapper<br>
+					Project_path/Plugins/SDK/*  IF Android<br>
+					Project_path/Plugins/PeanutLabsManager.cs<br>
+					Project_path/Plugins/Android/AndroidManifest<br>
+					Project_path/Plugins/Android/plsdk Project_path/Plugins/res/*
+                </code>
+			</li>
+			<li><h6>Open Rewards Center with User Id:</h6>
+            <code>
+                PeanutLabsManager.openRewardsCenterWithUserId(“USER_ID_HERE”);
+            </code>
+			</li>
+		</ol>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="span6">
+            <small>
+                <strong>Note:</strong> Our Plugin will not show you the results you expect unless you build it and run it in an iOS or Android environment simulator or device. Simply open the ExamplePublisher.cs file and see example calls of opening our Reward Center package within our Unity package.
+            </small>
+          </div>
+          <div class="span6 column2">
+				<code>
+                </code>          	  
+          </div>
+        </div>
+        <!--Integrate Unity-->
+        
+        
         
         <div class="section" id="iframe-customize">
           <div class="span6">
