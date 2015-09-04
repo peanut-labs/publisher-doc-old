@@ -391,11 +391,6 @@
                 <strong>Note:</strong> We recommend generating userId on the server side and passing it to the client side since placing the Peanut Labs Application Key on the app itself
                 can be prone to exposure. However, if you must generate the userId client side, the SDK offers a method to make it easier to do so but if you use that, you
                 must use the Transaction Key in addition to Application Key to validate all reward callbacks.
-            </small><br>
-<br>
-
-            <small>
-            <strong>For iOS 9:</strong> Apple has introduced a new feature in iOS 9 called App Transport Security. This introduces a default setting requiring all connections between your App and Web services to be made using at least TLS 1.2 (Transport Layer Security). In order to ensure the Peanut Labs iOS SDK functions correctly, please disable ATS.
             </small>
           </div>
           <div class="span6 column2">
@@ -404,6 +399,24 @@
                 [plManager setAppId:1111];<br>
                 [plManager setAppKey:@"APP_KEY_HERE"];<br>
                 [plManager setEndUserId:@"END_USER_ID_HERE"];
+                </span>
+                </code>          	  
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="span6">
+            <small>
+            <strong>For iOS 9:</strong> Apple has introduced a new feature in iOS 9 called App Transport Security. This introduces a default setting requiring all connections between your App and Web services to be made using at least TLS 1.2 (Transport Layer Security). In order to ensure the Peanut Labs iOS SDK functions correctly, please disable ATS.
+            </small>
+          </div>
+          <div class="span6 column2">
+				<code>
+                <span>
+                &lt;dict&gt;<br>
+                <span>&lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;<br>
+                &lt;true/&gt;</span>
+				&lt;/dict&gt;
                 </span>
                 </code>          	  
           </div>
