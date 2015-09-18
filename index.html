@@ -407,16 +407,19 @@
         <div class="section">
           <div class="span6">
             <small>
-            <strong>For iOS 9:</strong> Apple has introduced a new feature in iOS 9 called App Transport Security. This introduces a default setting requiring all connections between your App and Web services to be made using at least TLS 1.2 (Transport Layer Security). In order to ensure the Peanut Labs iOS SDK functions correctly, please disable ATS.
-            </small>
+            <strong>For iOS 9:</strong> Apple has introduced a new feature in iOS 9 called App Transport Security. This introduces a default setting requiring all connections between your App and Web services to be made using at least TLS 1.2 (Transport Layer Security). In order to ensure the Peanut Labs iOS SDK functions correctly, please disable ATS.<br>
+<br>
+You can do so by adding the following to your Apps Info.plist.
+</small>
           </div>
           <div class="span6 column2">
-				<code>
+          	<code>
                 <span>
+                &lt;key&gt;NSAppTransportSecurity&lt;/key&gt;<br>
                 &lt;dict&gt;<br>
                 <span>&lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;<br>
                 &lt;true/&gt;</span>
-				&lt;/dict&gt;
+                &lt;/dict&gt;
                 </span>
                 </code>          	  
           </div>
