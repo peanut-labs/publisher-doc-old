@@ -34,6 +34,8 @@
       <li><a href="#iframe-embed-ios">Integrating for iOS</a></li>
       <li><a href="#iframe-embed-android">Integrating for Android</a></li>
       <li><a href="#iframe-embed-unity">Integrating for Unity</a></li>
+      <li><a href="#iframe-embed-marmalade">Integrating for Marmalade</a></li>
+      <li><a href="#iframe-embed-cordova">Integrating for Cordova</a></li>
       <li><a href="#iframe-customize">Customize your Reward Center</a></li>
       <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
       <li><a href="#iframe-testing">Callback Testing</a></li>
@@ -72,6 +74,8 @@
             <li><a href="#iframe-embed-ios">Integrating for iOS</a></li>
             <li><a href="#iframe-embed-android">Integrating for Android</a></li>
             <li><a href="#iframe-embed-unity">Integrating for Unity</a></li>
+            <li><a href="#iframe-embed-marmalade">Integrating for Marmalade</a></li>
+      		<li><a href="#iframe-embed-cordova">Integrating for Cordova</a></li>
             <li><a href="#iframe-customize">Customize your Reward Center</a></li>
             <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
             <li><a href="#iframe-testing">Callback Testing</a></li>
@@ -625,6 +629,123 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
           <div class="span6 column2"> </div>
         </div>
         <!--Integrate Unity-->
+        
+        <!--Integrate Marmalade-->
+        <div class="section" id="iframe-embed-marmalade">
+          <div class="span6 column1">
+            <h4>Integrating for Marmalade</h4>
+            <p>Our SDK allows you to integrate our Reward Center within your Marmalade application for iOS. The marmalade extension only supports iPhone at the moment, though we do plan on supporting Android in the near future. This is the first Beta release so if you see any issues, please use the Github issues to report them. The SDK and further instructions can be found <a href="https://github.com/peanut-labs/publisher-marmalade-sdk" target="_blank"><strong>here</strong></a>.</p>
+          </div>
+          <div class="span6 column2">
+            <ol>
+              <li>
+                <p class="text">Clone the following github repository.</p>
+              </li>
+              <li>
+                <p class="text">Include the subproject "peanutlabs" in your project's MKB file, for example:</p>
+                <p class="code">
+                	<span class="yellow">
+                		subprojects<br>
+                        {<br>
+                        &nbsp;&nbsp;iwutil<br>
+                        &nbsp;&nbsp;/path/to/this/repo/peanutlabs<br>
+                        }
+                	</span>
+                </p>
+              </li>
+              <li>
+                <p class="text">Include the extension header's file in your source code.</p>
+              </li>
+              <li>
+                <p class="text">Call the method "openRewardCenter" with the generated userID as a parameter. Example:</p>
+                <p class="code">
+                    <span class="yellow">
+                    	openRewardsCenter("END_USER_ID-APPID-HASH")
+                    </span>
+                </p>
+              </li>
+              <li>
+                <p class="text">You will need the following application plist file in order for the system to work for iOS 9:</p>
+                <p class="code">
+                    <span class="yellow">
+                    	&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;<br>
+                        &nbsp;&nbsp;&lt;dict&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;true/&gt;<br>
+                        &nbsp;&nbsp;&lt;/dict&gt;
+                    </span>
+                </p>
+              </li>
+              <li>
+                <p class="text">Run peanutlabs_android.mkb and then peanutlabs_android_java.mkb to build android extensions.</p>
+              </li>
+              <li>
+                <p class="text">You will need the following activity to your Manifest.xml file in order to run android application with the reward center:</p>
+                <p class="code">
+                    <span class="yellow">
+                    	&lt;activity<br>
+                        &nbsp;&nbsp;android:name="com.peanutlabs.plsdk.RewardsCenterActivity"<br>
+                        &nbsp;&nbsp;android:configChanges="keyboard|keyboardHidden|screenSize|orientation"<br>
+                        &nbsp;&nbsp;android:label="@string/title_activity_rewards_center" &gt;<br>
+                        &lt;/activity&gt;
+                    </span>
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <!--Integrate Marmalade-->
+        
+        <!--Integrate Cordova-->
+        <div class="section" id="iframe-embed-cordova">
+          <div class="span6 column1">
+            <h4>Integrating for Cordova</h4>
+            <p>Our SDK allows you to integrate our Reward Center within your Cordova application for Android. The Cordova Plugin only supports Android at the moment, though we do plan on supporting iPhone in the near future. If you see any issues, please use the Github issues to report them. The SDK and further instructions can be found <a href="https://github.com/peanut-labs/publisher-marmalade-sdk" target="_blank"><strong>here</strong></a>.</p>
+          </div>
+          <div class="span6 column2">
+            <ol>
+              <li>
+                <p class="text">To add plugin:</p>
+                <p class="code">
+                	<span class="yellow">
+                		cordova plugin add https://github.com/peanut-labs/publisher-cordova-plugin.git
+                	</span>
+                </p>
+              </li>
+              <li>
+                <p class="text">To remove plugin:</p>
+                <p class="code">
+                	<span class="yellow">
+                		cordova plugin remove PeanutlabsLib
+                	</span>
+                </p>
+              </li>
+              <li>
+                <p class="text">Include the following line in your js file where you want to use our plugin:</p>
+                <p class="code">
+                    <span class="yellow">
+                        &lt;script type="text/javascript" src="plugins/PeanutlabsLib/www/peanutplugin.js"&gt;&lt;/script&gt; 
+                    </span>
+                </p>
+              </li>
+              <li>
+                <p class="text">Call the following methods with appropriate parameters to open Reward Center:</p>
+                <p class="code">
+                    <span class="yellow">
+                    	PeanutlabsPlugin.openRewardsCenterWithAppId(YOUR_APP_ID, YOUR_APP_KEY, USER_ID, YOUR_DOB, GENDER, CUSTOM_PARAM, success, error);
+                        <br>
+                        <br>
+                        PeanutlabsPlugin.openRewardsCenterWithAppId(YOUR_GENERATED_USER_ID, YOUR_DOB, GENDER, CUSTOM_PARAM, success, error);
+                    </span>
+                </p>
+              </li>
+              <li>
+              	<p class="text">See example project in github for more details.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <!--Integrate Cordova-->
         
         <div class="section" id="iframe-customize">
           <div class="span6 column1">
