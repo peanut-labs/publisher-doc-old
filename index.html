@@ -19,7 +19,7 @@
   <div id="nav" class="collapse out">
     <ul class="nav nav-list">
       <li>
-        <h5><a href="#iframe-checklist">Peanut Labs Integration Guide</a></h5>
+        <h5><a href="#iframe-checklist">Reward Center Integration Guide</a></h5>
       </li>
       <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
       <li><a href="#iframe-create">Create Account</a></li>
@@ -59,7 +59,7 @@
       <div class="logo"><a href="index.html" title="Peanut Labs Monetization API"><img src="img/logo.png" alt="Peanut Labs" title="Peanut Labs Monetization API"></a></div>
       <ul class="nav nav-list accordion" id="accordion2">
         <li>
-          <h4>Peanut Labs Integration Guide </h4>
+          <h4><a href="#collapseOne" class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion2">Reward Center Integration Guide</a></h4>
           <ul id="collapseOne" class="collapse in">
             <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
             <li><a href="#iframe-create">Create Account</a></li>
@@ -101,7 +101,7 @@
         <!--Pub integration -->
         <div class="section" id="iframe-checklist">
           <div class="span6 column1">
-            <h3 id="iframeintegrationguide">Peanut Labs Integration Guide</h3>
+            <h3  id="iframeintegrationguide">Reward Center Integration Guide</h3>
             <h4>Integration Checklist</h4>
             <p>Basic technical integration takes place in five steps:</p>
             <ul class="text">
@@ -144,7 +144,7 @@
                 <li class="method-list-item">
                   <h3>Processing Script</h3>
                   <p>This is the URL where we will send automatic notifications to each time one of your users is rewarded.</p>
-                  <div class="alert"><i class="fa fa-info-circle"></i> The http or https protocol is required for the script to work properly. We highly recommend using a secure protocol.</div>
+                  <div class="alert"><i class="fa fa-info-circle"></i> You must include http or https in your processing script URL for it to work properly. We highly recommend you to use https.</div>
                   <div class="clearfix"></div>
                 </li>
                 <li class="method-list-item">
@@ -156,6 +156,7 @@
                   <h3>Exchange Rate</h3>
                   <p>How many points is a dollar worth? Currency rewards to your users will always be an integer (positive for a successful transaction, negative if a transaction must be reversed). However, your net revenue is a floating point value. This means a higher exchange rate will reduce the rounding error when we convert your net revenue to an integer for the currency reward. Confused? It's a common question; the virtual currency rewarded to the user follows this formula:</p>
                   <p><code class="color red">Currency Reward = Your Net Revenue * Your Currency Exchange Rate</code></p>
+                  <p>However if you would like to give non-integer currency rewards to your users, please email us and we will support a floating point currency reward amount for you.</p>
                   <div class="alert"><i class="fa fa-info-circle"></i> We round currency rewards based on standard rounding rules for integers. If a payout is equivalent to 1.5 virtual currency points, we will reward 2 points. If a payout is 1.49 virtual currency points, we will reward 1 point.</div>
                   <div class="clearfix"></div> 
                 </li>
@@ -166,7 +167,7 @@
                 </li>
                 <li class="method-list-item">
                   <h3>Screenout Reward</h3>
-                  <p>If a user is screened out, you can thank them with some virtual currency  and encourage the user to try again. Peanut Labs does NOT pay for this reward,  but many publishers chose to set a reward to help foster a positive user  experience. Learn more about <a href="http://publisherfaq.peanutlabs.com/what-is-a-screenout-reward/" target="_blank">Screenout Rewards</a>. If you  prefer not to have one, set the Screenout Reward to 0.</p>
+                  <p>If a user is screened out, you can thank them with some virtual currency  and encourage the user to try again. Peanut Labs does NOT pay for this reward,  but many publishers choose to set a reward to help foster a positive user  experience. Learn more about <a href="http://publisherfaq.peanutlabs.com/what-is-a-screenout-reward/" target="_blank">Screenout Rewards</a>. If you  prefer not to have one, set the Screenout Reward to 0.</p>
                   <div class="clearfix"></div>
                 </li>
               </ul>
