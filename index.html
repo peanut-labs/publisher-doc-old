@@ -775,7 +775,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
             <h3>Direct Link</h3>
             <h4>Overview</h4>
             <p>Direct Link integration allows you to send your users to Peanut Labs using URL redirect. Peanut Labs will show a survey to your user and you will be rewarded for on survey completes.</p>
-            <p>In its simplest, form integrating with Direct Link is as simple as redirecting your user to Peanut Labs on click of a button or any placeholder of your choosing. Additionally, you can also pass user’s profile attribute in the query string during user redirect.</p>
+            <p>In its simplest, form integrating with Direct Link is as simple as redirecting your user to Peanut Labs on click of a button or any placeholder of your choosing. You will have to pass your user’s profile attribute in the query string during user redirect.</p>
             <p>&nbsp;</p>
             <div class="method-list">
               <ul class="method-list-group">
@@ -793,13 +793,13 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
             <ul class="method-list-group">
               <li class="method-list-item">
                 <h3>pub_id<br>
-                  <span class="label-badge orange">required</span></h3>
+                  <span class="label-badge orange">mandatory</span></h3>
                 <p>Your Application Id</p>
                 <div class="clearfix"></div>
               </li>
               <li class="method-list-item">
                 <h3>user_id<br>
-                  <span class="label-badge orange">required</span></h3>
+                  <span class="label-badge orange">mandatory</span></h3>
                 <p>Three part user id. See <a href="#iframe-getuserid">Generating the Peanut Labs user id</a>.</p>
                 <p>&nbsp;</p>
                 <div class="clearfix"></div>
@@ -811,12 +811,14 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
                 <div class="clearfix"></div>
               </li>
               <li class="method-list-item">
-                <h3>iv</h3>
+                <h3>iv<br>
+                  <span class="label-badge orange">mandatory</span></h3>
                 <p>A randomly generated salt for encrypting the payload</p>
                 <div class="clearfix"></div>
               </li>
               <li class="method-list-item">
-                <h3>payload</h3>
+                <h3>payload<br>
+                  <span class="label-badge orange">mandatory</span></h3>
                 <p>An encrypted payload to send along your user’s profile.</p>
                 <div class="clearfix"></div>
                 <div class="alert"><em class="fa fa-info-circle"></em> Sending the profile is highly recommended as Peanut Labs will not re-ask those question to your user, thus improving user’s experience.</div>
@@ -989,7 +991,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
               <li>
                 <p class="text">Construct mapped attributes into a JSON payload. For the above sample mapping, the following will be the JSON payload:</p>
                 <p class="code">
-					<span class="yellow">                    {"user_id":"user001-1001-2389d74882","sex":1,"dob":"1990-04-10","postal":"94104","profile_data":{"q122":["qx122-0"],"q159":["qx159-1"],"q102":["qx102-105"],"q158":["qx158-3"],"q101":["qx101-2"],"q157":["3"],"ch-m":["4-2004"],"ch-f":["10-1998","11-1999"]}}
+					<span class="yellow">                    {"user_id":"user001-1001-2389d74882","cc":"US","sex":1,"dob":"1990-04-10","postal":"94104","profile_data":{"q122":["qx122-0"],"q159":["qx159-1"],"q102":["qx102-105"],"q158":["qx158-3"],"q101":["qx101-2"],"q157":["3"],"ch-m":["4-2004"],"ch-f":["10-1998","11-1999"]}}
                     </span>
                 </p>
               </li>
@@ -999,7 +1001,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
                 	<span class="yellow">
 						&lt;?php<br>
 <br>
-                        $jsonPayload = '{"user_id":"user001-1001-2389d74882","sex":1,"dob":"1990-04-10","postal":"94104","profile_data":{"q122":["qx122-0"],"q159":["qx159-1"],"q102":["qx102-105"],"q158":["qx158-3"],"q101":["qx101-2"],"q157":["3"],"ch-m":["4-2004"],"ch-f":["10-1998","11-1999"]}}';<br>
+                        $jsonPayload = '{"user_id":"user001-1001-2389d74882","cc":"US","sex":1,"dob":"1990-04-10","postal":"94104","profile_data":{"q122":["qx122-0"],"q159":["qx159-1"],"q102":["qx102-105"],"q158":["qx158-3"],"q101":["qx101-2"],"q157":["3"],"ch-m":["4-2004"],"ch-f":["10-1998","11-1999"]}}';<br>
 <br>
                         $applicationKey = 'abcdef0123456789abcdef0123456789';<br>
 <br>
