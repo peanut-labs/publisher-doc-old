@@ -24,12 +24,12 @@
       <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
       <li><a href="#iframe-create">Create Account</a></li>
       <li><a href="#integrate-products">Integrating our Products</a></li>
-      <li><a href="#iframe-get">Get Application ID and Key</a></li>
-      <li><a href="#iframe-getuserid">Generating the Peanut Labs userId</a></li>
+      <li><a href="#iframe-get">Application ID and Key</a></li>
+      <li><a href="#iframe-getuserid">Generating userId</a></li>
       
       <li><h5><a href="#iframe-optionalpara">Deploy</a></h5></li>
       <li><a href="#iframe-optionalpara"><strong>Reward Center (iFrame)</strong></a></li>
-      <li><a href="#iframe-optionalpara">Parameters to Maximize Revenue</a></li>
+      <li><a href="#iframe-optionalpara">Maximize Revenue</a></li>
       <li><a href="#iframe-custom">Custom URL Parameters</a></li>
       <li><a href="#iframe-embed-html">Desktop</a></li>
       <li><a href="#ios-nonsdk">iOS</a></li>
@@ -42,15 +42,15 @@
       <li><a href="#mobile-cordova">Cordova</a></li>  
       <li><a href="#direct-link"><strong>Direct Link</strong></a></li>
       <li><a href="#direct-link">Overview</a></li>
-      <li><a href="#iv-payload">Generating iv and payload</a></li>
+      <li><a href="#iv-payload">Sending user profiles</a></li>
       <li><a href="#iframe-callback"><strong>Common Deployment Steps</strong></a></li>
       <li><a href="#callbacktesting">Callback Testing</a></li>    
       <li><a href="#ipwhitelist">IPs to Whitelist</a></li>       
       
       <li><h5><a href="#iframe-customize">Engage</a></h5></li>
       
-      <li><a href="#iframe-customize">Customize your Deployment</a></li>
-      <li><a href="#iframe-importance">Importance of Screenout Reward</a></li>
+      <li><a href="#iframe-customize">Customize Deployments</a></li>
+      <li><a href="#iframe-importance">Screenout Rewards</a></li>
       <li><a href="#overview"><strong>Monetization API</strong></a></li>
       <li><a href="#errorhandling">Error Handling</a></li>
       <li><a href="#methodcampaignssummary">Campaigns Summary</a></li>
@@ -72,8 +72,8 @@
             <li class="active sheading"><a href="#iframe-checklist">Integration Checklist</a></li>
             <li class="sheading"><a href="#iframe-create">Create Account</a></li>
             <li class="sheading"><a href="#integrate-products">Integrating our Products</a></li>
-            <li class="sheading"><a href="#iframe-get">Get Application ID and Key</a></li>
-            <li class="sheading"><a href="#iframe-getuserid" title="Generating the Peanut Labs userId">Generating the Peanut Labs userId</a></li>
+            <li class="sheading"><a href="#iframe-get">Application ID and Key</a></li>
+            <li class="sheading"><a href="#iframe-getuserid" title="Generating userId">Generating userId</a></li>
           </ul>
           </li>
           
@@ -82,7 +82,7 @@
           <h4><a href="#collapseTwo" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3">Deploy</a></h4>
           <ul id="collapseTwo" class="collapse">  
           	<li class="sheading"><a href="#iframe-optionalpara">Reward Center (iFrame)</a></li>
-            <li class="indent"><a href="#iframe-optionalpara" title="Parameters to Maximize Revenue">Parameters to Maximize Revenue</a></li>
+            <li class="indent"><a href="#iframe-optionalpara" title="Maximize Revenue">Maximize Revenue</a></li>
             <li class="indent"><a href="#iframe-custom">Custom URL Parameters</a></li>
             <li class="indent"><a href="#iframe-embed-html">Desktop</a></li>
             <li class="indent"><a href="#ios-nonsdk">iOS</a></li>
@@ -95,7 +95,7 @@
       		<li class="indent"><a href="#mobile-cordova">Cordova</a></li>
             <li class="sheading"><a href="#direct-link">Direct Link</a></li>
             <li class="indent"><a href="#direct-link">Overview</a></li>
-            <li class="indent"><a href="#iv-payload">Generating iv and payload</a></li>
+            <li class="indent"><a href="#iv-payload">Sending user profiles</a></li>
             <li class="sheading"><a href="#iframe-callback">Common Deployment Steps</a></li>  
             <li class="indent"><a href="#callbacktesting">Callback Testing</a></li>    
             <li class="indent"><a href="#ipwhitelist">IPs to Whitelist</a></li> 
@@ -106,8 +106,8 @@
           <li>
           <h4><a href="#collapseThree" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4">Engage</a></h4>
           <ul id="collapseThree" class="collapse">
-            <li class="sheading"><a href="#iframe-customize">Customize your Deployment</a></li>
-            <li class="sheading"><a href="#iframe-importance" title="Importance of Screenout Reward">Importance of Screenout Reward</a></li>
+            <li class="sheading"><a href="#iframe-customize">Customize Deployments</a></li>
+            <li class="sheading"><a href="#iframe-importance" title="Importance of Screenout Reward">Screenout Rewards</a></li>
             <li class="sheading"><a href="#monetization">Monetization API</a></li>
             <li class="indent"><a href="#errorhandling">Error Handling</a></li>
             <li class="indent"><a href="#methodcampaignssummary">Campaigns Summary</a></li>
@@ -128,7 +128,7 @@
             <p>Basic technical integration takes place in five steps:</p>
             <ul class="text">
               <li>Create your account in the <a href="https://www.peanutlabs.com/js/pubdash/bin/" title="Peanut Labs Publisher Dashboard" target="_blank">Publisher Dashboard</a> and await a notification email that your account has been approved.</li>
-              <li>Log in to the Publisher Dashboard and submit your billing information.</li>
+              <li>Log in to the <a href="https://www.peanutlabs.com/js/pubdash/bin/" title="Peanut Labs Publisher Dashboard" target="_blank">Publisher Dashboard</a> and submit your billing information.</li>
               <li>Select <strong>Add Application</strong> to add the details of your site and get your Application ID and Application Key.</li>
               <li>Integrate with Peanut Labs using one or multiple deployments.</li>
               <li>Configure your callback script to receive notifications from Peanut Labs.</li>
@@ -343,7 +343,7 @@
           <div class="span6 column1">
             <h4>Custom URL Parameters</h4>
             <p>Before using a custom parameter please contact your account manager. There are some specific behaviors for this system that may not match your expectations.</p>
-            <p>You can add your own custom parameters to the Reward Center SRC. Define your parameter name in 'var_key_X' and parameter value in 'var_val_X' (where X can be 1, 2,3). You may chain 3 custom parameters.</p>
+            <p>You can add your own custom parameters to the Reward Center SRC. Define your parameter name in <code class="color red">var_key_X</code> and parameter value in <code class="color red">var_key_X</code> (where X can be 1, 2,3). You may chain 3 custom parameters.</p>
           </div>
           <div class="span6 column2">
             <h6>Example Custom Parameters:</h6>
@@ -379,7 +379,7 @@
             <h6>Call the following URL inside an iFrame (URL parameters are case sensitive):</h6>
             <p class="code">
             	<span class="yellow">&lt;iframe
-src="http://www.peanutlabs.com/userGreeting.php?userId=$userId&amp;dob=MM-DD-YYYY&amp;sex=X" width="880" height="2500" frameborder="0" scrolling="no" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"&gt;
+src="https://www.peanutlabs.com/userGreeting.php?userId=$userId&amp;dob=MM-DD-YYYY&amp;sex=X" width="880" height="2500" frameborder="0" scrolling="no" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"&gt;
 &lt;/iframe&gt; </span>
             </p>
           </div>
@@ -396,7 +396,7 @@ src="http://www.peanutlabs.com/userGreeting.php?userId=$userId&amp;dob=MM-DD-YYY
         <div class="section" id="ios-nonsdk">
           <div class="span6 column1">
             <h4>iOS</h4>
-            <p>You can simply use our Reward Center's URL inside a UIWebView (http://www.peanutlabs.com/userGreeting.php?userId=Peanut-Labs-User-Id) for an iOS device. Use your generated <a href="#iframe-getuserid">Peanut Labs User Id</a> for the userId parameter.</p>
+            <p>You can simply use our Reward Center's URL inside a UIWebView (https://www.peanutlabs.com/userGreeting.php?userId=Peanut-Labs-User-Id) for an iOS device. Use your generated <a href="#iframe-getuserid">Peanut Labs User Id</a> for the userId parameter.</p>
             <p>We suggest giving users basic navigation controls over your UIWebView like back and forward buttons, as well as a button to go back to the Reward Center for when they have left it to take a survey or an offer (labelled “Done” in our SDK). These controls are automatically included when using the SDK. (If you prefer to just use our iOS SDK, please find instructions <a href="#">here</a>). However, not providing your user with them can result in a poor user experience.</p>
 
           </div>
@@ -409,7 +409,7 @@ src="http://www.peanutlabs.com/userGreeting.php?userId=$userId&amp;dob=MM-DD-YYY
         <div class="section" id="android-nonsdk">
           <div class="span6 column1">
             <h4>Android</h4>
-            <p>You can simply use our Reward Center's URL inside a WebView (http://www.peanutlabs.com/userGreeting.php?userId=Peanut-Labs-User-Id). Use your generated <a href="#iframe-getuserid">Peanut Labs User Id</a> for the userId parameter.</p>
+            <p>You can simply use our Reward Center's URL inside a WebView (https://www.peanutlabs.com/userGreeting.php?userId=Peanut-Labs-User-Id). Use your generated <a href="#iframe-getuserid">Peanut Labs User Id</a> for the userId parameter.</p>
             <p>We suggest giving users basic navigation controls over your WebView like back and forward buttons, as well as a button to go back to the Reward Center for when they have left it to take a survey or an offer (labelled “Done” in our SDK). These controls are automatically included when using the SDK. (If you prefer to just use our iOS SDK, please find instructions <a href="#">here</a>). However, not providing your user with them can result in a poor user experience.</p>
           </div>
           <div class="span6 column2">
@@ -774,10 +774,19 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
           <div class="span6 column1">
             <h3>Direct Link</h3>
             <h4>Overview</h4>
-            <p>Direct Link integration allows you to send your users to Peanut Labs using URL redirect. Peanut Labs will show a survey to your user and you will be rewarded when your users completes a market research successfully.</p>
-            <p>In its simplest, form integrating with Direct Link is as simple as invoking a URL redirect on click of a button or a placeholder of your choosing. Additionally, you can also choose to pass a user’s profile during the redirect.</p>
-            <p>For Direct Link integration users should be sent to the following URL along with below URL parameters:<br>
-            <a href="https://dlink.peanutlabs.com/direct_link/" target="_blank">https://dlink.peanutlabs.com/direct_link/</a></p>
+            <p>Direct Link integration allows you to send your users to Peanut Labs using URL redirect. Peanut Labs will show a survey to your user and you will be rewarded for on survey completes.</p>
+            <p>In its simplest, form integrating with Direct Link is as simple as redirecting your user to Peanut Labs on click of a button or any placeholder of your choosing. Additionally, you can also pass user’s profile attribute in the query string during user redirect.</p>
+            <p>&nbsp;</p>
+            <div class="method-list">
+              <ul class="method-list-group">
+                <li class="method-list-item">
+                  <h3>Base URL</h3>
+                  <p>https://dlink.peanutlabs.com/direct_link/<br>
+                  <div class="alert"><i class="fa fa-info-circle"></i>HTTPS is strongly recommended.</div>
+                  <div class="clearfix"></div>
+                </li>
+              </ul>
+            </div>            
             <p>&nbsp;</p>
             <div class="method-list">
             <p><strong>Query string URL Parameters:</strong></p>
@@ -812,12 +821,6 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
                 <div class="clearfix"></div>
                 <div class="alert"><em class="fa fa-info-circle"></em> Sending the profile is highly recommended as Peanut Labs will not re-ask those question to your user, thus improving user’s experience.</div>
               </li>
-              <li class="method-list-item">
-                <h3>hash</h3>
-                <p>A secure hash to send if you are not sending any encrypted payload. This hash secures your communication with Peanut Labs.<br>
-                </p>
-                <div class="clearfix"></div>
-              </li>
             </ul>
             </div>
           </div>
@@ -835,10 +838,10 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
         </div>
         <!--Direct Link-->
         
-        <!--Generating iv and payload-->
+        <!--Sending user profiles-->
         <div class="section" id="iv-payload">
           <div class="span6 column1">
-            <h4>Generating iv and payload</h4>
+            <h4>Sending user profiles</h4>
             <p>You can encrypt your user’s profile and send it using <code class="color red">payload</code> parameter on the query string. User will not be asked any attributes that are sent with the <code class="color red">payload</code>. Please refer to <a href="https://docs.google.com/spreadsheets/u/1/d/1v-qYMKBUVGNTrG4BSL_hIYsg9v_eLMBfehETtAqg240/edit" target="_blank">profile attributes document</a> to map your user’s profile attributes to our profile attributes.</p>
 			<p>Please map as many of your user’s attributes to Peanut Labs attributes for better targeted survey for your users. Invalid user profiles will be rejected.</p>
             <p>&nbsp;</p>
@@ -914,7 +917,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
                     <div class="clearfix"></div>
                   </li>	
                   <li class="method-list-item">
-                    <h3>Id: user001</h3>
+                    <h3>user001</h3>
                     <p>user_id: user001-1001-2389d74882<br>
                     <br>
                     See <a href="#iframe-getuserid">Generating the Peanut Labs user id</a>
@@ -922,18 +925,19 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
                     <div class="clearfix"></div>
                   </li>
                   <li class="method-list-item">
-                    <h3>Sex: Male</h3>
+                    <h3>Male</h3>
                     <p>sex: 1</p>
                     <div class="clearfix"></div>
                   </li>
                   <li class="method-list-item">
-                    <h3>Date of birth(YYYY-MM-DD): 1990-04-10</h3>
-                    <p>dob: 1990-04-10</p>
+                    <h3>Born on April 10, 1990</h3>
+                    <p>dob: 1990-04-10<br>
+                    Format: YYYY-MM-DD</p>
                     <div class="clearfix"></div> 
                   </li>
                   
                   <li class="method-list-item">
-                    <h3>Zip code: 94104</h3>
+                    <h3>Lives near zip code 94104</h3>
                     <p>postal: 94104</p>
                     <div class="clearfix"></div> 
                   </li>
@@ -948,7 +952,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
                     <div class="clearfix"></div> 
                   </li>
                   <li class="method-list-item">
-                    <h3>Annual household income of $100000-$149000</h3>
+                    <h3>Annual household income of $125K</h3>
                     <p>q102: qx102-105</p>
                     <div class="clearfix"></div> 
                   </li>
@@ -963,18 +967,20 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
                     <div class="clearfix"></div> 
                   </li>
                   <li class="method-list-item">
-                    <h3>Have 3 childrens</h3>
+                    <h3>Have 3 children</h3>
                     <p>q157: 3</p>
                     <div class="clearfix"></div> 
                   </li>
                   <li class="method-list-item">
-                    <h3>DOB (mm-yyyy) of male child</h3>
-                    <p>ch-m: 4-2004</p>
+                    <h3>Male child was born in April of 2004</h3>
+                    <p>ch-m: 4-2004 <br>
+                    Format: (MM-YYYY)</p>
                     <div class="clearfix"></div> 
                   </li>
                   <li class="method-list-item">
-                    <h3>DOB (mm-yyyy) of female children</h3>
-                    <p>ch-f: 10-1998, 11-1999</p>
+                    <h3>Female children were born on Oct 1998 and Nov 1999</h3>
+                    <p>ch-f: 10-1998, 11-1999 <br>
+                    Format: (MM-YYYY)</p>
                     <div class="clearfix"></div> 
                   </li>
                 </ul>
@@ -983,7 +989,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
               <li>
                 <p class="text">Construct mapped attributes into a JSON payload. For the above sample mapping, the following will be the JSON payload:</p>
                 <p class="code">
-					<span class="yellow">                    {"user_id":"user001-1001-2389d74882","cc":"US","sex":1,"dob":"1990-04-10","postal":"94104","profile_data":{"q122":["qx122-0"],"q159":["qx159-1"],"q102":["qx102-105"],"q158":["qx158-3"],"q101":["qx101-2"],"q157":["3"],"ch-m":["4-2004"],"ch-f":["10-1998","11-1999"]}}
+					<span class="yellow">                    {"user_id":"user001-1001-2389d74882","sex":1,"dob":"1990-04-10","postal":"94104","profile_data":{"q122":["qx122-0"],"q159":["qx159-1"],"q102":["qx102-105"],"q158":["qx158-3"],"q101":["qx101-2"],"q157":["3"],"ch-m":["4-2004"],"ch-f":["10-1998","11-1999"]}}
                     </span>
                 </p>
               </li>
@@ -993,7 +999,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
                 	<span class="yellow">
 						&lt;?php<br>
 <br>
-                        $jsonPayload = '{"user_id":"user001-1001-2389d74882","cc":"US","sex":1,"dob":"1990-04-10","postal":"94104","profile_data":{"q122":["qx122-0"],"q159":["qx159-1"],"q102":["qx102-105"],"q158":["qx158-3"],"q101":["qx101-2"],"q157":["3"],"ch-m":["4-2004"],"ch-f":["10-1998","11-1999"]}}';<br>
+                        $jsonPayload = '{"user_id":"user001-1001-2389d74882","sex":1,"dob":"1990-04-10","postal":"94104","profile_data":{"q122":["qx122-0"],"q159":["qx159-1"],"q102":["qx102-105"],"q158":["qx158-3"],"q101":["qx101-2"],"q157":["3"],"ch-m":["4-2004"],"ch-f":["10-1998","11-1999"]}}';<br>
 <br>
                         $applicationKey = 'abcdef0123456789abcdef0123456789';<br>
 <br>
@@ -1043,7 +1049,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
             </ol>
           </div>
         </div>
-        <!--Generating iv and payload-->
+        <!--Sending user profiles-->
         
         <!--callback-->
         <div class="section" id="iframe-callback">
@@ -1061,7 +1067,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
             <ul class="method-list-group">
               <li class="method-list-item">
                 <h3>cmd</h3>
-                <p>will always be 'transactionComplete'</p>
+                <p>will always be <code class="color red">transactionComplete</code></p>
                 <div class="clearfix"></div>
               </li>
               <li class="method-list-item">
@@ -1088,7 +1094,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
               </li>
               <li class="method-list-item">
                 <h3>oidHash</h3>
-                <p>32 character hex string = <code class="color red">md5(offerInvitationId . applicationKey)</code></p>
+                <p>32 character hex string = <code class="color red">md5(concat(offerInvitationId, applicationKey))</code></p>
                 <div class="clearfix"></div>
                 <div class="alert"><i class="fa fa-info-circle"></i> You should verify oidHash upon receipt of the callback by recomputing it with the callback offerInvitationId and your ApplicationKey. This will secure against users faking their own id and passing it in if by some chance they come across the script.</div>
               </li>
@@ -1107,7 +1113,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
               <li class="method-list-item">
                 <h3>txnHash<br>
                   <span class="type">string</span></h3>
-                <p>32 character hex string = <code class="color red">md5(transactionId. current TransactionKey)</code>. You can find your TransactionKey in your Application list.</p>
+                <p>32 character hex string = <code class="color red">md5(concat(transactionId, current TransactionKey))</code> You can find your TransactionKey in your Application list.</p>
                 <div class="clearfix"></div>
                 <p><img src="img/tkey.png" alt=""/></p>
                 <div class="alert"><i class="fa fa-info-circle"></i> You should verify txnHash upon receipt of the callback by recomputing it with the callback transactionID and your current Transaction Key. This will secure against users faking their own id and passing it in if by some chance they come across the processing script and Application Key. The Transaction Key may be regenerated for this reason. If you would like to regenerate your Transaction Key please contact your Account Manager.</div>
@@ -1309,8 +1315,8 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
             <h4>The importance of having a Screenout Reward</h4>
             <p>Screenouts occur when a user answers a few questions in a survey and receives a message telling them that they do not qualify. Market researchers often require candidates for their survey who fit certain criteria. They are banned from retaining any responses of a user who they screen out, and Peanut Labs does not receive payment either. However, the user does lose a few minutes of their time.</p>
             <p>Though Peanut Labs at the moment does not pay for screen out rewards, as a publisher it’s always a good idea to give a very small reward to users encouraging them to try again. If they are assured that they will get something even if they don’t get the full payout, users are far more likely to keep trying, hence increasing your revenue. Data from across our publisher network has proven that a minimal screenout reward is the most effective tool in a publisher’s arsenal to increase revenue and user engagement. </p>
-            <p>Here is our one month repeat usage trend, comparing publishers who implemented a screen out reward, with publishers who did not implement a screen out reward.</p>
-            <p class="text-center"><img src="img/screen-out-reward-graph.png" alt=""/> </p>
+            <!-- <p>Here is our one month repeat usage trend, comparing publishers who implemented a screen out reward, with publishers who did not implement a screen out reward.</p> -->
+            <!-- <p class="text-center"><img src="img/screen-out-reward-graph.png" alt=""/> </p> -->
           </div>
           <div class="span6 column2"></div>
         </div>
@@ -1321,13 +1327,13 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
           <div class="span6 column1">
             <h3>Monetization API</h3>
             <p>The Monetization API allows you to access the Peanut Labs system even when your user is not on the Reward Center.</p>
-           </div>
-          <div class="span6 column2">
+           <!-- </div> -->
+          <!-- <div class="span6 column2"> -->
            <div class="method-list">
             <ul class="method-list-group">
               <li class="method-list-item">
                 <h3>API Endpoint</h3>
-                <p><span class="yellow">https://api.peanutlabs.com/publisher/api/v1/</span></p>
+                <p>https://api.peanutlabs.com/publisher/api/v1/</p>
                 <div class="clearfix"></div>
               </li>
               <li class="method-list-item">
@@ -1408,7 +1414,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
           <div class="span6 column2">
             <h6>Resource URL</h6>
             <p class="code">
-             <span class="yellow">api.peanutlabs.com/publisher/api/v1/campaigns_summary</span>
+             <span class="yellow">https://api.peanutlabs.com/publisher/api/v1/campaigns_summary</span>
             </p>
             
           </div>
@@ -1437,7 +1443,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
           <div class="span6 column2">
           <h6>Example Call</h6>
             <p class="code">
-             <span class="yellow">http://api.peanutlabs.com/publisher/api/v1/campaigns_summary?user_id=avdempsey-8711-2dc2f9fe98</span>
+             <span class="yellow">https://api.peanutlabs.com/publisher/api/v1/campaigns_summary?user_id=avdempsey-8711-2dc2f9fe98</span>
             </p>
           </div>
         </div>
