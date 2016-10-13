@@ -18,36 +18,43 @@
   <a href="javascript:void(0);" class="btn pull-right" data-toggle="collapse" data-target="#nav" ><i class="fa fa-chevron-down"></i><i class="fa fa-chevron-up" style="display:none"></i> Menu</a>
   <div id="nav" class="collapse out">
     <ul class="nav nav-list">
-      <li>
-        <h5><a href="#iframe-checklist">Reward Center Integration Guide</a></h5>
-      </li>
+
+      <li><h5><a href="#iframe-checklist">Setup</a></h5></li>
+      
       <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
       <li><a href="#iframe-create">Create Account</a></li>
-      <li><a href="#iframe-importance">Importance of Screenout Reward</a></li>
+      <li><a href="#integrate-products">Integrating our Products</a></li>
       <li><a href="#iframe-get">Get Application ID and Key</a></li>
-      <li><a href="#iframe-embed">Integrate our Reward Center</a></li>
       <li><a href="#iframe-getuserid">Generating the Peanut Labs userId</a></li>
+      
+      <li><h5><a href="#iframe-optionalpara">Deploy</a></h5></li>
+      <li><a href="#iframe-optionalpara"><strong>Reward Center (iFrame)</strong></a></li>
       <li><a href="#iframe-optionalpara">Parameters to Maximize Revenue</a></li>
       <li><a href="#iframe-custom">Custom URL Parameters</a></li>
-      <li><a href="#iframe-more">More URL Parameters</a></li>
-      <li><a href="#iframe-embed-html">Integrating for HTML</a></li>
-      <li><a href="#iframe-embed-ios">Integrating for iOS</a></li>
-      <li><a href="#iframe-embed-android">Integrating for Android</a></li>
-      <li><a href="#iframe-embed-unity">Integrating for Unity</a></li>
-      <li><a href="#iframe-embed-marmalade">Integrating for Marmalade</a></li>
-      <li><a href="#iframe-embed-cordova">Integrating for Cordova</a></li>
-      <li><a href="#iframe-customize">Customize your Reward Center</a></li>
-      <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
-      <li><a href="#iframe-testing">Callback Testing</a></li>
-      <li>
-        <h5><a href="#overview">Monetization API</a></h5>
-      </li>
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#format">Format</a></li>
-      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#iframe-embed-html">Desktop</a></li>
+      <li><a href="#ios-nonsdk">iOS</a></li>
+      <li><a href="#android-nonsdk">Android</a></li>
+      <li><a href="#mobile-ios"><strong>Mobile SDKs</strong></a></li>
+      <li><a href="#mobile-ios">iOS</a></li>
+      <li><a href="#mobile-android">Android</a></li>
+      <li><a href="#mobile-unity">Unity</a></li>
+      <li><a href="#mobile-marmalade">Marmalade</a></li>
+      <li><a href="#mobile-cordova">Cordova</a></li>  
+      <li><a href="#direct-link"><strong>Direct Link</strong></a></li>
+      <li><a href="#direct-link">Overview</a></li>
+      <li><a href="#iv-payload">Generating iv and payload</a></li>
+      <li><a href="#iframe-callback"><strong>Common Deployment Steps</strong></a></li>
+      <li><a href="#callbacktesting">Callback Testing</a></li>    
+      <li><a href="#ipwhitelist">IPs to Whitelist</a></li>       
+      
+      <li><h5><a href="#iframe-customize">Engage</a></h5></li>
+      
+      <li><a href="#iframe-customize">Customize your Deployment</a></li>
+      <li><a href="#iframe-importance">Importance of Screenout Reward</a></li>
+      <li><a href="#overview"><strong>Monetization API</strong></a></li>
       <li><a href="#errorhandling">Error Handling</a></li>
-      <li><strong>Methods</strong></li>
       <li><a href="#methodcampaignssummary">Campaigns Summary</a></li>
+      
     </ul>
   </div>
 </div>
@@ -58,40 +65,54 @@
     <div class="span2 sidebar" id="sidebar">
       <div class="logo"><a href="index.html" title="Peanut Labs Monetization API"><img src="img/logo.png" alt="Peanut Labs" title="Peanut Labs Monetization API"></a></div>
       <ul class="nav nav-list accordion" id="accordion2">
+        <!--Setup-->
         <li>
-          <h4><a href="#collapseOne" class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion2">Reward Center Integration Guide</a></h4>
+          <h4><a href="#collapseOne" class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion2">Setup</a></h4>
           <ul id="collapseOne" class="collapse in">
-            <li class="active"><a href="#iframe-checklist">Integration Checklist</a></li>
-            <li><a href="#iframe-create">Create Account</a></li>
-            <li><a href="#iframe-importance">Importance of Screenout Reward</a></li>
-            <li><a href="#iframe-get">Get Application ID and Key</a></li>
-            <li><a href="#iframe-embed">Integrate our Reward Center</a></li>
-            <li><a href="#iframe-getuserid">Generating the Peanut Labs userId</a></li>
-            <li><a href="#iframe-optionalpara">Parameters to Maximize Revenue</a></li>
-            <li><a href="#iframe-custom">Custom URL Parameters</a></li>
-            <li><a href="#iframe-more">More URL Parameters</a></li>
-            <li><a href="#iframe-embed-html">Integrating for HTML</a></li>
-            <li><a href="#iframe-embed-ios">Integrating for iOS</a></li>
-            <li><a href="#iframe-embed-android">Integrating for Android</a></li>
-            <li><a href="#iframe-embed-unity">Integrating for Unity</a></li>
-            <li><a href="#iframe-embed-marmalade">Integrating for Marmalade</a></li>
-      		<li><a href="#iframe-embed-cordova">Integrating for Cordova</a></li>
-            <li><a href="#iframe-customize">Customize your Reward Center</a></li>
-            <li><a href="#iframe-callback">Callback for Surveys and Offers</a></li>
-            <li><a href="#iframe-testing">Callback Testing</a></li>
+            <li class="active sheading"><a href="#iframe-checklist">Integration Checklist</a></li>
+            <li class="sheading"><a href="#iframe-create">Create Account</a></li>
+            <li class="sheading"><a href="#integrate-products">Integrating our Products</a></li>
+            <li class="sheading"><a href="#iframe-get">Get Application ID and Key</a></li>
+            <li class="sheading"><a href="#iframe-getuserid" title="Generating the Peanut Labs userId">Generating the Peanut Labs userId</a></li>
           </ul>
-        </li>
-        <li>
-          <h4><a href="#collapseTwo" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2">Monetization API</a></h4>
-          <ul id="collapseTwo" class="collapse">
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#format">Format</a></li>
-            <li><a href="#prerequisites">Prerequisites</a></li>
-            <li><a href="#errorhandling">Error Handling</a></li>
-            <li><strong>Methods</strong></li>
-            <li><a href="#methodcampaignssummary">Campaigns Summary</a></li>
+          </li>
+          
+          <!--Deploy-->
+          <li>
+          <h4><a href="#collapseTwo" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3">Deploy</a></h4>
+          <ul id="collapseTwo" class="collapse">  
+          	<li class="sheading"><a href="#iframe-optionalpara">Reward Center (iFrame)</a></li>
+            <li class="indent"><a href="#iframe-optionalpara" title="Parameters to Maximize Revenue">Parameters to Maximize Revenue</a></li>
+            <li class="indent"><a href="#iframe-custom">Custom URL Parameters</a></li>
+            <li class="indent"><a href="#iframe-embed-html">Desktop</a></li>
+            <li class="indent"><a href="#ios-nonsdk">iOS</a></li>
+            <li class="indent"><a href="#android-nonsdk">Android</a></li>
+            <li class="sheading"><a href="#mobile-ios">Mobile SDKs</a></li>
+            <li class="indent"><a href="#mobile-ios">iOS</a></li>
+            <li class="indent"><a href="#mobile-android">Android</a></li>
+            <li class="indent"><a href="#mobile-unity">Unity</a></li>
+            <li class="indent"><a href="#mobile-marmalade">Marmalade</a></li>
+      		<li class="indent"><a href="#mobile-cordova">Cordova</a></li>
+            <li class="sheading"><a href="#direct-link">Direct Link</a></li>
+            <li class="indent"><a href="#direct-link">Overview</a></li>
+            <li class="indent"><a href="#iv-payload">Generating iv and payload</a></li>
+            <li class="sheading"><a href="#iframe-callback">Common Deployment Steps</a></li>  
+            <li class="indent"><a href="#callbacktesting">Callback Testing</a></li>    
+            <li class="indent"><a href="#ipwhitelist">IPs to Whitelist</a></li> 
           </ul>
-        </li>
+          </li>
+          			
+          <!--Engage-->
+          <li>
+          <h4><a href="#collapseThree" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4">Engage</a></h4>
+          <ul id="collapseThree" class="collapse">
+            <li class="sheading"><a href="#iframe-customize">Customize your Deployment</a></li>
+            <li class="sheading"><a href="#iframe-importance" title="Importance of Screenout Reward">Importance of Screenout Reward</a></li>
+            <li class="sheading"><a href="#monetization">Monetization API</a></li>
+            <li class="indent"><a href="#errorhandling">Error Handling</a></li>
+            <li class="indent"><a href="#methodcampaignssummary">Campaigns Summary</a></li>
+          </ul>
+          </li>
       </ul>
       <div class="clearfix"></div>
     </div>
@@ -101,14 +122,15 @@
         <!--Pub integration -->
         <div class="section" id="iframe-checklist">
           <div class="span6 column1">
-            <h3  id="iframeintegrationguide">Reward Center Integration Guide</h3>
-            <h4>Integration Checklist</h4>
+            <h1>Publisher Integration Guide</h1>
+            <h2 class="sh">Setup</h2>
+            <h3>Integration Checklist</h3>
             <p>Basic technical integration takes place in five steps:</p>
             <ul class="text">
               <li>Create your account in the <a href="https://www.peanutlabs.com/js/pubdash/bin/" title="Peanut Labs Publisher Dashboard" target="_blank">Publisher Dashboard</a> and await a notification email that your account has been approved.</li>
               <li>Log in to the Publisher Dashboard and submit your billing information.</li>
               <li>Select <strong>Add Application</strong> to add the details of your site and get your Application ID and Application Key.</li>
-              <li>Add the Peanut Labs Reward Center integration code to your website or application code</li>
+              <li>Integrate with Peanut Labs using one or multiple deployments.</li>
               <li>Configure your callback script to receive notifications from Peanut Labs.</li>
             </ul>
             <p>All of the above can be done in an afternoon or less. If you have questions please don't hesitate to contact us:<br>
@@ -121,16 +143,16 @@
         <!--Create PL account -->
         <div class="section" id="iframe-create">
           <div class="span6 column1">
-            <h4>Create your Peanut Labs account and add a new application</h4>
+            <h3>Create your Peanut Labs account and add a new application</h3>
             <p>If you haven't already, please submit an  application to become a Peanut Labs publisher:<br>
               <a href="http://www.peanutlabs.com/publisher" target="_blank">http://www.peanutlabs.com/publisher</a></p>
             <p>An Account Manager will  review your information and notify you that your account has been activated, at  which time you can log in and get started!<br>
               <br>
               When you are logged into the Publisher Dashboard, it should look something  like this:</p>
             <p>Click <strong>Complete Billing Information</strong> to set up your preferred payment  method. Then click <strong>Add Application</strong>:</p>
-            <p class="text-center"> <img src="img/checklist1.png" alt=""/></p>
+            <p class="text-center"> <img src="img/checklist1.png"></p><p class="text-center">&nbsp;</p>
             <p>In the My Apps section, click <strong>Add Application</strong> to add an app to our system:</p>
-            <p class="text-center"><img src="img/checklist2.png" alt="" style="border:1px solid #E7E7E7"/> </p>
+            <p class="text-center"><img src="img/checklist2.png" style="border:1px solid #E7E7E7"> </p><p class="text-center">&nbsp;</p>
             <p>On the <strong>Add Application</strong> screen you have several values you need to configure:</p>
             <p class="text-center"><img src="img/checklist3.png" alt="" /> </p>
             <p>Before you can hit the <strong>Save</strong> button, you'll need to enter an Application Name, your processing script, name your virtual currency, set your virtual-currency-to-USD exchange rate, and set an optional Screenout Reward (0 must be entered if you do not want to give users a small reward for disqualifying from a survey).</p>
@@ -144,7 +166,7 @@
                 <li class="method-list-item">
                   <h3>Processing Script</h3>
                   <p>This is the URL where we will send automatic notifications to each time one of your users is rewarded.</p>
-                  <div class="alert"><i class="fa fa-info-circle"></i> You must include http or https in your processing script URL for it to work properly. We highly recommend you to use https.</div>
+                  <div class="alert"><em class="fa fa-info-circle"></em> You must include http or https in your processing script URL for it to work properly. We highly recommend you to use https.</div>
                   <div class="clearfix"></div>
                 </li>
                 <li class="method-list-item">
@@ -154,15 +176,18 @@
                 </li>
                 <li class="method-list-item">
                   <h3>Exchange Rate</h3>
-                  <p>How many points is a dollar worth? Currency rewards to your users will always be an integer (positive for a successful transaction, negative if a transaction must be reversed). However, your net revenue is a floating point value. This means a higher exchange rate will reduce the rounding error when we convert your net revenue to an integer for the currency reward. Confused? It's a common question; the virtual currency rewarded to the user follows this formula:</p>
+                  <p>How many points is a dollar worth? Currency rewards to your users will always be an integer (positive for a successful transaction, negative if a transaction must be reversed). However, your net revenue is a floating point value. This means a higher exchange rate will reduce the rounding error when we convert your net revenue to an integer for the currency reward. Confused? It's a common question; the virtual currency rewarded to the user follows this formula:<br>
+                  </p>
+                  <p>&nbsp;</p>
                   <p><code class="color red">Currency Reward = Your Net Revenue * Your Currency Exchange Rate</code></p>
+                  <p>&nbsp;</p>
                   <p>However if you would like to give non-integer currency rewards to your users, please email us and we will support a floating point currency reward amount for you.</p>
                   <div class="alert"><i class="fa fa-info-circle"></i> We round currency rewards based on standard rounding rules for integers. If a payout is equivalent to 1.5 virtual currency points, we will reward 2 points. If a payout is 1.49 virtual currency points, we will reward 1 point.</div>
                   <div class="clearfix"></div> 
                 </li>
                 <li class="method-list-item">
-                  <h3>Reward Center Colors </h3>
-                  <p>Here you can customize the color scheme of our Reward Center. If you do not choose to customize the Reward Center, the default scheme will be used.</p>
+                  <h3>Integration Colors </h3>
+                  <p>Here you can customize the color scheme of your integration. If you do not choose to customize the the default scheme will be used.</p>
                   <div class="clearfix"></div>
                 </li>
                 <li class="method-list-item">
@@ -177,23 +202,21 @@
         </div>
         <!--Create PL account --> 
         
-        <!--The Importance-->
-        <div class="section" id="iframe-importance">
+        <!--INtegrating our products-->
+        <div class="section" id="integrate-products">
           <div class="span6 column1">
-            <h4>The importance of having a Screenout Reward</h4>
-            <p>Screenouts occur when a user answers a few questions in a survey and receives a message telling them that they do not qualify. Market researchers often require candidates for their survey who fit certain criteria. They are banned from retaining any responses of a user who they screen out, and Peanut Labs does not receive payment either. However, the user does lose a few minutes of their time.</p>
-            <p>Though Peanut Labs at the moment does not pay for screen out rewards, as a publisher it’s always a good idea to give a very small reward to users encouraging them to try again. If they are assured that they will get something even if they don’t get the full payout, users are far more likely to keep trying, hence increasing your revenue. Data from across our publisher network has proven that a minimal screenout reward is the most effective tool in a publisher’s arsenal to increase revenue and user engagement. </p>
-            <p>Here is our one month repeat usage trend, comparing publishers who implemented a screen out reward, with publishers who did not implement a screen out reward.</p>
-            <p class="text-center"><img src="img/screen-out-reward-graph.png" alt=""/> </p>
+            <h3>Integrating our Products</h3>
+            <p>Our products can be integrated via HTML, iOS or Android. </p>
+            <p>In the following sections, we will walk you through the process by which an integration URL is generated, after which we will dive into the syntax for HTML, iOS and Android which you can then use to integrate our products into your application.</p>
           </div>
           <div class="span6 column2"></div>
         </div>
-        <!--The Importance--> 
-        
+        <!--INtegrating our products-->
+           
         <!--Get Application-->
         <div class="section" id="iframe-get">
           <div class="span6 column1">
-            <h4>Get Application ID and Key</h4>
+            <h3>Get Application ID and Key</h3>
             <p>Once you've created your new application you will need to take note of your Peanut Labs Application ID and Peanut Labs Application Key in the dashboard. These two values are used in the remaining steps.</p>
             <p>You can find it on this screen:</p>
             <p class="text-center"><img src="img/collect1.png" alt=""/> </p>
@@ -201,21 +224,11 @@
           <div class="span6 column2"></div>
         </div>
         <!--Get Application--> 
-        
-        <!--Integrate iframe-->
-        <div class="section" id="iframe-embed">
-          <div class="span6 column1">
-            <h4>Integrate our Reward Center</h4>
-            <p>Our Reward Center can be integrated via HTML, iOS or Android.</p>
-            <p>In the following sections, we will walk you through the process by which a Reward Center's URL is generated, after which we will dive into the syntax for HTML, iOS and Android which you can then use to integrate the Reward Center in to your application.</p>
-          </div>
-          <div class="span6 column2"></div>
-        </div>
-        
+       
         <!--Get User ID-->
         <div class="section" id="iframe-getuserid">
           <div class="span6 column1">
-            <h4>Generating the Peanut Labs userId</h4>
+            <h3>Generating the Peanut Labs userId</h3>
             <div class="method-list">
             <p><strong>Sample userId:</strong> <code class="color red">11701396-600-cbc2104c7a</code> consists of three parts:</p>
             <ul class="method-list-group">
@@ -301,6 +314,8 @@
         <!--Integrate Optional Para-->
         <div class="section" id="iframe-optionalpara">
           <div class="span6 column1">
+          	<h2 class="sh">Deploy</h2>
+            <h3>Reward Center (iFrame)</h3>
             <h4>Parameters to Maximize Revenue</h4>
             <p>You can increase your revenue potential by up to 30% by providing these optional variables. These help us offer better suited reward opportunities to users. Note, that however it is better to omit these values if you don’t have accurate information, as inaccurate information will lead to negative results.</p>
             
@@ -351,23 +366,11 @@
           </div>
         </div>
         <!--custom URL Para--> 
-        
-        <!--more-->
-        <div class="section" id="iframe-more">
-          <div class="span6 column1">
-            <h4>More URL Parameters</h4>
-            <p>Over the last three years we have built a number of additional parameters. If there is something you want our Reward Center to do, there is a good chance we've already created a parameter to handle it. Please drop us a line at: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a></p>
-            <p>Questions about required, optional, or custom Reward Center URL Parameters?<br>
-              Ask: <a href="mailto:publisher.integration@peanutlabs.com">publisher.integration@peanutlabs.com</a> and cc your Account  Manager.</p>
-          </div>
-          <div class="span6 column2"></div>
-        </div>
-        <!--more--> 
-        
-        <!--Integrate HTML-->
+              
+        <!--desktop-->
         <div class="section" id="iframe-embed-html">
           <div class="span6 column1">
-            <h4>Integrating for HTML</h4>
+            <h4>Desktop</h4>
             <p>The DOB and sex parameters are optional, but strongly encouraged. They help us with offer targeting for first time users, and enable us to show users  more videos and high quality offers.</p>
             <p>The width and height Reward Center attributes determine the size of our Reward Center in your app. Our standard layout is flexible, but will break down if it is much narrower than 650px.</p>
             <p><code class="color red">$userId</code> is a placeholder for a Peanut Labs encoded User ID.</p>
@@ -375,9 +378,9 @@
           <div class="span6 column2">
             <h6>Call the following URL inside an iFrame (URL parameters are case sensitive):</h6>
             <p class="code">
-            	<span class="yellow">&lt;iframe<br>
-            src="http://www.peanutlabs.com/userGreeting.php?userId=$userId&dob=MM-DD-YYYY&sex=X" width="880" height="2500" frameborder="0" scrolling="no"&gt;<br>
-            &lt;/iframe&gt; </span>
+            	<span class="yellow">&lt;iframe
+src="http://www.peanutlabs.com/userGreeting.php?userId=$userId&amp;dob=MM-DD-YYYY&amp;sex=X" width="880" height="2500" frameborder="0" scrolling="no" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"&gt;
+&lt;/iframe&gt; </span>
             </p>
           </div>
         </div>
@@ -387,21 +390,45 @@
           </div>
           <div class="span6 column2"> </div>
         </div>
-        <!--Integrate HTML--> 
+        <!--desktop-->
         
-        <!--Integrate iOS-->
-        <div class="section" id="iframe-embed-ios">
+        <!--ios non sdk-->
+        <div class="section" id="ios-nonsdk">
           <div class="span6 column1">
-            <h4>Integrating for iOS</h4>
-            <p><strong>With SDK</strong></p>
+            <h4>iOS</h4>
+            <p>You can simply use our Reward Center's URL inside a UIWebView (http://www.peanutlabs.com/userGreeting.php?userId=Peanut-Labs-User-Id) for an iOS device. Use your generated <a href="#iframe-getuserid">Peanut Labs User Id</a> for the userId parameter.</p>
+            <p>We suggest giving users basic navigation controls over your UIWebView like back and forward buttons, as well as a button to go back to the Reward Center for when they have left it to take a survey or an offer (labelled “Done” in our SDK). These controls are automatically included when using the SDK. (If you prefer to just use our iOS SDK, please find instructions <a href="#">here</a>). However, not providing your user with them can result in a poor user experience.</p>
+
+          </div>
+          <div class="span6 column2">
+          </div>
+        </div>
+        <!--ios non sdk-->
+        
+        <!--android -nonsdk-->
+        <div class="section" id="android-nonsdk">
+          <div class="span6 column1">
+            <h4>Android</h4>
+            <p>You can simply use our Reward Center's URL inside a WebView (http://www.peanutlabs.com/userGreeting.php?userId=Peanut-Labs-User-Id). Use your generated <a href="#iframe-getuserid">Peanut Labs User Id</a> for the userId parameter.</p>
+            <p>We suggest giving users basic navigation controls over your WebView like back and forward buttons, as well as a button to go back to the Reward Center for when they have left it to take a survey or an offer (labelled “Done” in our SDK). These controls are automatically included when using the SDK. (If you prefer to just use our iOS SDK, please find instructions <a href="#">here</a>). However, not providing your user with them can result in a poor user experience.</p>
+          </div>
+          <div class="span6 column2">
+          </div>
+        </div>
+        <!--android -nonsdk-->
+        
+       
+        <!--Integrate iOS-->
+        <div class="section" id="mobile-ios">
+          <div class="span6 column1">
+          	<h3>Mobile SDKs</h3>
+            <h4>iOS</h4>
             <p>Our SDK allows you to launch the Peanut Labs Reward Center as an overlay on top of your application from anywhere in the application. We recommend using our SDK because it comes with the basic navigation controls a user would need to go between, surveys, offers and our Reward Center.</p>
             <p>A Peanut Labs iOS SDK is provided via Github containing Objective-C code files. These files need to be added to your project, ideally inside a group.&nbsp;We support all iOS devices except iPhones below iPhone 4.</p>
             <p><a href="https://github.com/peanut-labs/publisher-ios-sdk" target="_blank"><strong>The SDK can be downloaded here</strong></a>. Once the SDK has been added to your project, implement the following technical steps.</p>
             <div class="alert alert-danger"><i class="fa fa-info-circle"></i> The first version of Peanut Labs SDK assumes ARC support and would not work if you don’t have ARC enabled. This will be supported in a future version soon.</div>
             <p>&nbsp;</p>
-            <p><strong>Without SDK</strong></p>
-            <p>If you prefer not to use our SDK, you can simply use our Reward Center's URL inside a UIWebView (http://www.peanutlabs.com/userGreeting.php?userId=Peanut-Labs-User-Id). Use your generated <a href="#iframe-getuserid">Peanut Labs User Id</a> for the userId parameter.</p>
-            <p>We suggest giving users basic navigation controls over your UIWebView like back and forward buttons, as well as a button to go back to the Reward Center for when they have left it to take a survey or an offer (labelled “Done” in our SDK). These controls are automatically included when using the SDK. However, not providing your user with them can result in a poor user experience.</p>
+            
           </div>
           <div class="span6 column2">
             <ol>
@@ -486,16 +513,11 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
         <!--Integrate iOS--> 
         
         <!--Integrate Android-->
-        <div class="section" id="iframe-embed-android">
+        <div class="section" id="mobile-android">
           <div class="span6 column1">
-            <h4>Integrating for Android</h4>
-            <p><strong>With SDK</strong></p>
+            <h4>Android</h4>
             <p>Our SDK allows you to launch our Reward Center as an overlay on top of your application, from anywhere in the application. We recommend using our SDK because it comes with the navigation controls a user would need to go between, surveys, offers and our Reward Center.</p>
             <p>A Peanut Labs Android SDK is provided via Github containing the source code in android library project. The library needs to be added to your project. We support android 4.1+ (Jelly Bean and above). <a href="https://github.com/peanut-labs/publisher-android-sdk" target="_blank"><strong>The Android SDK can be downloaded here</strong></a>. After adding the library reference to your project, implement the following technical steps.</p>
-            <p>&nbsp;</p>
-            <p><strong>Without SDK</strong></p>
-            <p>If you don’t prefer to use our SDK, simply use our Reward Center's URL inside a WebView (http://www.peanutlabs.com/userGreeting.php?userId=Peanut-Labs-User-Id). Use your generated <a href="#iframe-getuserid">Peanut Labs User Id</a> for the userId parameter.</p>
-            <p>We suggest giving users basic navigation controls over your WebView like back and forward buttons, as well as a button to go back to the Reward Center for when they have left it to take a survey or an offer (labelled “Done” in our SDK). These controls are automatically included when using the SDK. However, not providing your user with them can result in a poor user experience.</p>
           </div>
           <div class="span6 column2">
             <ol>
@@ -579,9 +601,9 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
         <!--Integrate Android--> 
         
         <!--Integrate Unity-->
-        <div class="section" id="iframe-embed-unity">
+        <div class="section" id="mobile-unity">
           <div class="span6 column1">
-            <h4>Integrating for Unity</h4>
+            <h4>Unity</h4>
             <p>Our Plugin allows you to launch the Peanut Labs Reward Center as an overlay on top of you application from anywhere within the application. We recommend using our Plugin because it comes with the basic navigation controls a user would need to go between, surveys, offers and our Reward Center. A Peanut Labs <a href="https://github.com/peanut-labs/publisher-unity-sdk" target="_blank" alt="Unity iOS and Android Plugin"><strong>Unity iOS and Android Plugin</strong></a> is provided via Github containing the publisher_unity_sdk.unitypackage file. This package needs to be imported into your project. </p>
             <p>We support all Android devices 4.1+ (Jelly Bean and above) and all iOS devices except those below iPhone 4.</p>
           </div>
@@ -631,9 +653,9 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
         <!--Integrate Unity-->
         
         <!--Integrate Marmalade-->
-        <div class="section" id="iframe-embed-marmalade">
+        <div class="section" id="mobile-marmalade">
           <div class="span6 column1">
-            <h4>Integrating for Marmalade</h4>
+            <h4>Marmalade</h4>
             <p>Our SDK allows you to integrate our Reward Center within your Marmalade application for iOS. This is the first Beta release so if you see any issues, please use the Github issues to report them. The SDK and further instructions can be found <a href="https://github.com/peanut-labs/publisher-marmalade-sdk" target="_blank"><strong>here</strong></a>.</p>
           </div>
           <div class="span6 column2">
@@ -697,9 +719,9 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
         <!--Integrate Marmalade-->
         
         <!--Integrate Cordova-->
-        <div class="section" id="iframe-embed-cordova">
+        <div class="section" id="mobile-cordova">
           <div class="span6 column1">
-            <h4>Integrating for Cordova</h4>
+            <h4>Cordova</h4>
             <p>Our SDK allows you to integrate our Reward Center within your Cordova application for Android. The Cordova Plugin only supports Android at the moment, though we do plan on supporting iPhone in the near future. If you see any issues, please use the Github issues to report them. The SDK and further instructions can be found <a href="https://github.com/peanut-labs/publisher-marmalade-sdk" target="_blank"><strong>here</strong></a>.</p>
           </div>
           <div class="span6 column2">
@@ -747,29 +769,295 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
         </div>
         <!--Integrate Cordova-->
         
-        <div class="section" id="iframe-customize">
+        <!--Direct Link-->
+        <div class="section" id="direct-link">
           <div class="span6 column1">
-            <h4>Customize your Reward Center</h4>
-            <p>You may customize the look of your Reward Center in Application Setup.</p>
-            <p class="text-center"><img src="img/editcolors.png" alt="" /></p>
-            <p>Here you can choose the palette of your Reward Center if you’d like the color scheme to be consistent with your website or application. If you do not wish to customize your Reward Center, the default color palette you see will be the one used.</p>
-            <p class="text-center"><img src="img/editcolors2.png" alt="" /></p>
+            <h3>Direct Link</h3>
+            <h4>Overview</h4>
+            <p>Direct Link integration allows you to send your users to Peanut Labs using URL redirect. Peanut Labs will show a survey to your user and you will be rewarded when your users completes a market research successfully.</p>
+            <p>In its simplest, form integrating with Direct Link is as simple as invoking a URL redirect on click of a button or a placeholder of your choosing. Additionally, you can also choose to pass a user’s profile during the redirect.</p>
+            <p>For Direct Link integration users should be sent to the following URL along with below URL parameters:<br>
+            <a href="https://dlink.peanutlabs.com/direct_link/" target="_blank">https://dlink.peanutlabs.com/direct_link/</a></p>
+            <p>&nbsp;</p>
+            <div class="method-list">
+            <p><strong>Query string URL Parameters:</strong></p>
+            <ul class="method-list-group">
+              <li class="method-list-item">
+                <h3>pub_id<br>
+                  <span class="label-badge orange">required</span></h3>
+                <p>Your Application Id</p>
+                <div class="clearfix"></div>
+              </li>
+              <li class="method-list-item">
+                <h3>user_id<br>
+                  <span class="label-badge orange">required</span></h3>
+                <p>Three part user id. See <a href="#iframe-getuserid">Generating the Peanut Labs user id</a>.</p>
+                <p>&nbsp;</p>
+                <div class="clearfix"></div>
+                <div class="alert"><em class="fa fa-info-circle"></em> You need not send this parameter if you are passing it as part of payload. </div>
+              </li>
+              <li class="method-list-item">
+                <h3>sub_id</h3>
+                <p>A secure session id you can send along user redirect. We will return you this id during postback notification.</p>
+                <div class="clearfix"></div>
+              </li>
+              <li class="method-list-item">
+                <h3>iv</h3>
+                <p>A randomly generated salt for encrypting the payload</p>
+                <div class="clearfix"></div>
+              </li>
+              <li class="method-list-item">
+                <h3>payload</h3>
+                <p>An encrypted payload to send along your user’s profile.</p>
+                <div class="clearfix"></div>
+                <div class="alert"><em class="fa fa-info-circle"></em> Sending the profile is highly recommended as Peanut Labs will not re-ask those question to your user, thus improving user’s experience.</div>
+              </li>
+              <li class="method-list-item">
+                <h3>hash</h3>
+                <p>A secure hash to send if you are not sending any encrypted payload. This hash secures your communication with Peanut Labs.<br>
+                </p>
+                <div class="clearfix"></div>
+              </li>
+            </ul>
+            </div>
           </div>
-          <div class="span6 column2"></div>
+          <div class="span6 column2">
+          	<h6>To send users to Direct Link:</h6>
+            <ol>
+            	<li><p class="text"><a href="#iframe-getuserid">Generate the Peanut Labs User ID</a></p></li>
+            	<li><p class="text">Invoke the redirect URL for your user</p>
+                    <p class="code">
+                        <span class="yellow">https://dlink.peanutlabs.com/direct_link?pub_id=xxxx&amp;user_id=xxxx&amp;sub_id=xxxx</span>
+                    </p>
+				</li>
+			</ol>
+          </div>
         </div>
-        <!--more--> 
+        <!--Direct Link-->
+        
+        <!--Generating iv and payload-->
+        <div class="section" id="iv-payload">
+          <div class="span6 column1">
+            <h4>Generating iv and payload</h4>
+            <p>You can encrypt your user’s profile and send it using <code class="color red">payload</code> parameter on the query string. User will not be asked any attributes that are sent with the <code class="color red">payload</code>. Please refer to <a href="https://docs.google.com/spreadsheets/u/1/d/1v-qYMKBUVGNTrG4BSL_hIYsg9v_eLMBfehETtAqg240/edit" target="_blank">profile attributes document</a> to map your user’s profile attributes to our profile attributes.</p>
+			<p>Please map as many of your user’s attributes to Peanut Labs attributes for better targeted survey for your users. Invalid user profiles will be rejected.</p>
+            <p>&nbsp;</p>
+            <div class="method-list">
+            <p><strong>JSON profile payload before encryption:</strong></p>
+            <ul class="method-list-group">
+              <li class="method-list-item">
+                <h3>user_id<br>
+                  <span class="label-badge orange">mandatory</span><br>
+                  <span class="type">string</span>
+                </h3>
+                <p>Three part user id. See <a href="#iframe-getuserid">Generating the Peanut Labs user id</a>.</p>
+                <div class="clearfix"></div>
+              </li>
+              <li class="method-list-item">
+                <h3>dob<br>
+                <span class="label-badge orange">mandatory</span><br>
+                <span class="type">date</span>
+                </h3>
+                <p>YYYY-MM-DD<br>
+                </p>
+                <p>&nbsp;</p>
+                <div class="clearfix"></div>
+			  </li>
+              <li class="method-list-item">
+                <h3>postal<br>
+                <span class="label-badge orange">mandatory</span><br>
+                <span class="type">string</span></h3>
+                <p>Zip/postal code</p>
+                <p>&nbsp;</p>
+                <p>See <a href="https://docs.google.com/spreadsheets/d/1v-qYMKBUVGNTrG4BSL_hIYsg9v_eLMBfehETtAqg240/edit" target="_blank">Profile attributes document</a> for the valid regex format per country.</p>
+                <div class="clearfix"></div>
+                <div class="alert"><em class="fa fa-info-circle"></em> Peanut Labs derives user’s country based on the browser user agent.</div>
+              </li>
+              <li class="method-list-item">
+                <h3>sex<br>
+                <span class="label-badge orange">mandatory</span><br>
+                <span class="type">integer</span></h3>
+                <p>Panelist gender (1 for male, 2 for female)</p>
+                <div class="clearfix"></div>
+              </li>
+              <li class="method-list-item">
+                <h3>profile_data<br>
+                <span class="type">hash; each key in the hash is the attribute_id of that attribute</span>
+                </h3>
+                <p>Collection of key-value pair of other profiling attributes. </p>
+                <div class="clearfix"></div>
+                <!--Child-->
+                <ul class="method-list-group">
+                  <li class="method-list-item"> <span class="toggle-list" data-show-text="Show child attributes" data-hide-text="Hide child attributes">Show child attributes</span> </li>
+				  <li class="method-list-item">
+                <h3>attribute_id as key array</h3>
+                <p>List of option attribute_id as values.</p>
+                <div class="clearfix"></div>
+                <div class="alert"><em class="fa fa-info-circle"></em> <a href="https://docs.google.com/spreadsheets/u/1/d/1v-qYMKBUVGNTrG4BSL_hIYsg9v_eLMBfehETtAqg240/edit" target="_blank">Profile attributes document</a> lists all our profile attribute. You should map all your user’s attributes to our attributes to improve your user’s experience.<br></div>
+              </li>
+              </ul>
+              <!--Child-->
+			  </li>
+            </ul>
+            </div>
+          </div>
+          <div class="span6 column2">
+          <h6>Example for mapping your profile attributes and generating encrypted payload</h6>
+            <ol>
+              <li>
+                <div class="method-list">
+                  <p class="text">Map your user attributes to Peanut Labs attributes using the <a href="https://docs.google.com/spreadsheets/u/1/d/1v-qYMKBUVGNTrG4BSL_hIYsg9v_eLMBfehETtAqg240/edit" target="_blank">Profile attributes document</a>. Here’s an example of sample mapping.</p>
+                  <ul class="method-list-group withth">
+                  <li class="method-list-item th">
+                    <h3><strong>User info in your database</strong></h3>
+                    <p><strong>User info translated to Peanut Labs format</strong></p>
+                    <div class="clearfix"></div>
+                  </li>	
+                  <li class="method-list-item">
+                    <h3>Id: user001</h3>
+                    <p>user_id: user001-1001-2389d74882<br>
+                    <br>
+                    See <a href="#iframe-getuserid">Generating the Peanut Labs user id</a>
+                    </p>
+                    <div class="clearfix"></div>
+                  </li>
+                  <li class="method-list-item">
+                    <h3>Sex: Male</h3>
+                    <p>sex: 1</p>
+                    <div class="clearfix"></div>
+                  </li>
+                  <li class="method-list-item">
+                    <h3>Date of birth(YYYY-MM-DD): 1990-04-10</h3>
+                    <p>dob: 1990-04-10</p>
+                    <div class="clearfix"></div> 
+                  </li>
+                  
+                  <li class="method-list-item">
+                    <h3>Zip code: 94104</h3>
+                    <p>postal: 94104</p>
+                    <div class="clearfix"></div> 
+                  </li>
+                  <li class="method-list-item">
+                    <h3>Owns a residence</h3>
+                    <p>q122: qx122-0</p>
+                    <div class="clearfix"></div> 
+                  </li>
+                  <li class="method-list-item">
+                    <h3>Doesn’t own a car</h3>
+                    <p>q159: qx159-1</p>
+                    <div class="clearfix"></div> 
+                  </li>
+                  <li class="method-list-item">
+                    <h3>Annual household income of $100000-$149000</h3>
+                    <p>q102: qx102-105</p>
+                    <div class="clearfix"></div> 
+                  </li>
+                  <li class="method-list-item">
+                    <h3>Self employed</h3>
+                    <p>q158: qx158-3</p>
+                    <div class="clearfix"></div> 
+                  </li>
+                  <li class="method-list-item">
+                    <h3>Have Bachelor's degree</h3>
+                    <p>q101: qx101-2</p>
+                    <div class="clearfix"></div> 
+                  </li>
+                  <li class="method-list-item">
+                    <h3>Have 3 childrens</h3>
+                    <p>q157: 3</p>
+                    <div class="clearfix"></div> 
+                  </li>
+                  <li class="method-list-item">
+                    <h3>DOB (mm-yyyy) of male child</h3>
+                    <p>ch-m: 4-2004</p>
+                    <div class="clearfix"></div> 
+                  </li>
+                  <li class="method-list-item">
+                    <h3>DOB (mm-yyyy) of female children</h3>
+                    <p>ch-f: 10-1998, 11-1999</p>
+                    <div class="clearfix"></div> 
+                  </li>
+                </ul>
+                </div>
+              </li>
+              <li>
+                <p class="text">Construct mapped attributes into a JSON payload. For the above sample mapping, the following will be the JSON payload:</p>
+                <p class="code">
+					<span class="yellow">                    {"user_id":"user001-1001-2389d74882","cc":"US","sex":1,"dob":"1990-04-10","postal":"94104","profile_data":{"q122":["qx122-0"],"q159":["qx159-1"],"q102":["qx102-105"],"q158":["qx158-3"],"q101":["qx101-2"],"q157":["3"],"ch-m":["4-2004"],"ch-f":["10-1998","11-1999"]}}
+                    </span>
+                </p>
+              </li>
+              <li>
+                <p class="text">Generate a random iv and encrypt the payload using the iv using the following PHP code:</p>
+                <p class="code">
+                	<span class="yellow">
+						&lt;?php<br>
+<br>
+                        $jsonPayload = '{"user_id":"user001-1001-2389d74882","cc":"US","sex":1,"dob":"1990-04-10","postal":"94104","profile_data":{"q122":["qx122-0"],"q159":["qx159-1"],"q102":["qx102-105"],"q158":["qx158-3"],"q101":["qx101-2"],"q157":["3"],"ch-m":["4-2004"],"ch-f":["10-1998","11-1999"]}}';<br>
+<br>
+                        $applicationKey = 'abcdef0123456789abcdef0123456789';<br>
+<br>
+                        
+                        function getInitVector() {<br>
+                        <span>$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);<br>
+                        $iv = urlencode(base64_encode(mcrypt_create_iv($iv_size, MCRYPT_RAND)));<br>
+                        return $iv; // Store $iv and pass it while encrypting payload<br></span>
+                        }<br>
+                        <br>
+                        // Add AES padding<br>
+                        // Used in encryptJSONPayload<br>
+                        function addAESPadding($payload) {<br>
+                        <span>$block_size = mcrypt_get_block_size( MCRYPT_RIJNDAEL_128 ,MCRYPT_MODE_CBC);<br>
+                        $pad = $block_size - (strlen($payload) % $block_size);<br>
+                        return $payload . str_repeat(chr($pad), $pad);<br></span>
+                        }<br>
+                        <br>
+                        // Encrypts and encodes profile payload<br>
+                        // Pass the init vector generated by getInitVector<br>
+                        function encryptJSONPayload($payload, $applicationKey, $iv) {<br>
+                        <span>$payload = addAESPadding($payload);<br>
+                        $applicationKey = pack('H*', $applicationKey);<br>
+                        $payload = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $applicationKey, $payload, MCRYPT_MODE_CBC , base64_decode(urldecode($iv)));<br>
+                        $payload = base64_encode($payload);<br>
+                        $final_payload = urlencode($payload);<br>
+                        return $final_payload;<br></span>
+                        }<br>
+                        <br>
+                        
+                        $iv = getInitVector(); // This is the iv to pass with the user<br>
+                        $payload = encryptJSONPayload($jsonPayload, $applicationKey, $iv); // This is the encrypted payload to pass with the user<br>
+                        print ($iv);<br>
+                        print ($payload);<br><br>
+                        ?&gt;
+                    </span>
+                </p>
+              </li>
+              <li>
+                <p class="text">Invoke the redirect URL for your user:</p>
+                <p class="code">
+                    <span class="yellow">
+                    	https://dlink.peanutlabs.com/direct_link?pub_id=xxxx&amp;sub_id=xxxx&amp;iv=xxxx&amp;payload=xxxx
+                    </span>
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <!--Generating iv and payload-->
         
         <!--callback-->
         <div class="section" id="iframe-callback">
           <div class="span6 column1">
-            <h4>Callback for Surveys and Offers</h4>
+            <h4>Common Deployment Steps</h4>
             <p>We highly recommend that you whitelist our IPs to ensure all valid callbacks are coming from our system. This will vastly decrease any fraudulent activity. If the list of IPs is to change, you will be notified via email prior to the change so that you may make the proper updates in your system. This full lists of IPs can also be found at the bottom of this guide. </p>
-            <p class="text-center"><img src="img/ipstowhitelist.png" alt=""/></p>
+            <p>&nbsp;</p>
+            <p class="text-center"><img src="img/ipstowhitelist.png"></p><p class="text-center">&nbsp;</p>
             <p>Your Callback URL is specified in your Application Setup (see screenshot):</p>
             <p class="text-center"><img src="img/pscript.png" alt=""/></p>
             <p>When one of your users completes a survey or offer, Peanut Labs will send a notification to the processing script at the address specified above.</p>
-            <h6>Callback Parameters:</h6>
+            <p>&nbsp;</p>
             <div class="method-list">
+            <p><strong>Callback Parameters:</strong></p>
             <ul class="method-list-group">
               <li class="method-list-item">
                 <h3>cmd</h3>
@@ -806,8 +1094,8 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
               </li>
               <li class="method-list-item">
                 <h3>currencyAmt<br>
-                  <span class="type">integer</span></h3>
-                <p>Indicates how many points the user should get in your site’s virtual currency. Based on your configured conversion rate on the control panel. In rare cases we may pass a negative value to indicate a chargeback.</p>
+                  <span class="type">integer (default) or float (on request)</span></h3>
+                <p>Indicates how many points the user should get in your site’s virtual currency. Based on your configured conversion rate on the control panel. Negative values indicate chargebacks.</p>
                 <div class="clearfix"></div>
               </li>
               <li class="method-list-item">
@@ -832,7 +1120,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
               </li>
               <li class="method-list-item">
                 <h3>profiler<br>
-                  <span class="type">blank</span></h3>
+                  <span class="type">deprecated</span></h3>
                 <p>By default there is no notification sent when a user completes a profiler.</p>
                 <div class="clearfix"></div>
               </li>
@@ -851,6 +1139,13 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
               <li class="method-list-item">
                 <h3>offerType</h3>
                 <p>Survey or Offer</p>
+                <div class="clearfix"></div>
+              </li>
+              <li class="method-list-item">
+                <h3>Program<br>
+				<span class="type">string</span>
+                </h3>
+                <p>If you have multiple currency support on your app, this field will include will include the id for the currency for a given transaction. Contact your PL account manager to learn more about multiple currency support.</p>
                 <div class="clearfix"></div>
               </li>
             </ul>
@@ -879,26 +1174,28 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
             <h6>Example Peanut Labs Callback (GET request)</h6>
             <p class="code">
                 <span class="yellow">
-                https://yoursite.com/process.php?cmd=transactionComplete&amp;userId=SampleUser-xxxx-xxxx&amt=1&amp;offerInvitationId=xxx&amp;status=X&amp;oidHash=xxxxx&amp;currencyAmt=100&amp;transactionId=1234&amp;txnHash=xxxxx&amp;endUserId=SampleUser&amp;offerTitle=Your+Offer&amp;useragent=Peanut+Labs+Media&amp;profiler=&amp;currencyName=Coins&amp;offerType=Survey&amp; 			
+                https://yoursite.com/process.php?cmd=transactionComplete&amp;userId=SampleUser-xxxx-xxxx&amp;amt=1&amp;offerInvitationId=xxx&amp;status=X&amp;oidHash=xxxxx&amp;currencyAmt=100&amp;transactionId=1234&amp;txnHash=xxxxx&amp;endUserId=SampleUser&amp;offerTitle=Your+Offer&amp;useragent=Peanut+Labs+Media&amp;profiler=&amp;currencyName=Coins&amp;offerType=Survey&amp;txnHash=xxxxxx&amp;program=Coins 			
                 </span>
             </p>
           </div>
         </div>
+        <!--Call back and testing end-->
         
-        <!--additional-->
-        <div class="section" id="iframe-testing">
+        <!--testing-->
+        <div class="section" id="callbacktesting">
           <div class="span6 column1">
             <h4>Callback Testing</h4>
             <p>We highly recommend testing notifications with the ‘Invoke Test Call’ feature in Application Setup. The fields will be populated with some template test values that you may edit if you choose. All you need to do is select the status of the transaction you wish to test the callback for. </p>
             <p class="text-center"><img src="img/status.png" alt=""/></p>
             <p>Upon invoking a test call, you will be shown the response received from your processing script. You will also see the Sample Call that was made with all parameters in order. </p>
+            <p>Contact your PL Account Manager to help set up some test surveys. These test surveys are easy/very quick to complete and will help you test the callbacks.</p>
           </div>
           <div class="span6 column2"></div>
         </div>
-        <!--additional--> 
+        <!--testing-->
         
         <!--ipwhitelist-->
-        <div class="section" id="iframe-ipwhitelist">
+        <div class="section" id="ipwhitelist">
           <div class="span6 column1">
             <h4>IPs to Whitelist</h4>
             <p>The following list contains all our IPs that should be whitelisted for callbacks: </p>
@@ -991,42 +1288,65 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
         </div>
         <!--ipwhitelist--> 
         
-        <!--API Reference -->
-        <div class="section" id="overview">
+        <!--Customize your deployment-->
+        <div class="section" id="iframe-customize">
           <div class="span6 column1">
-            <h3 id="monetization-api">Monetization API</h3>
-            <h4>Overview</h4>
-            <p>The Monetization API allows you to access the Peanut Labs system even when your user is not on the Reward Center.</p>
+          	<h2 class="sh">Engage</h2>
+          	<h4>Customize your Deployment</h4>
+          	<p>You may customize the look of your deployments in Application Setup.</p>
+          	<p>Here you can choose the palette of your deployment if you’d like the color scheme to be consistent with your website or application. If you do not wish to customize your deployments, the default color palette you see will be the one used.</p>
+          	<p class="text-center"><img src="img/editcolors.png" alt="" /></p>
+            <p>Here you can choose the palette of your Reward Center if you’d like the color scheme to be consistent with your website or application. If you do not wish to customize your Reward Center, the default color palette you see will be the one used.</p>
+            <p class="text-center"><img src="img/editcolors2.png" alt="" /></p>
           </div>
+          <div class="span6 column2"></div>
+        </div>
+        <!--more--> 
+        
+        <!--The Importance-->
+        <div class="section" id="iframe-importance">
+          <div class="span6 column1">
+            <h4>The importance of having a Screenout Reward</h4>
+            <p>Screenouts occur when a user answers a few questions in a survey and receives a message telling them that they do not qualify. Market researchers often require candidates for their survey who fit certain criteria. They are banned from retaining any responses of a user who they screen out, and Peanut Labs does not receive payment either. However, the user does lose a few minutes of their time.</p>
+            <p>Though Peanut Labs at the moment does not pay for screen out rewards, as a publisher it’s always a good idea to give a very small reward to users encouraging them to try again. If they are assured that they will get something even if they don’t get the full payout, users are far more likely to keep trying, hence increasing your revenue. Data from across our publisher network has proven that a minimal screenout reward is the most effective tool in a publisher’s arsenal to increase revenue and user engagement. </p>
+            <p>Here is our one month repeat usage trend, comparing publishers who implemented a screen out reward, with publishers who did not implement a screen out reward.</p>
+            <p class="text-center"><img src="img/screen-out-reward-graph.png" alt=""/> </p>
+          </div>
+          <div class="span6 column2"></div>
+        </div>
+        <!--The Importance-->
+                
+        <!--API Reference -->
+        <div class="section" id="monetization">
+          <div class="span6 column1">
+            <h3>Monetization API</h3>
+            <p>The Monetization API allows you to access the Peanut Labs system even when your user is not on the Reward Center.</p>
+           </div>
           <div class="span6 column2">
-            <h6>API Endpoint</h6>
-            <p class="code">
-             <span class="yellow">http://api.peanutlabs.com/publisher/api/v1/</span>
-             </p>
-            <small></small> </div>
+           <div class="method-list">
+            <ul class="method-list-group">
+              <li class="method-list-item">
+                <h3>API Endpoint</h3>
+                <p><span class="yellow">https://api.peanutlabs.com/publisher/api/v1/</span></p>
+                <div class="clearfix"></div>
+              </li>
+              <li class="method-list-item">
+                <h3>Request</h3>
+                <p>HTTP or HTTPS</p>
+                <div class="clearfix"></div>
+                <div class="alert"><i class="fa fa-info-circle"></i> We highly recommend using HTTPS.</div>
+              </li>
+              <li class="method-list-item">
+                <h3>Response</h3>
+                <p>JSON or JSONP</p>
+                <div class="clearfix"></div>
+              </li>
+            </ul>
+            </div>
+            </div>
         </div>
         <!--API Reference End--> 
-        
-        <!--Resource URLs -->
-        <div class="section" id="format">
-          <div class="span6 column1">
-            <h4>Format</h4>
-            <p>Requests can be sent as HTTP or HTTPS<br>
-              Responses can be returned as JSON or JSONP</p>
-          </div>
-          <div class="span6 column2"></div>
-        </div>
-        
-        <!--Prerequisites -->
-        <div class="section" id="prerequisites">
-          <div class="span6 column1">
-            <h4>Prerequisites</h4>
-            <p>Registration and approval as a publisher with Peanut Labs. If you have not yet completed this step, go to <a href="http://www.peanutlabs.com/js/pubdash/bin/" target="_blank">http://www.peanutlabs.com/js/pubdash/bin/</a></p>
-          </div>
-          <div class="span6 column2"></div>
-        </div>
-        <!--Prerequisites End--> 
-        
+                      
         <!--Error Handling -->
         <div class="section" id="errorhandling">
           <div class="span6 column1">
@@ -1078,7 +1398,6 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
         </div>
         <!--Error Handling End --> 
         
-        <!-- METHODS --> 
         
         <!--Campaign Summary -->
         <div class="section" id="methodcampaignssummary">
@@ -1096,10 +1415,31 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
         </div>
         <div class="section">
           <div class="span6 column1">
-            <h6>Parameters</h6>
-            <p>The parameters accepted by the campaigns summary API method are exactly the same as those accepted by the campaigns API method. For details on them, see the section above.</p>
+            <div class="method-list">
+            <p><strong>Parameters</strong></p>
+            <ul class="method-list-group">
+              <li class="method-list-item">
+                <h3>User ID</h3>
+                <p>user_id</p>
+                <div class="clearfix"></div>
+              </li>
+              <li class="method-list-item">
+                <h3>User IP Address<br>
+				<span class="label-badge orange">optional</span></h3>
+                <p>user_ip</p>
+                <div class="clearfix"></div>
+              </li>
+            </ul>
+            <p>&nbsp;</p>
+            <p>The User IP address parameter is an optional parameter. By default the campaign summary method uses the IP address of the caller to determine GeoIP. If your servers are going to make a request to the API on behalf of a user, you can pass their ip address to us with the optional user_ip parameter.</p>
+            </div>
           </div>
-          <div class="span6 column2"></div>
+          <div class="span6 column2">
+          <h6>Example Call</h6>
+            <p class="code">
+             <span class="yellow">http://api.peanutlabs.com/publisher/api/v1/campaigns_summary?user_id=avdempsey-8711-2dc2f9fe98</span>
+            </p>
+          </div>
         </div>
         <div class="section">
           <div class="span6 column1">

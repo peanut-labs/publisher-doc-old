@@ -10,7 +10,7 @@ body{
 }
 a,
 a:visited{
-	color:#3F424C !important;
+	color:#7B7E84 !important;
 	text-decoration:none !important;
 }
 
@@ -22,6 +22,10 @@ a:hover{
 	color:#e44f32 !important;
 	background:none !important;
 	text-decoration: none !important;
+}
+
+strong{
+	font-weight:600 !important;
 }
 
 .container-fluid{
@@ -70,6 +74,8 @@ code{ white-space:normal !important;}
 	font-size:12px;
 	line-height:30px !important;
 	color:#999b9e;
+	border-left: 5px solid #C8C8C9;
+    padding-left: 10px;
 }
 
 .sidebar li.active a{
@@ -91,6 +97,24 @@ code{ white-space:normal !important;}
 .sidebar .nav-list li{
 	font-size:13px;
 	line-height:30px;
+}
+
+.sidebar .nav-list li.sheading{
+	font-size:13px;
+	color:#7B7E84;
+}
+
+.sidebar .nav-list li.sheading a{
+	color:#3F424C !important;
+}
+
+.sidebar .nav-list li.sheading.active a{
+	color:#e44f32 !important;
+}
+
+.sidebar .nav-list li.indent{
+	padding-left:10px;
+	line-height:28px;
 }
 
 .sidebar .nav-list > li{
@@ -115,9 +139,9 @@ code{ white-space:normal !important;}
 .sidebar .nav-list li h4,
 .sidebar .nav-list li h4 a,
 .sidebar .nav-list li h4 a:visited{
-	font-size:15px;
+	font-size:16px;
 	line-height:18px;
-	font-weight:bold !important;
+	font-weight:600 !important;
 	color: #3F424C !important;
 	white-space: nowrap;
     overflow: hidden;
@@ -125,6 +149,7 @@ code{ white-space:normal !important;}
     text-overflow: ellipsis;
 	padding-right:20px;
 	margin-bottom:5px;
+	display:block;
 }
 
 .sidebar .nav-list li h4 a:hover,
@@ -161,13 +186,13 @@ code{ white-space:normal !important;}
 }
 
 .section ul li{
-	margin:0px 0;
+	margin:8px 0;
 	line-height:23px;
 }
 
 .section h4{
-	font-size: 24px;
-    color: #3F424C;
+	font-size: 23px;
+    color: #7B7E84;
     margin: 20px 0;
     font-weight: normal;
 }
@@ -209,7 +234,7 @@ code{ white-space:normal !important;}
 }
 
 .section .column2 a{
-	font-weight:bold;
+	font-weight:normal;
 }
 
 .section .column2 .align-bottom{
@@ -256,7 +281,8 @@ code{ white-space:normal !important;}
 	padding-left:0;
 }*/
 
-.section .column2 code span{
+.section .column2 code span,
+.section .column2 p.code span.yellow span{
 	display:block;
 	padding-left:25px;
 }
@@ -393,11 +419,28 @@ small{
 	margin:10px 0;
 }
 
-.content .section h3{
-	margin-bottom:20px;
+.content .section h1{
+	font-size: 30px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.content .section h2.sh{
+	margin-bottom:10px;
 	margin-top:0px;
-	color:#262932;
-	font-size:26px;
+	color:#4a4e59 ;
+	font-size:30px;
+	font-weight:700;
+	letter-spacing:0;
+	text-transform:capitalize;
+}
+
+.content .section h3{
+	margin-bottom:15px;
+	margin-top:0px;
+	color:#3F424C;
+	font-size:25px;
 	font-weight:600;
 }
 
@@ -510,12 +553,20 @@ span.label-badge {
     border-top: 1px solid #e2e5e7;
 }
 
+.method-list-group.withth{
+	border-top:0 !important;
+}
+
 .method-list-group .method-list-item{
 	list-style:none;
 	margin-left:0 !important;
 	overflow:hidden;
 	border-bottom: 1px solid #e2e5e7;
 	padding:17px 0;
+}
+
+.method-list-group .method-list-item.th p{
+	color:white;
 }
 
 /*.method-list-group .method-list-item:last-child{
@@ -743,6 +794,10 @@ i.fa-plus-square{
 }
 
 @media screen and (max-width: 768px) {
+	
+	.content .section h1{
+		margin-top:15px;
+	}
 	
 	.row-fluid .content{
 		width:100% !important
