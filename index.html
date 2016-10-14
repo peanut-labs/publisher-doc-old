@@ -830,9 +830,13 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
           	<h6>To send users to Direct Link:</h6>
             <ol>
             	<li><p class="text"><a href="#iframe-getuserid">Generate the Peanut Labs User ID</a></p></li>
+              <li><p class="text">Map your user attributes to Peanut Labs attributes using the <a href="https://docs.google.com/spreadsheets/u/1/d/1v-qYMKBUVGNTrG4BSL_hIYsg9v_eLMBfehETtAqg240/edit" target="_blank">Profile attributes document</a></p></li>
+              <li><p class="text"><a href="#iv-payload">Encrypt the payload</a></p></li>
             	<li><p class="text">Invoke the redirect URL for your user</p>
                     <p class="code">
-                        <span class="yellow">https://dlink.peanutlabs.com/direct_link?pub_id=xxxx&amp;user_id=xxxx&amp;sub_id=xxxx</span>
+                        <span class="yellow">
+                          https://dlink.peanutlabs.com/direct_link?pub_id=xxxx&amp;sub_id=xxxx&amp;iv=xxxx&amp;payload=xxxx
+                        </span>
                     </p>
 				</li>
 			</ol>
