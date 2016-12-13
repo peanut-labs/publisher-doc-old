@@ -775,7 +775,7 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
             <h3>Direct Link</h3>
             <h4>Overview</h4>
             <p>Direct Link integration allows you to send your users to Peanut Labs using URL redirect. Peanut Labs will show a survey to your user and you will be rewarded for on survey completes.</p>
-            <p>In its simplest, form integrating with Direct Link is as simple as redirecting your user to Peanut Labs on click of a button or any placeholder of your choosing. You will have to pass your user’s profile attribute in the query string during user redirect.</p>
+            <p>In its simplest, form integrating with Direct Link is as simple as redirecting your user to Peanut Labs on click of a button or any placeholder of your choosing. You can optionally pass your user's profile encrypted on the redirect URL.</p>
             <p>&nbsp;</p>
             <div class="method-list">
               <ul class="method-list-group">
@@ -811,14 +811,12 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
                 <div class="clearfix"></div>
               </li>
               <li class="method-list-item">
-                <h3>iv<br>
-                  <span class="label-badge orange">mandatory</span></h3>
+                <h3>iv<br></h3>
                 <p>A randomly generated salt for encrypting the payload</p>
                 <div class="clearfix"></div>
               </li>
               <li class="method-list-item">
-                <h3>payload<br>
-                  <span class="label-badge orange">mandatory</span></h3>
+                <h3>payload<br></h3>
                 <p>An encrypted payload to send along your user’s profile.</p>
                 <div class="clearfix"></div>
                 <div class="alert"><em class="fa fa-info-circle"></em> Sending the profile is highly recommended as Peanut Labs will not re-ask those question to your user, thus improving user’s experience.</div>
@@ -830,16 +828,23 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
           	<h6>To send users to Direct Link:</h6>
             <ol>
             	<li><p class="text"><a href="#iframe-getuserid">Generate the Peanut Labs User ID</a></p></li>
-              <li><p class="text">Map your user attributes to Peanut Labs attributes using the <a href="https://docs.google.com/spreadsheets/u/1/d/1v-qYMKBUVGNTrG4BSL_hIYsg9v_eLMBfehETtAqg240/edit" target="_blank">Profile attributes document</a></p></li>
+              <li><p class="text">Invoke the redirect URL for your user</p>
+                    <p class="code">
+                        <span class="yellow">
+                          https://dlink.peanutlabs.com/direct_link?pub_id=xxxx&amp;sub_id=xxxx
+                        </span>
+                    </p>
+              </li>              
+              <li><p class="text">If you want to pass your user's profile, map your user attributes to Peanut Labs attributes using the <a href="https://docs.google.com/spreadsheets/u/1/d/1v-qYMKBUVGNTrG4BSL_hIYsg9v_eLMBfehETtAqg240/edit" target="_blank">Profile attributes document</a> to generate a payload</p></li>
               <li><p class="text"><a href="#iv-payload">Encrypt the payload</a></p></li>
-            	<li><p class="text">Invoke the redirect URL for your user</p>
+            	<li><p class="text">Invoke the following redirect URL for your user with encrypted payload</p>
                     <p class="code">
                         <span class="yellow">
                           https://dlink.peanutlabs.com/direct_link?pub_id=xxxx&amp;sub_id=xxxx&amp;iv=xxxx&amp;payload=xxxx
                         </span>
                     </p>
-				</li>
-			</ol>
+				      </li>
+			     </ol>
           </div>
         </div>
         <!--Direct Link-->
@@ -883,21 +888,20 @@ You can do so by adding the code from 'examples' to your Apps Info.plist.</div>
                 <div class="clearfix"></div>
 			        </li>
               <li class="method-list-item">
-                <h3>postal<br>
+                <h3>sex<br>
                 <span class="label-badge orange">mandatory</span><br>
+                <span class="type">integer</span></h3>
+                <p>Panelist gender (1 for male, 2 for female)</p>
+                <div class="clearfix"></div>
+              </li>
+              <li class="method-list-item">
+                <h3>postal<br>
                 <span class="type">string</span></h3>
                 <p>Zip/postal code</p>
                 <p>&nbsp;</p>
                 <p>See <a href="https://docs.google.com/spreadsheets/d/1v-qYMKBUVGNTrG4BSL_hIYsg9v_eLMBfehETtAqg240/edit" target="_blank">Profile attributes document</a> for the valid regex format per country.</p>
                 <div class="clearfix"></div>
                 <div class="alert"><em class="fa fa-info-circle"></em> Peanut Labs derives user’s country based on the browser user agent.</div>
-              </li>
-              <li class="method-list-item">
-                <h3>sex<br>
-                <span class="label-badge orange">mandatory</span><br>
-                <span class="type">integer</span></h3>
-                <p>Panelist gender (1 for male, 2 for female)</p>
-                <div class="clearfix"></div>
               </li>
               <li class="method-list-item">
                 <h3>profile_data<br>
